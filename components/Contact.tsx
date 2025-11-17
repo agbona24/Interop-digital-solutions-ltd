@@ -146,7 +146,7 @@ export default function Contact() {
             </div>
 
             {/* Social Links */}
-            <div className="bg-gradient-to-br from-secondary-700 to-secondary-900 rounded-2xl p-8">
+            <div className="bg-gradient-to-br from-secondary-700 to-secondary-600 rounded-2xl p-8">
               <h3 className="text-white text-xl font-bold mb-4">
                 Follow Us
               </h3>

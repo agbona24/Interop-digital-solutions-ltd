@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,7 +14,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -58,19 +59,19 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="group px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-primary-500/50 transition-all hover:scale-105 flex items-center gap-2"
             >
               Start Your Project
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#services"
+            </Link>
+            <Link
+              href="/services"
               className="px-8 py-4 bg-white text-secondary-900 rounded-full font-semibold hover:bg-gray-100 transition-all border-2 border-white/20"
             >
               Explore Services
-            </a>
+            </Link>
           </div>
 
           {/* Stats */}

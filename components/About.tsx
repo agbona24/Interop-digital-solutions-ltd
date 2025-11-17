@@ -169,7 +169,7 @@ export default function About() {
 
         {/* Stats Section */}
         <div
-          className={`bg-gradient-to-br from-secondary-700 via-secondary-800 to-secondary-900 rounded-3xl p-12 transition-all duration-700 delay-300 ${
+          className={`bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700 rounded-3xl p-12 transition-all duration-700 delay-300 ${
             isVisible
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-10"
