@@ -1,10 +1,18 @@
+"use client";
+
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
+import AnimatedStat from "@/components/AnimatedStat";
 import Link from "next/link";
 import { Code2, Package, Users, Mail, Shield, Zap, Award, TrendingUp, CheckCircle, ArrowRight, Sparkles } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function Home() {
+  const quickLinksReveal = useScrollReveal();
+  const whyChooseReveal = useScrollReveal();
+  const servicesReveal = useScrollReveal();
+  const ctaReveal = useScrollReveal();
   const quickLinks = [
     {
       icon: Code2,
@@ -44,7 +52,10 @@ export default function Home() {
       {/* Quick Links Section */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div
+            ref={quickLinksReveal.ref}
+            className={`text-center mb-16 scroll-reveal ${quickLinksReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Explore Our{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
@@ -61,7 +72,7 @@ export default function Home() {
               <Link
                 key={index}
                 href={link.href}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+                className={`group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift scroll-reveal ${quickLinksReveal.isVisible ? `revealed animate-fade-in-up stagger-${index + 1}` : ''}`}
               >
                 <div
                   className={`w-16 h-16 rounded-xl bg-gradient-to-br ${link.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
@@ -84,7 +95,10 @@ export default function Home() {
       {/* Why Choose Us Section */}
       <section className="py-24 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div
+            ref={whyChooseReveal.ref}
+            className={`text-center mb-16 scroll-reveal ${whyChooseReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Why Industry Leaders Choose Us
             </h2>
@@ -116,7 +130,10 @@ export default function Home() {
                 description: "Cloud-native architecture that grows with your business from startup to enterprise scale"
               }
             ].map((feature, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <div
+                key={index}
+                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover-lift scroll-reveal ${whyChooseReveal.isVisible ? `revealed animate-scale-in stagger-${index + 1}` : ''}`}
+              >
                 <feature.icon className="w-12 h-12 text-primary-400 mb-4" />
                 <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
                 <p className="text-blue-100">{feature.description}</p>
@@ -129,7 +146,10 @@ export default function Home() {
       {/* Featured Services Preview */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div
+            ref={servicesReveal.ref}
+            className={`text-center mb-16 scroll-reveal ${servicesReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Comprehensive IT{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
@@ -159,7 +179,10 @@ export default function Home() {
                 features: ["Custom ML Models", "Neural Networks", "Data Analytics"]
               }
             ].map((service, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-gray-200">
+              <div
+                key={index}
+                className={`bg-gray-50 rounded-2xl p-8 border border-gray-200 hover-lift scroll-reveal ${servicesReveal.isVisible ? `revealed animate-fade-in-up stagger-${index + 1}` : ''}`}
+              >
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
                 <ul className="space-y-3">
@@ -174,10 +197,10 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center">
+          <div className={`text-center scroll-reveal ${servicesReveal.isVisible ? 'revealed animate-fade-in-up stagger-4' : ''}`}>
             <Link
               href="/services"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-105 btn-ripple"
             >
               View All Services
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -205,11 +228,13 @@ export default function Home() {
               { value: "15+", label: "Years Experience", description: "Industry leadership" },
               { value: "98%", label: "Client Retention", description: "Satisfaction guaranteed" }
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-5xl md:text-6xl font-black text-white mb-2">{stat.value}</div>
-                <div className="text-lg font-semibold text-white mb-1">{stat.label}</div>
-                <div className="text-sm text-orange-100">{stat.description}</div>
-              </div>
+              <AnimatedStat
+                key={index}
+                value={stat.value}
+                label={stat.label}
+                description={stat.description}
+                index={index}
+              />
             ))}
           </div>
         </div>
@@ -218,10 +243,13 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700 rounded-3xl p-12 md:p-16 relative overflow-hidden">
+          <div
+            ref={ctaReveal.ref}
+            className={`bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700 rounded-3xl p-12 md:p-16 relative overflow-hidden scroll-reveal ${ctaReveal.isVisible ? 'revealed animate-scale-in' : ''}`}
+          >
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
             <div className="relative z-10">
-              <Sparkles className="w-16 h-16 text-primary-400 mx-auto mb-6" />
+              <Sparkles className="w-16 h-16 text-primary-400 mx-auto mb-6 animate-pulse" />
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 Ready to Transform Your Business?
               </h2>
@@ -231,7 +259,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-105 btn-ripple"
                 >
                   Start Your Project
                   <ArrowRight className="ml-2 w-5 h-5" />
