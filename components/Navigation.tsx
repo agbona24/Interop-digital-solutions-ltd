@@ -36,8 +36,8 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#home" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">I</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-md">
+                <span className="text-white font-black text-xl">I</span>
               </div>
               <span
                 className={`text-xl font-bold transition-colors ${
@@ -64,7 +64,7 @@ export default function Navigation() {
             ))}
             <a
               href="#contact"
-              className="px-6 py-2 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full font-medium hover:shadow-lg transition-all hover:scale-105"
+              className="px-6 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all hover:scale-105"
             >
               Get Started
             </a>
@@ -100,7 +100,7 @@ export default function Navigation() {
             ))}
             <a
               href="#contact"
-              className="block w-full px-6 py-2 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full font-medium text-center"
+              className="block w-full px-6 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Get Started

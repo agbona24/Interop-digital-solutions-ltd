@@ -5,11 +5,36 @@ A modern, professional Next.js website for Interop Digital Solutions, an IT firm
 ## Features
 
 - **Modern Design**: Clean, professional UI with gradient effects and animations
+- **Brand-Aligned**: Following official brand guidelines with Orange & Navy Blue color scheme
+- **Inter Typography**: Professional Inter font family throughout
 - **Responsive**: Fully responsive design that works on all devices
 - **Performance Optimized**: Built with Next.js 15 for optimal performance
 - **SEO Ready**: Comprehensive meta tags and SEO optimization
 - **Type Safe**: Written in TypeScript for better developer experience
 - **Styled with Tailwind CSS**: Utility-first CSS framework for rapid development
+
+## Brand Guidelines
+
+### Typography
+- **Primary Font**: Inter (Light, Regular, Medium, SemiBold, Bold, Black)
+- **Headlines**: Inter Bold or Black
+- **Body Text**: Inter Regular
+- **Buttons**: Inter SemiBold
+
+### Color Palette
+- **Primary (Orange)**: `#f97316` - Used for CTAs, highlights, and accent elements
+- **Secondary (Navy)**: `#334e68` - Used for backgrounds, headers, and contrast
+- **Black**: Text and emphasis
+- **White**: Backgrounds and clean spaces
+- **Grey**: Borders, secondary text, and UI elements
+
+### Design Principles
+- Clean, minimal, modern interface
+- Generous white space
+- Bold typographic hierarchy
+- Strong contrast between orange and navy
+- Rounded buttons (6-12px)
+- High accessibility standards
 
 ## Services Showcase
 
@@ -93,14 +118,17 @@ npm start
 
 ### Colors
 
-Edit the color scheme in `tailwind.config.ts`:
+The brand uses a carefully defined color palette in `tailwind.config.ts`:
 
 ```typescript
 colors: {
-  primary: { ... },
-  secondary: { ... }
+  primary: { ... },    // Orange shades
+  secondary: { ... }   // Navy Blue shades
 }
 ```
+
+**Primary (Orange)**: Use for call-to-action buttons, key highlights, accent elements
+**Secondary (Navy)**: Use for headers, backgrounds, and professional contrast
 
 ### Content
 

@@ -44,63 +44,63 @@ export default function Services() {
       title: "API Development",
       description:
         "Robust and scalable API solutions designed for seamless integration and optimal performance.",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-primary-500 to-primary-600",
     },
     {
       icon: Palette,
       title: "UI/UX Design",
       description:
         "Beautiful, intuitive interfaces that deliver exceptional user experiences across all platforms.",
-      color: "from-purple-500 to-pink-500",
+      color: "from-secondary-600 to-secondary-700",
     },
     {
       icon: TestTube,
       title: "Testing & QA",
       description:
         "Comprehensive testing strategies ensuring your software is reliable, secure, and bug-free.",
-      color: "from-green-500 to-emerald-500",
+      color: "from-primary-500 to-primary-600",
     },
     {
       icon: Rocket,
       title: "Deployment & Maintenance",
       description:
         "Smooth deployments and proactive maintenance keeping your applications running flawlessly.",
-      color: "from-orange-500 to-red-500",
+      color: "from-secondary-600 to-secondary-800",
     },
     {
       icon: Shield,
       title: "Identity & Security",
       description:
         "Enterprise-grade security solutions protecting your data and ensuring compliance.",
-      color: "from-red-500 to-pink-500",
+      color: "from-primary-500 to-primary-700",
     },
     {
       icon: Database,
       title: "Database Solutions",
       description:
         "Optimized database architecture and management for maximum efficiency and scalability.",
-      color: "from-indigo-500 to-purple-500",
+      color: "from-secondary-700 to-secondary-900",
     },
     {
       icon: Brain,
       title: "AI & Machine Learning",
       description:
         "Cutting-edge AI solutions that transform data into actionable insights and automation.",
-      color: "from-violet-500 to-purple-500",
+      color: "from-primary-400 to-primary-600",
     },
     {
       icon: Cpu,
       title: "IoT Solutions",
       description:
         "Connected device ecosystems that enable smart operations and real-time monitoring.",
-      color: "from-cyan-500 to-blue-500",
+      color: "from-secondary-600 to-secondary-800",
     },
     {
       icon: Cloud,
       title: "Cloud Services",
       description:
         "Scalable cloud infrastructure and migration services for modern, flexible operations.",
-      color: "from-sky-500 to-blue-500",
+      color: "from-primary-500 to-primary-600",
     },
   ];
 

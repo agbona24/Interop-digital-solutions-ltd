@@ -13,12 +13,12 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-primary-900 to-secondary-900"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-primary-500/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-secondary-500/20 to-transparent rounded-full blur-3xl animate-pulse delay-700"></div>
+        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-primary-600/20 to-transparent rounded-full blur-3xl animate-pulse delay-700"></div>
       </div>
 
       {/* Grid Pattern */}
@@ -34,18 +34,18 @@ export default function Hero() {
           }`}
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-lg border border-white/20 rounded-full mb-8">
-            <Sparkles className="w-4 h-4 text-yellow-300" />
-            <span className="text-white text-sm font-medium">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 backdrop-blur-lg border border-primary-500/30 rounded-full mb-8">
+            <Sparkles className="w-4 h-4 text-primary-400" />
+            <span className="text-white text-sm font-semibold">
               Transforming Ideas into Digital Reality
             </span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
             Your Partner in
             <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-300 to-secondary-300">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-600">
               Digital Excellence
             </span>
           </h1>
@@ -60,14 +60,14 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="#contact"
-              className="group px-8 py-4 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full font-semibold hover:shadow-2xl transition-all hover:scale-105 flex items-center gap-2"
+              className="group px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-primary-500/50 transition-all hover:scale-105 flex items-center gap-2"
             >
               Start Your Project
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#services"
-              className="px-8 py-4 bg-white/10 backdrop-blur-lg border border-white/20 text-white rounded-full font-semibold hover:bg-white/20 transition-all"
+              className="px-8 py-4 bg-white text-secondary-900 rounded-full font-semibold hover:bg-gray-100 transition-all border-2 border-white/20"
             >
               Explore Services
             </a>

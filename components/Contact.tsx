@@ -99,7 +99,7 @@ export default function Contact() {
             }`}
           >
             Get in{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-secondary-600">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
               Touch
             </span>
           </h2>
@@ -132,7 +132,7 @@ export default function Contact() {
                   href={info.link}
                   className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 group"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     <info.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -146,7 +146,7 @@ export default function Contact() {
             </div>
 
             {/* Social Links */}
-            <div className="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl p-8">
+            <div className="bg-gradient-to-br from-secondary-700 to-secondary-900 rounded-2xl p-8">
               <h3 className="text-white text-xl font-bold mb-4">
                 Follow Us
               </h3>
@@ -258,7 +258,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={formStatus !== "idle"}
-                  className="w-full px-8 py-4 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {formStatus === "idle" && (
                     <>

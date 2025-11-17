@@ -90,7 +90,7 @@ export default function About() {
             }`}
           >
             About{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-secondary-600">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
               Interop Digital
             </span>
           </h2>
@@ -154,7 +154,7 @@ export default function About() {
                   key={index}
                   className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mb-4">
                     <value.icon className="w-6 h-6 text-white" />
                   </div>
                   <h4 className="text-lg font-bold text-gray-900 mb-2">
@@ -169,7 +169,7 @@ export default function About() {
 
         {/* Stats Section */}
         <div
-          className={`bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-700 rounded-3xl p-12 transition-all duration-700 delay-300 ${
+          className={`bg-gradient-to-br from-secondary-700 via-secondary-800 to-secondary-900 rounded-3xl p-12 transition-all duration-700 delay-300 ${
             isVisible
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-10"

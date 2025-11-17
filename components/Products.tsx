@@ -46,7 +46,7 @@ export default function Products() {
         "Task Scheduling",
         "Integration Hub",
       ],
-      color: "from-blue-600 to-cyan-600",
+      color: "from-primary-500 to-primary-600",
       image: "🤖",
     },
     {
@@ -60,7 +60,7 @@ export default function Products() {
         "Real-time Processing",
         "Compliance Ready",
       ],
-      color: "from-green-600 to-emerald-600",
+      color: "from-secondary-700 to-secondary-900",
       image: "💳",
     },
     {
@@ -74,7 +74,7 @@ export default function Products() {
         "Order Tracking",
         "Analytics Dashboard",
       ],
-      color: "from-purple-600 to-pink-600",
+      color: "from-primary-500 to-primary-700",
       image: "🛒",
     },
     {
@@ -88,7 +88,7 @@ export default function Products() {
         "Geofencing",
         "Location Analytics",
       ],
-      color: "from-orange-600 to-red-600",
+      color: "from-secondary-600 to-secondary-800",
       image: "🗺️",
     },
   ];

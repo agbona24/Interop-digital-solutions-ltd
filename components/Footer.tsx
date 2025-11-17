@@ -41,14 +41,14 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-primary-900 to-secondary-900 text-white">
+    <footer className="bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900 text-white">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">I</span>
               </div>
               <span className="text-xl font-bold">Interop Digital</span>
@@ -149,7 +149,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="px-6 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg font-medium hover:shadow-lg transition-all hover:scale-105 text-sm"
+                className="px-6 py-2 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all hover:scale-105 text-sm"
               >
                 Subscribe
               </button>

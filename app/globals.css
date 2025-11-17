@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,8 +17,10 @@
 
   body {
     @apply bg-white text-gray-900;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   html {
@@ -30,11 +34,19 @@
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-secondary-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600;
   }
 
   .gradient-bg {
-    @apply bg-gradient-to-br from-primary-500 via-primary-600 to-secondary-600;
+    @apply bg-gradient-to-br from-primary-500 to-primary-600;
+  }
+
+  .brand-gradient {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600;
+  }
+
+  .navy-gradient {
+    @apply bg-gradient-to-br from-secondary-700 to-secondary-900;
   }
 
   .glass {
