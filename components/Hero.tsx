@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -31,8 +31,8 @@ export default function Hero() {
           <div
             key={i}
             className={`absolute w-1 h-1 rounded-full ${
-              i % 3 === 0 ? 'bg-primary-400' : 'bg-secondary-400'
-            } opacity-40 animate-particle`}
+              i % 3 === 0 ? 'bg-primary-400' : 'bg-blue-300'
+            } opacity-50 animate-particle`}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -56,7 +56,7 @@ export default function Hero() {
 
         {/* Navy Triangle - Top Right */}
         <svg
-          className="absolute top-40 right-20 w-24 h-24 text-secondary-600/40 animate-float-delayed"
+          className="absolute top-40 right-20 w-24 h-24 text-blue-400/60 animate-float-delayed"
           viewBox="0 0 100 100"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -65,7 +65,7 @@ export default function Hero() {
 
         {/* Orange Hexagon - Bottom Left */}
         <svg
-          className="absolute bottom-40 left-20 w-28 h-28 text-primary-600/25 animate-spin-slow"
+          className="absolute bottom-40 left-20 w-28 h-28 text-primary-600/30 animate-spin-slow"
           viewBox="0 0 100 100"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -74,7 +74,7 @@ export default function Hero() {
 
         {/* Navy Square - Bottom Right */}
         <svg
-          className="absolute bottom-32 right-32 w-16 h-16 text-secondary-700/35 animate-pulse"
+          className="absolute bottom-32 right-32 w-16 h-16 text-blue-300/50 animate-pulse"
           viewBox="0 0 100 100"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -105,7 +105,7 @@ export default function Hero() {
 
         {/* Gear Icon Shape */}
         <svg
-          className="absolute bottom-1/4 left-1/3 w-24 h-24 text-secondary-600/30 animate-spin-slow"
+          className="absolute bottom-1/4 left-1/3 w-24 h-24 text-blue-400/50 animate-spin-slow"
           viewBox="0 0 100 100"
           xmlns="http://www.w3.org/2000/svg"
         >

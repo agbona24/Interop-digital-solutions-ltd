@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Services from "@/components/Services";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Users, Clock, DollarSign, Layers, Code, Database, Cloud, Shield } from "lucide-react";
 
 export const metadata = {
   title: "Our Services - Interop Digital Solutions",
@@ -38,7 +38,7 @@ export default function ServicesPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800">
+      <section className="pt-32 pb-16 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
             Professional IT{" "}
@@ -46,9 +46,20 @@ export default function ServicesPage() {
               Services
             </span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
             End-to-end technology solutions designed to accelerate your digital transformation journey
           </p>
+          <div className="flex flex-wrap justify-center gap-6 mt-8">
+            <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
+              <span className="text-white font-semibold">9 Core Services</span>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
+              <span className="text-white font-semibold">500+ Projects</span>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
+              <span className="text-white font-semibold">24/7 Support</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -140,6 +151,236 @@ export default function ServicesPage() {
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Engagement Models */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Flexible{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
+                Engagement Models
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Choose the collaboration model that best fits your project needs and budget
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Users,
+                title: "Dedicated Team",
+                description: "Full-time team members exclusively focused on your project with complete control and flexibility.",
+                features: [
+                  "Exclusive resource allocation",
+                  "Full project transparency",
+                  "Direct communication",
+                  "Flexible scaling"
+                ],
+                bestFor: "Long-term projects, ongoing development"
+              },
+              {
+                icon: Clock,
+                title: "Time & Materials",
+                description: "Pay for actual time and resources used. Perfect for evolving requirements and iterative development.",
+                features: [
+                  "Flexible scope changes",
+                  "Transparent billing",
+                  "Agile methodology",
+                  "Regular updates"
+                ],
+                bestFor: "Dynamic projects, uncertain scope"
+              },
+              {
+                icon: DollarSign,
+                title: "Fixed Price",
+                description: "Predetermined cost and timeline for well-defined projects with clear deliverables and milestones.",
+                features: [
+                  "Budget certainty",
+                  "Defined scope",
+                  "Milestone payments",
+                  "Risk mitigation"
+                ],
+                bestFor: "Well-defined projects, tight budgets"
+              }
+            ].map((model, index) => (
+              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
+                <model.icon className="w-12 h-12 text-primary-500 mb-4" />
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">{model.title}</h3>
+                <p className="text-gray-600 mb-6">{model.description}</p>
+
+                <div className="mb-6">
+                  <h4 className="font-semibold text-gray-900 mb-3">Key Features:</h4>
+                  <ul className="space-y-2">
+                    {model.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-2 text-gray-700">
+                        <CheckCircle2 className="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-4 border-t border-gray-200">
+                  <p className="text-sm font-semibold text-gray-900 mb-1">Best For:</p>
+                  <p className="text-sm text-gray-600">{model.bestFor}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technologies We Use */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Cutting-Edge{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
+                Technologies
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We leverage the latest tools and frameworks to build robust, scalable solutions
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Code,
+                title: "Development",
+                stack: ["React & Next.js", "Node.js & Python", "TypeScript", "GraphQL & REST", "Microservices"]
+              },
+              {
+                icon: Database,
+                title: "Databases",
+                stack: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "Cassandra"]
+              },
+              {
+                icon: Cloud,
+                title: "Cloud & DevOps",
+                stack: ["AWS & Azure", "Docker & Kubernetes", "CI/CD Pipelines", "Terraform", "GitOps"]
+              },
+              {
+                icon: Shield,
+                title: "Security",
+                stack: ["OAuth 2.0 & JWT", "SSL/TLS", "Penetration Testing", "GDPR Compliance", "Zero Trust"]
+              }
+            ].map((category, index) => (
+              <div key={index} className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 border border-gray-200">
+                <category.icon className="w-10 h-10 text-primary-500 mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{category.title}</h3>
+                <ul className="space-y-2">
+                  {category.stack.map((tech, i) => (
+                    <li key={i} className="text-gray-700 text-sm flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary-500"></div>
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Success Story Preview */}
+      <section className="py-24 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Client Success Stories
+            </h2>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              Real results from real projects across diverse industries
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                industry: "E-commerce",
+                challenge: "Legacy system modernization",
+                result: "300% increase in transaction speed, 99.9% uptime achieved",
+                metrics: ["3x faster", "99.9% uptime", "40% cost reduction"]
+              },
+              {
+                industry: "Healthcare",
+                challenge: "HIPAA-compliant patient portal",
+                result: "Secure portal serving 50K+ patients with zero breaches",
+                metrics: ["50K+ users", "Zero breaches", "HIPAA certified"]
+              },
+              {
+                industry: "FinTech",
+                challenge: "Real-time payment processing",
+                result: "Processing 1M+ transactions daily with 99.99% accuracy",
+                metrics: ["1M+ daily txns", "99.99% accuracy", "<50ms latency"]
+              }
+            ].map((story, index) => (
+              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                <div className="text-primary-400 font-bold text-sm mb-2">{story.industry}</div>
+                <h3 className="text-xl font-bold text-white mb-3">{story.challenge}</h3>
+                <p className="text-blue-100 mb-6">{story.result}</p>
+                <div className="flex flex-wrap gap-2">
+                  {story.metrics.map((metric, i) => (
+                    <span key={i} className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm font-semibold">
+                      {metric}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Frequently Asked{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
+                Questions
+              </span>
+            </h2>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                question: "What is your typical project timeline?",
+                answer: "Project timelines vary based on scope and complexity. Small projects typically take 4-8 weeks, medium projects 2-4 months, and large enterprise solutions 6+ months. We provide detailed timelines during the discovery phase and use Agile methodology to deliver incremental value."
+              },
+              {
+                question: "Do you provide ongoing support after project delivery?",
+                answer: "Yes, we offer comprehensive support packages including 24/7 monitoring, bug fixes, security updates, and feature enhancements. We also provide SLA-backed maintenance plans tailored to your needs."
+              },
+              {
+                question: "Can you integrate with our existing systems?",
+                answer: "Absolutely. We specialize in system integration and have experience with 500+ third-party platforms. We ensure seamless data flow between your existing infrastructure and new solutions through APIs, webhooks, and custom connectors."
+              },
+              {
+                question: "What industries do you serve?",
+                answer: "We serve diverse industries including e-commerce, healthcare, fintech, logistics, education, and manufacturing. Our cross-industry experience allows us to bring best practices and innovative solutions to every project."
+              },
+              {
+                question: "How do you ensure project security and data privacy?",
+                answer: "Security is paramount. We follow industry best practices including encryption, secure authentication, regular security audits, and compliance with GDPR, HIPAA, and PCI-DSS standards. All team members sign NDAs and we implement role-based access control."
+              }
+            ].map((faq, index) => (
+              <div key={index} className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{faq.question}</h3>
+                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

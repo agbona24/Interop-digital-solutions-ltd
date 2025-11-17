@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { Code2, Package, Users, Mail } from "lucide-react";
+import { Code2, Package, Users, Mail, Shield, Zap, Award, TrendingUp, CheckCircle, ArrowRight, Sparkles } from "lucide-react";
 
 export default function Home() {
   const quickLinks = [
@@ -77,6 +77,173 @@ export default function Home() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-24 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Why Industry Leaders Choose Us
+            </h2>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              We deliver exceptional results through innovation, expertise, and unwavering commitment to excellence
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Shield,
+                title: "Enterprise Security",
+                description: "Bank-grade security protocols protect your data with 256-bit encryption and compliance certifications"
+              },
+              {
+                icon: Zap,
+                title: "Lightning Fast",
+                description: "Optimized infrastructure delivers 99.99% uptime and sub-100ms response times globally"
+              },
+              {
+                icon: Award,
+                title: "Proven Excellence",
+                description: "15+ years serving Fortune 500 companies with 98% client retention and satisfaction rates"
+              },
+              {
+                icon: TrendingUp,
+                title: "Scalable Growth",
+                description: "Cloud-native architecture that grows with your business from startup to enterprise scale"
+              }
+            ].map((feature, index) => (
+              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <feature.icon className="w-12 h-12 text-primary-400 mb-4" />
+                <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                <p className="text-blue-100">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Services Preview */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Comprehensive IT{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
+                Services
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              End-to-end solutions powered by cutting-edge technology and delivered by expert teams
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {[
+              {
+                title: "API Development & Integration",
+                description: "Build robust, scalable APIs with RESTful and GraphQL architectures. Seamless third-party integrations with 500+ platforms.",
+                features: ["Microservices Architecture", "Real-time Data Sync", "API Gateway Management"]
+              },
+              {
+                title: "Cloud Infrastructure",
+                description: "Deploy on AWS, Azure, or GCP with automated DevOps pipelines. Container orchestration with Kubernetes.",
+                features: ["Multi-cloud Deployment", "Auto-scaling", "Disaster Recovery"]
+              },
+              {
+                title: "AI & Machine Learning",
+                description: "Leverage advanced AI models for predictive analytics, natural language processing, and computer vision.",
+                features: ["Custom ML Models", "Neural Networks", "Data Analytics"]
+              }
+            ].map((service, index) => (
+              <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-gray-200">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
+                <p className="text-gray-600 mb-6">{service.description}</p>
+                <ul className="space-y-3">
+                  {service.features.map((feature, i) => (
+                    <li key={i} className="flex items-center text-gray-700">
+                      <CheckCircle className="w-5 h-5 text-primary-500 mr-3 flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              href="/services"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              View All Services
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Client Success Stats */}
+      <section className="py-24 bg-gradient-to-r from-primary-500 to-primary-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Trusted by Global Enterprises
+            </h2>
+            <p className="text-xl text-orange-100">
+              Delivering measurable results that drive business growth
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { value: "500+", label: "Projects Delivered", description: "Across 40+ industries" },
+              { value: "200+", label: "Enterprise Clients", description: "Including Fortune 500" },
+              { value: "15+", label: "Years Experience", description: "Industry leadership" },
+              { value: "98%", label: "Client Retention", description: "Satisfaction guaranteed" }
+            ].map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-5xl md:text-6xl font-black text-white mb-2">{stat.value}</div>
+                <div className="text-lg font-semibold text-white mb-1">{stat.label}</div>
+                <div className="text-sm text-orange-100">{stat.description}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700 rounded-3xl p-12 md:p-16 relative overflow-hidden">
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
+            <div className="relative z-10">
+              <Sparkles className="w-16 h-16 text-primary-400 mx-auto mb-6" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Transform Your Business?
+              </h2>
+              <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Join hundreds of companies leveraging our expertise to build the future. Let&apos;s discuss your project today.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-105"
+                >
+                  Start Your Project
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-secondary-700 font-semibold rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-105"
+                >
+                  Explore Solutions
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
