@@ -1,15 +1,16 @@
+"use client";
+
 import Navigation from "@/components/Navigation";
 import Products from "@/components/Products";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight, Zap, Shield, BarChart3, Globe, CheckCircle, Rocket, Target, TrendingUp, Star } from "lucide-react";
-
-export const metadata = {
-  title: "Our Products - Interop Digital Solutions",
-  description: "Innovative products including Process Automation, Payment Solutions, Commerce Platform, and Geo Services.",
-};
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function ProductsPage() {
+  const useCasesReveal = useScrollReveal();
+  const pricingReveal = useScrollReveal();
+  const testimonialsReveal = useScrollReveal();
   const capabilities = [
     {
       icon: Zap,
@@ -179,7 +180,10 @@ export default function ProductsPage() {
       {/* Use Cases */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div
+            ref={useCasesReveal.ref}
+            className={`text-center mb-16 scroll-reveal ${useCasesReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Real-World{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
@@ -236,7 +240,10 @@ export default function ProductsPage() {
                 results: ["10K+ subscribers", "Automated billing", "99.5% accuracy"]
               }
             ].map((useCase, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-gray-200">
+              <div
+                key={index}
+                className={`bg-gray-50 rounded-2xl p-8 border border-gray-200 hover-lift scroll-reveal ${useCasesReveal.isVisible ? `revealed animate-fade-in-up stagger-${Math.min(index + 1, 6)}` : ''}`}
+              >
                 <useCase.icon className="w-10 h-10 text-primary-500 mb-4" />
                 <div className="text-primary-600 font-semibold text-sm mb-2">{useCase.industry}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{useCase.title}</h3>
@@ -258,7 +265,10 @@ export default function ProductsPage() {
       {/* Pricing Tiers */}
       <section id="pricing" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div
+            ref={pricingReveal.ref}
+            className={`text-center mb-16 scroll-reveal ${pricingReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Flexible{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
@@ -333,7 +343,7 @@ export default function ProductsPage() {
                   plan.highlighted
                     ? 'bg-gradient-to-br from-primary-500 to-primary-600 text-white shadow-2xl scale-105'
                     : 'bg-white text-gray-900 shadow-lg'
-                } transition-all duration-300 hover:shadow-2xl relative`}
+                } hover:shadow-2xl relative hover-lift scroll-reveal ${pricingReveal.isVisible ? `revealed animate-scale-in stagger-${index + 1}` : ''}`}
               >
                 {plan.highlighted && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary-700 text-white px-4 py-1 rounded-full text-sm font-semibold">
@@ -381,7 +391,10 @@ export default function ProductsPage() {
       {/* Customer Testimonials */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div
+            ref={testimonialsReveal.ref}
+            className={`text-center mb-16 scroll-reveal ${testimonialsReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Trusted by{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
@@ -414,7 +427,10 @@ export default function ProductsPage() {
                 rating: 5
               }
             ].map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+              <div
+                key={index}
+                className={`bg-gray-50 rounded-2xl p-8 border border-gray-200 hover-lift scroll-reveal ${testimonialsReveal.isVisible ? `revealed animate-fade-in-up stagger-${index + 1}` : ''}`}
+              >
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-primary-500 text-primary-500" />
@@ -443,14 +459,14 @@ export default function ProductsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-105 btn-ripple"
             >
               Start Free Trial
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/20"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/20 hover:scale-105"
             >
               Schedule a Demo
             </Link>

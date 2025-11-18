@@ -1,15 +1,18 @@
+"use client";
+
 import Navigation from "@/components/Navigation";
 import Services from "@/components/Services";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Users, Clock, DollarSign, Layers, Code, Database, Cloud, Shield } from "lucide-react";
-
-export const metadata = {
-  title: "Our Services - Interop Digital Solutions",
-  description: "Comprehensive IT services including API Development, UI/UX Design, Testing, Deployment, Security, Database, AI, IoT, and Cloud solutions.",
-};
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function ServicesPage() {
+  const processReveal = useScrollReveal();
+  const engagementReveal = useScrollReveal();
+  const techReveal = useScrollReveal();
+  const storiesReveal = useScrollReveal();
+  const faqReveal = useScrollReveal();
   const processSteps = [
     {
       number: "01",
@@ -69,7 +72,10 @@ export default function ServicesPage() {
       {/* Process Section */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div
+            ref={processReveal.ref}
+            className={`text-center mb-16 scroll-reveal ${processReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Our{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
@@ -85,7 +91,7 @@ export default function ServicesPage() {
             {processSteps.map((step, index) => (
               <div
                 key={index}
-                className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all"
+                className={`relative bg-white rounded-2xl p-8 shadow-lg hover-lift scroll-reveal ${processReveal.isVisible ? `revealed animate-fade-in-up stagger-${index + 1}` : ''}`}
               >
                 <div className="text-6xl font-black text-primary-500/10 mb-4">
                   {step.number}
@@ -158,7 +164,10 @@ export default function ServicesPage() {
       {/* Engagement Models */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div
+            ref={engagementReveal.ref}
+            className={`text-center mb-16 scroll-reveal ${engagementReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Flexible{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
@@ -209,7 +218,10 @@ export default function ServicesPage() {
                 bestFor: "Well-defined projects, tight budgets"
               }
             ].map((model, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
+              <div
+                key={index}
+                className={`bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover-lift scroll-reveal ${engagementReveal.isVisible ? `revealed animate-fade-in-up stagger-${index + 1}` : ''}`}
+              >
                 <model.icon className="w-12 h-12 text-primary-500 mb-4" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">{model.title}</h3>
                 <p className="text-gray-600 mb-6">{model.description}</p>
@@ -239,7 +251,10 @@ export default function ServicesPage() {
       {/* Technologies We Use */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div
+            ref={techReveal.ref}
+            className={`text-center mb-16 scroll-reveal ${techReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Cutting-Edge{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
@@ -274,7 +289,10 @@ export default function ServicesPage() {
                 stack: ["OAuth 2.0 & JWT", "SSL/TLS", "Penetration Testing", "GDPR Compliance", "Zero Trust"]
               }
             ].map((category, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 border border-gray-200">
+              <div
+                key={index}
+                className={`bg-gray-50 rounded-2xl p-6 border border-gray-200 hover-lift scroll-reveal ${techReveal.isVisible ? `revealed animate-scale-in stagger-${index + 1}` : ''}`}
+              >
                 <category.icon className="w-10 h-10 text-primary-500 mb-4" />
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{category.title}</h3>
                 <ul className="space-y-2">
@@ -294,7 +312,10 @@ export default function ServicesPage() {
       {/* Success Story Preview */}
       <section className="py-24 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div
+            ref={storiesReveal.ref}
+            className={`text-center mb-16 scroll-reveal ${storiesReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Client Success Stories
             </h2>
@@ -324,7 +345,10 @@ export default function ServicesPage() {
                 metrics: ["1M+ daily txns", "99.99% accuracy", "<50ms latency"]
               }
             ].map((story, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <div
+                key={index}
+                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover-lift scroll-reveal ${storiesReveal.isVisible ? `revealed animate-scale-in stagger-${index + 1}` : ''}`}
+              >
                 <div className="text-primary-400 font-bold text-sm mb-2">{story.industry}</div>
                 <h3 className="text-xl font-bold text-white mb-3">{story.challenge}</h3>
                 <p className="text-blue-100 mb-6">{story.result}</p>
@@ -344,7 +368,10 @@ export default function ServicesPage() {
       {/* FAQ Section */}
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div
+            ref={faqReveal.ref}
+            className={`text-center mb-16 scroll-reveal ${faqReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Frequently Asked{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
@@ -376,7 +403,10 @@ export default function ServicesPage() {
                 answer: "Security is paramount. We follow industry best practices including encryption, secure authentication, regular security audits, and compliance with GDPR, HIPAA, and PCI-DSS standards. All team members sign NDAs and we implement role-based access control."
               }
             ].map((faq, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+              <div
+                key={index}
+                className={`bg-gray-50 rounded-2xl p-8 border border-gray-200 hover-lift scroll-reveal ${faqReveal.isVisible ? `revealed animate-fade-in-up stagger-${Math.min(index + 1, 6)}` : ''}`}
+              >
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{faq.question}</h3>
                 <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
               </div>

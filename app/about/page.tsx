@@ -1,15 +1,14 @@
+"use client";
+
 import Navigation from "@/components/Navigation";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight, Briefcase } from "lucide-react";
-
-export const metadata = {
-  title: "About Us - Interop Digital Solutions",
-  description: "Learn about Interop Digital Solutions - your strategic partner in digital transformation with 15+ years of experience.",
-};
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function AboutPage() {
+  const timelineReveal = useScrollReveal();
   const timeline = [
     {
       year: "2008",
@@ -63,7 +62,10 @@ export default function AboutPage() {
       {/* Our Journey Timeline */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div
+            ref={timelineReveal.ref}
+            className={`text-center mb-16 scroll-reveal ${timelineReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Our{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
@@ -83,12 +85,12 @@ export default function AboutPage() {
               {timeline.map((item, index) => (
                 <div
                   key={index}
-                  className={`flex items-center gap-8 ${
+                  className={`flex items-center gap-8 scroll-reveal ${timelineReveal.isVisible ? `revealed ${index % 2 === 0 ? 'animate-fade-in-left' : 'animate-fade-in-right'} stagger-${Math.min(index + 1, 6)}` : ''} ${
                     index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
                 >
                   <div className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                    <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all inline-block">
+                    <div className="bg-white rounded-2xl p-8 shadow-lg hover-lift inline-block">
                       <div className="text-4xl font-black text-primary-500 mb-2">
                         {item.year}
                       </div>

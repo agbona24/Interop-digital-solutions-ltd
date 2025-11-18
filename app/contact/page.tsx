@@ -1,14 +1,13 @@
+"use client";
+
 import Navigation from "@/components/Navigation";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { Clock, HelpCircle } from "lucide-react";
-
-export const metadata = {
-  title: "Contact Us - Interop Digital Solutions",
-  description: "Get in touch with Interop Digital Solutions. Let's start a conversation about your next project.",
-};
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function ContactPage() {
+  const faqReveal = useScrollReveal();
   const faqs = [
     {
       question: "What is your typical project timeline?",
@@ -88,7 +87,10 @@ export default function ContactPage() {
       {/* FAQ Section */}
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div
+            ref={faqReveal.ref}
+            className={`text-center mb-16 scroll-reveal ${faqReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+          >
             <div className="flex items-center justify-center gap-3 mb-4">
               <HelpCircle className="w-10 h-10 text-primary-500" />
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
@@ -107,7 +109,7 @@ export default function ContactPage() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all"
+                className={`bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all hover-lift scroll-reveal ${faqReveal.isVisible ? `revealed animate-fade-in-up stagger-${Math.min(index + 1, 6)}` : ''}`}
               >
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {faq.question}
