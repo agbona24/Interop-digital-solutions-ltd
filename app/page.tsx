@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import AnimatedStat from "@/components/AnimatedStat";
+import ClientLogosTicker from "@/components/ClientLogosTicker";
 import Link from "next/link";
 import { Code2, Package, Users, Mail, Shield, Zap, Award, TrendingUp, CheckCircle, ArrowRight, Sparkles } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -239,6 +240,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Client Logos */}
+      <ClientLogosTicker />
 
       {/* CTA Section */}
       <section className="py-24 bg-white">

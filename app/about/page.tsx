@@ -3,6 +3,8 @@
 import Navigation from "@/components/Navigation";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
+import TeamProfiles from "@/components/TeamProfiles";
+import ClientLogosTicker from "@/components/ClientLogosTicker";
 import Link from "next/link";
 import { ArrowRight, Briefcase } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -110,6 +112,12 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Team Profiles */}
+      <TeamProfiles />
+
+      {/* Client Logos */}
+      <ClientLogosTicker />
 
       {/* Join Us CTA */}
       <section className="py-24 bg-gradient-to-br from-gray-50 to-white">

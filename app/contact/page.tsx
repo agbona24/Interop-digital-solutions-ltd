@@ -3,7 +3,8 @@
 import Navigation from "@/components/Navigation";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import { Clock, HelpCircle } from "lucide-react";
+import AppointmentBooking from "@/components/AppointmentBooking";
+import { Clock, HelpCircle, Calendar } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function ContactPage() {
@@ -81,6 +82,27 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Appointment Booking */}
+      <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Calendar className="w-10 h-10 text-primary-500" />
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                Book a{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
+                  Consultation
+                </span>
+              </h2>
+            </div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Schedule a free consultation with our experts to discuss your project
+            </p>
+          </div>
+          <AppointmentBooking />
         </div>
       </section>
 
