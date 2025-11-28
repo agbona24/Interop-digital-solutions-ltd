@@ -216,18 +216,18 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Trusted by Global Enterprises
+              Delivering Excellence Across Industries
             </h2>
             <p className="text-xl text-orange-100">
-              Delivering measurable results that drive business growth
+              Building lasting partnerships through innovative IT solutions
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: "500+", label: "Projects Delivered", description: "Across 40+ industries" },
-              { value: "200+", label: "Enterprise Clients", description: "Including Fortune 500" },
-              { value: "15+", label: "Years Experience", description: "Industry leadership" },
+              { value: "17+", label: "Happy Clients", description: "Trusted partnerships" },
+              { value: "13", label: "Industries Served", description: "Diverse expertise" },
+              { value: "24/7", label: "Support Available", description: "Always here for you" },
               { value: "98%", label: "Client Retention", description: "Satisfaction guaranteed" }
             ].map((stat, index) => (
               <AnimatedStat

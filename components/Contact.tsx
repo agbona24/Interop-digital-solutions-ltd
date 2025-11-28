@@ -56,20 +56,20 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      content: "hello@interopdigital.com",
-      link: "mailto:hello@interopdigital.com",
+      content: "info@interop.com",
+      link: "mailto:info@interop.com",
     },
     {
       icon: Phone,
       title: "Phone",
-      content: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
+      content: "+234 (809) 945-1647",
+      link: "tel:+2348099451647",
     },
     {
       icon: MapPin,
       title: "Location",
-      content: "San Francisco, CA",
-      link: "#",
+      content: "Trinity Mall, 70, Awolowo Way, Ikeja, Lagos, Nigeria",
+      link: "https://maps.google.com/?q=Trinity+Mall+70+Awolowo+Way+Ikeja+Lagos+Nigeria",
     },
   ];
 
@@ -287,6 +287,108 @@ export default function Contact() {
                 )}
               </div>
             </form>
+          </div>
+        </div>
+
+        {/* Google Maps Section */}
+        <div
+          className={`mt-20 transition-all duration-700 delay-300 ${
+            isVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-10"
+          }`}
+        >
+          <div className="text-center mb-10">
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Visit Our{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
+                Office
+              </span>
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Drop by our office at Trinity Mall, Ikeja, Lagos for a face-to-face consultation
+            </p>
+          </div>
+
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
+            {/* Map Container with Modern Overlay */}
+            <div className="relative h-[500px] md:h-[600px] bg-gray-200">
+              {/* Google Maps Embed */}
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2764165584845!2d3.3536629!3d6.6045034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b93d1e5e5e5e5%3A0x0!2sAwolowo%20Way%2C%20Ikeja%2C%20Lagos!5e0!3m2!1sen!2sng!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="grayscale-0 group-hover:grayscale-0 transition-all duration-500"
+              />
+
+              {/* Gradient Overlay on Edges */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-gray-50 to-transparent opacity-40"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-50 to-transparent opacity-40"></div>
+              </div>
+            </div>
+
+            {/* Floating Info Card */}
+            <div className="absolute top-6 left-6 right-6 md:left-auto md:right-6 md:w-80 bg-white rounded-2xl shadow-2xl p-6 backdrop-blur-lg bg-opacity-95">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-1">Our Location</h4>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Trinity Mall, 70, Awolowo Way, Ikeja, Lagos, Nigeria
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href="https://maps.google.com/?q=Trinity+Mall+70+Awolowo+Way+Ikeja+Lagos+Nigeria"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full px-4 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all hover:scale-105 flex items-center justify-center gap-2 text-sm"
+              >
+                <MapPin className="w-4 h-4" />
+                Get Directions
+              </a>
+            </div>
+          </div>
+
+          {/* Additional Location Info */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-gradient-to-br from-primary-50 to-white rounded-2xl p-6 border border-primary-100">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center mb-3">
+                <MapPin className="w-5 h-5 text-white" />
+              </div>
+              <h4 className="font-bold text-gray-900 mb-2">Easy Access</h4>
+              <p className="text-sm text-gray-600">
+                Located in the heart of Ikeja, easily accessible via major highways
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-secondary-50 to-white rounded-2xl p-6 border border-secondary-100">
+              <div className="w-10 h-10 bg-gradient-to-br from-secondary-700 to-secondary-600 rounded-lg flex items-center justify-center mb-3">
+                <Phone className="w-5 h-5 text-white" />
+              </div>
+              <h4 className="font-bold text-gray-900 mb-2">Call Ahead</h4>
+              <p className="text-sm text-gray-600">
+                Schedule a visit by calling us at +234 (809) 945-1647
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-primary-50 to-white rounded-2xl p-6 border border-primary-100">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center mb-3">
+                <Mail className="w-5 h-5 text-white" />
+              </div>
+              <h4 className="font-bold text-gray-900 mb-2">Email First</h4>
+              <p className="text-sm text-gray-600">
+                Prefer email? Reach us at info@interop.com anytime
+              </p>
+            </div>
           </div>
         </div>
       </div>
