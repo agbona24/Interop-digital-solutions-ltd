@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Implementation Documentation - Interop Digital Solutions Ltd</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #00204A 0%, #003d7a 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        nav {
+            background: #f8f9fa;
+            padding: 1.5rem 2rem;
+            border-bottom: 2px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #00204A;
+        }
+
+        nav ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.5rem;
+        }
+
+        nav a {
+            color: #FF6600;
+            text-decoration: none;
+            padding: 0.5rem;
+            display: block;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        nav a:hover {
+            background: #fff;
+            color: #00204A;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #00204A;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #FF6600;
+        }
+
+        h3 {
+            color: #00204A;
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        h4 {
+            color: #003d7a;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+        }
+
+        th {
+            background: #00204A;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-complete {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #d63384;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1.5rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .keyword-tag {
+            display: inline-block;
+            background: #FF6600;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            margin: 0.25rem;
+            border-radius: 16px;
+            font-size: 0.85rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .card h4 {
+            margin-top: 0;
+            color: #FF6600;
+        }
+
+        footer {
+            background: #00204A;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #FF6600;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            nav {
+                display: none;
+            }
+            .back-to-top {
+                display: none;
+            }
+            section {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .meta-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            main {
+                padding: 1rem;
+            }
+            section {
+                padding: 1rem;
+            }
+            nav ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SEO Implementation Documentation</h1>
+            <p>Interop Digital Solutions Ltd</p>
+            <div class="meta-info">
+                <span>📅 Last Updated: November 27, 2025</span>
+                <span>📝 Version: 1.0</span>
+                <span>✅ Status: Complete</span>
+            </div>
+        </header>
+
+        <nav>
+            <h2>📑 Table of Contents</h2>
+            <ul>
+                <li><a href="#overview">1. Overview</a></li>
+                <li><a href="#implementation">2. Implementation Summary</a></li>
+                <li><a href="#technical">3. Technical SEO Components</a></li>
+                <li><a href="#page-specific">4. Page-Specific Optimizations</a></li>
+                <li><a href="#schema">5. Schema Markup</a></li>
+                <li><a href="#keywords">6. Keywords Strategy</a></li>
+                <li><a href="#verification">7. Verification & Testing</a></li>
+                <li><a href="#maintenance">8. Maintenance & Best Practices</a></li>
+                <li><a href="#monitoring">9. Performance Monitoring</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <!-- OVERVIEW SECTION -->
+            <section id="overview">
+                <h2>📋 Overview</h2>
+                <p>This document outlines the comprehensive SEO implementation for the Interop Digital Solutions Ltd website. The implementation follows current SEO best practices for 2025 and focuses on:</p>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>🔧 Technical SEO</h4>
+                        <p>Sitemaps, robots.txt, meta tags, and technical optimization</p>
+                    </div>
+                    <div class="card">
+                        <h4>📄 On-Page SEO</h4>
+                        <p>Optimized titles, descriptions, headers, and content</p>
+                    </div>
+                    <div class="card">
+                        <h4>📍 Local SEO</h4>
+                        <p>Nigeria-specific optimization for Lagos/Ikeja region</p>
+                    </div>
+                    <div class="card">
+                        <h4>🏷️ Structured Data</h4>
+                        <p>Rich snippets for better search visibility</p>
+                    </div>
+                </div>
+
+                <div class="success-box">
+                    <strong>✅ Implementation Complete:</strong> All core SEO components have been successfully implemented and are production-ready.
+                </div>
+            </section>
+
+            <!-- IMPLEMENTATION SUMMARY -->
+            <section id="implementation">
+                <h2>✅ Implementation Summary</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>File</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Global Metadata</td>
+                            <td><code>app/layout.tsx</code></td>
+                            <td><span class="status-badge status-complete">✅ Complete</span></td>
+                        </tr>
+                        <tr>
+                            <td>Structured Data</td>
+                            <td><code>components/StructuredData.tsx</code></td>
+                            <td><span class="status-badge status-complete">✅ Complete</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dynamic Sitemap</td>
+                            <td><code>app/sitemap.ts</code></td>
+                            <td><span class="status-badge status-complete">✅ Complete</span></td>
+                        </tr>
+                        <tr>
+                            <td>Robots Configuration</td>
+                            <td><code>app/robots.ts</code></td>
+                            <td><span class="status-badge status-complete">✅ Complete</span></td>
+                        </tr>
+                        <tr>
+                            <td>Services Page SEO</td>
+                            <td><code>app/services/page.tsx</code></td>
+                            <td><span class="status-badge status-complete">✅ Complete</span></td>
+                        </tr>
+                        <tr>
+                            <td>Products Page SEO</td>
+                            <td><code>app/products/page.tsx</code></td>
+                            <td><span class="status-badge status-complete">✅ Complete</span></td>
+                        </tr>
+                        <tr>
+                            <td>Masterclass Page SEO</td>
+                            <td><code>app/masterclass/page.tsx</code></td>
+                            <td><span class="status-badge status-complete">✅ Complete</span></td>
+                        </tr>
+                        <tr>
+                            <td>About Page SEO</td>
+                            <td><code>app/about/page.tsx</code></td>
+                            <td><span class="status-badge status-complete">✅ Complete</span></td>
+                        </tr>
+                        <tr>
+                            <td>Contact Page SEO</td>
+                            <td><code>app/contact/page.tsx</code></td>
+                            <td><span class="status-badge status-complete">✅ Complete</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- TECHNICAL SEO -->
+            <section id="technical">
+                <h2>🔧 Technical SEO Components</h2>
+
+                <h3>1. Global Metadata (<code>app/layout.tsx</code>)</h3>
+
+                <h4>Meta Tags Configuration</h4>
+                <pre><code>export const metadata: Metadata = {
+  metadataBase: new URL('https://interopdigital.com'),
+  title: {
+    default: "Interop Digital Solutions Ltd - Premier IT Services & Solutions",
+    template: "%s | Interop Digital Solutions Ltd",
+  },
+  description: "Premier IT firm in Lagos, Nigeria...",
+  keywords: [40+ targeted keywords],
+}</code></pre>
+
+                <div class="info-box">
+                    <strong>📌 Key Features:</strong>
+                    <ul>
+                        <li>Dynamic title template for all pages</li>
+                        <li>Location-optimized description (Lagos, Nigeria)</li>
+                        <li>40+ targeted keywords</li>
+                        <li>Proper canonical URL configuration</li>
+                    </ul>
+                </div>
+
+                <h4>OpenGraph Tags</h4>
+                <p>Optimized for social media sharing:</p>
+                <ul>
+                    <li>Custom titles and descriptions for rich previews</li>
+                    <li>1200x630px OG images for optimal display</li>
+                    <li>Country and contact information included</li>
+                    <li>Proper locale settings (en_US)</li>
+                </ul>
+
+                <h4>Twitter Cards</h4>
+                <ul>
+                    <li>Large image cards for rich previews</li>
+                    <li>Optimized descriptions under 200 characters</li>
+                    <li>Twitter handle: <code>@interopdigital</code></li>
+                </ul>
+
+                <h3>2. Dynamic Sitemap (<code>app/sitemap.ts</code>)</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Route</th>
+                            <th>Change Frequency</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/</code> (Home)</td>
+                            <td>Weekly</td>
+                            <td>1.0</td>
+                        </tr>
+                        <tr>
+                            <td><code>/services</code></td>
+                            <td>Weekly</td>
+                            <td>0.9</td>
+                        </tr>
+                        <tr>
+                            <td><code>/products</code></td>
+                            <td>Weekly</td>
+                            <td>0.9</td>
+                        </tr>
+                        <tr>
+                            <td><code>/masterclass</code></td>
+                            <td>Monthly</td>
+                            <td>0.8</td>
+                        </tr>
+                        <tr>
+                            <td><code>/about</code></td>
+                            <td>Monthly</td>
+                            <td>0.7</td>
+                        </tr>
+                        <tr>
+                            <td><code>/contact</code></td>
+                            <td>Monthly</td>
+                            <td>0.8</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <strong>🔗 Accessing the sitemap:</strong><br>
+                    Live URL: <code>https://interopdigital.com/sitemap.xml</code><br>
+                    Generated automatically by Next.js
+                </div>
+
+                <h3>3. Robots.txt Configuration (<code>app/robots.ts</code>)</h3>
+
+                <h4>Blocked Paths:</h4>
+                <ul>
+                    <li><code>/api/</code> - API routes (not for indexing)</li>
+                    <li><code>/admin/</code> - Admin pages</li>
+                    <li><code>/_next/</code> - Next.js build files</li>
+                    <li><code>/private/</code> - Private content</li>
+                </ul>
+
+                <div class="info-box">
+                    <strong>🤖 Accessing robots.txt:</strong><br>
+                    Live URL: <code>https://interopdigital.com/robots.txt</code>
+                </div>
+            </section>
+
+            <!-- PAGE-SPECIFIC SEO -->
+            <section id="page-specific">
+                <h2>📄 Page-Specific Optimizations</h2>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>🏠 Home Page</h4>
+                        <p><strong>Title:</strong> Set by global metadata</p>
+                        <p><strong>Focus:</strong> General IT services, company overview</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>💼 Services Page</h4>
+                        <p><strong>Title:</strong> Professional IT Services</p>
+                        <p><strong>Description:</strong> Comprehensive IT services including API Development, UI/UX Design, Cloud Solutions, Cybersecurity, AI/ML, Database Management. 500+ projects delivered.</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>📦 Products Page</h4>
+                        <p><strong>Title:</strong> Innovative IT Products</p>
+                        <p><strong>Description:</strong> Cutting-edge IT products including Process Automation, Payment Solutions, Commerce Platforms, and Geo Services.</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>🎓 Masterclass Page</h4>
+                        <p><strong>Title:</strong> Corporate IT Training Masterclass</p>
+                        <p><strong>Description:</strong> Professional IT training programs with Microsoft-certified instructors. 17+ companies trained.</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>ℹ️ About Page</h4>
+                        <p><strong>Title:</strong> About Us</p>
+                        <p><strong>Description:</strong> Premier IT firm in Lagos, Nigeria. 15+ years of digital transformation experience. Serving 17+ clients across 13 industries.</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>📞 Contact Page</h4>
+                        <p><strong>Title:</strong> Contact Us</p>
+                        <p><strong>Description:</strong> Located at Trinity Mall, Ikeja, Lagos. Call +234-809-945-1647 or email info@interop.com.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SCHEMA MARKUP -->
+            <section id="schema">
+                <h2>🏷️ Schema Markup (Structured Data)</h2>
+
+                <h3>Implemented Schemas:</h3>
+
+                <h4>1. Organization Schema</h4>
+                <pre><code>{
+  "@type": "Organization",
+  "name": "Interop Digital Solutions Ltd",
+  "telephone": "+234-809-945-1647",
+  "email": "info@interop.com",
+  "address": {
+    "streetAddress": "Trinity Mall, 70, Awolowo Way",
+    "addressLocality": "Ikeja",
+    "addressRegion": "Lagos",
+    "addressCountry": "NG"
+  }
+}</code></pre>
+
+                <div class="success-box">
+                    <strong>✅ Benefits:</strong> Rich search results, Knowledge panel eligibility, Contact information display
+                </div>
+
+                <h4>2. LocalBusiness Schema</h4>
+                <pre><code>{
+  "@type": ["LocalBusiness", "ProfessionalService"],
+  "geo": {
+    "latitude": 6.5244,
+    "longitude": 3.3792
+  },
+  "openingHoursSpecification": [{
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09:00",
+    "closes": "17:00"
+  }]
+}</code></pre>
+
+                <div class="success-box">
+                    <strong>✅ Benefits:</strong> Google Maps integration, Local search visibility, Business hours display
+                </div>
+
+                <h4>3. WebSite Schema</h4>
+                <p>Enables sitelinks search box in Google search results</p>
+
+                <h4>4. Service Schema</h4>
+                <p>Lists all 6 core services:</p>
+                <ul>
+                    <li>API Development & Integration</li>
+                    <li>UI/UX Design</li>
+                    <li>Cloud Solutions</li>
+                    <li>Cybersecurity</li>
+                    <li>AI & Machine Learning</li>
+                    <li>Database Management</li>
+                </ul>
+
+                <h4>5. Course Schema</h4>
+                <p>For the Masterclass training programs page</p>
+            </section>
+
+            <!-- KEYWORDS STRATEGY -->
+            <section id="keywords">
+                <h2>🔑 Keywords Strategy</h2>
+
+                <h3>Primary Keywords (High Priority)</h3>
+                <div style="margin: 1rem 0;">
+                    <span class="keyword-tag">IT services Nigeria</span>
+                    <span class="keyword-tag">software development Lagos</span>
+                    <span class="keyword-tag">API development services</span>
+                    <span class="keyword-tag">cloud solutions Nigeria</span>
+                    <span class="keyword-tag">cybersecurity services</span>
+                </div>
+
+                <h3>Secondary Keywords (Medium Priority)</h3>
+                <div style="margin: 1rem 0;">
+                    <span class="keyword-tag">RESTful API development</span>
+                    <span class="keyword-tag">GraphQL API</span>
+                    <span class="keyword-tag">UI/UX design agency</span>
+                    <span class="keyword-tag">AWS cloud services</span>
+                    <span class="keyword-tag">Azure cloud solutions</span>
+                    <span class="keyword-tag">IT security Nigeria</span>
+                    <span class="keyword-tag">AI solutions Nigeria</span>
+                    <span class="keyword-tag">Database management</span>
+                </div>
+
+                <h3>Long-Tail Keywords (Targeted)</h3>
+                <ul>
+                    <li>Cisco firewall management</li>
+                    <li>Fortinet firewall configuration</li>
+                    <li>Microsoft 365 training Nigeria</li>
+                    <li>Corporate IT training Lagos</li>
+                    <li>Payment gateway integration Nigeria</li>
+                    <li>E-commerce platform development</li>
+                    <li>Banking IT solutions Nigeria</li>
+                    <li>Healthcare IT systems</li>
+                    <li>Oil and gas IT infrastructure</li>
+                </ul>
+
+                <h3>Location Keywords</h3>
+                <div style="margin: 1rem 0;">
+                    <span class="keyword-tag">Trinity Mall Ikeja</span>
+                    <span class="keyword-tag">Ikeja IT company</span>
+                    <span class="keyword-tag">Lagos software company</span>
+                    <span class="keyword-tag">Nigeria IT services</span>
+                </div>
+            </section>
+
+            <!-- VERIFICATION & TESTING -->
+            <section id="verification">
+                <h2>✔️ Verification & Testing</h2>
+
+                <h3>1. Google Search Console Setup</h3>
+                <ol>
+                    <li>Go to <a href="https://search.google.com/search-console" target="_blank">Google Search Console</a></li>
+                    <li>Add property: <code>https://interopdigital.com</code></li>
+                    <li>Verify ownership using meta tag in <code>app/layout.tsx</code> (line 80)</li>
+                    <li>Submit sitemap: <code>https://interopdigital.com/sitemap.xml</code></li>
+                </ol>
+
+                <div class="warning-box">
+                    <strong>⚠️ Action Required:</strong> Replace placeholder verification code with actual code from Google Search Console
+                </div>
+
+                <h3>2. Bing Webmaster Tools</h3>
+                <ol>
+                    <li>Visit <a href="https://www.bing.com/webmasters" target="_blank">Bing Webmaster Tools</a></li>
+                    <li>Add and verify site</li>
+                    <li>Submit sitemap</li>
+                </ol>
+
+                <h3>3. Structured Data Testing</h3>
+                <ul>
+                    <li><strong>Google Rich Results Test:</strong> <a href="https://search.google.com/test/rich-results" target="_blank">Test your pages</a></li>
+                    <li><strong>Schema.org Validator:</strong> <a href="https://validator.schema.org/" target="_blank">Validate schema markup</a></li>
+                </ul>
+
+                <h3>4. Page Speed Testing</h3>
+                <ul>
+                    <li><strong>Google PageSpeed Insights:</strong> <a href="https://pagespeed.web.dev/" target="_blank">Test performance</a></li>
+                    <li><strong>Target Scores:</strong> Desktop 90+, Mobile 85+</li>
+                </ul>
+
+                <h3>5. Mobile-Friendly Test</h3>
+                <p>Verify all pages pass: <a href="https://search.google.com/test/mobile-friendly" target="_blank">Mobile-Friendly Test</a></p>
+            </section>
+
+            <!-- MAINTENANCE -->
+            <section id="maintenance">
+                <h2>🔧 Maintenance & Best Practices</h2>
+
+                <h3>Monthly Tasks</h3>
+                <ul>
+                    <li>✅ Review and update service descriptions</li>
+                    <li>✅ Add new blog posts (if blog section is added)</li>
+                    <li>✅ Update company achievements and statistics</li>
+                    <li>✅ Check for broken links</li>
+                    <li>✅ Track rankings for primary keywords</li>
+                    <li>✅ Review Google Search Console errors</li>
+                </ul>
+
+                <h3>Quarterly Tasks</h3>
+                <ul>
+                    <li>📊 Full site crawl with SEO tools</li>
+                    <li>📊 Review all page titles and descriptions</li>
+                    <li>📊 Analyze backlink profile</li>
+                    <li>📊 Comprehensive performance review</li>
+                </ul>
+
+                <h3>NAP Consistency (Critical for Local SEO)</h3>
+                <div class="info-box">
+                    <p><strong>Name:</strong> Interop Digital Solutions Ltd</p>
+                    <p><strong>Address:</strong> Trinity Mall, 70, Awolowo Way, Ikeja, Lagos, Nigeria</p>
+                    <p><strong>Phone:</strong> +234-809-945-1647</p>
+                    <p><strong>Email:</strong> info@interop.com</p>
+                    <p style="margin-top: 1rem;"><em>⚠️ Ensure this information is identical across all platforms, directories, and citations</em></p>
+                </div>
+            </section>
+
+            <!-- PERFORMANCE MONITORING -->
+            <section id="monitoring">
+                <h2>📊 Performance Monitoring</h2>
+
+                <h3>Key Metrics to Track</h3>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>🔍 Search Rankings</h4>
+                        <ul>
+                            <li>IT services Nigeria</li>
+                            <li>Software development Lagos</li>
+                            <li>API development services</li>
+                            <li>Cloud solutions Nigeria</li>
+                            <li>IT training Nigeria</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>📈 Organic Traffic</h4>
+                        <ul>
+                            <li>Sessions from organic search</li>
+                            <li>Pages per session</li>
+                            <li>Bounce rate</li>
+                            <li>Average session duration</li>
+                            <li>Goal completions</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>🎯 Conversion Tracking</h4>
+                        <ul>
+                            <li>Contact form submissions</li>
+                            <li>Appointment bookings</li>
+                            <li>Service inquiries</li>
+                            <li>Training enrollments</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>⚙️ Technical Health</h4>
+                        <ul>
+                            <li>Crawl errors</li>
+                            <li>Index coverage</li>
+                            <li>Mobile usability</li>
+                            <li>Core Web Vitals</li>
+                            <li>Page speed metrics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Recommended Tools</h3>
+                <ul>
+                    <li><strong>Google Search Console:</strong> Search performance, indexing</li>
+                    <li><strong>Google Analytics:</strong> Traffic analysis, user behavior</li>
+                    <li><strong>Ahrefs/SEMrush:</strong> Keyword tracking, competitor analysis</li>
+                    <li><strong>Screaming Frog:</strong> Technical SEO audits</li>
+                </ul>
+            </section>
+
+            <!-- QUICK REFERENCE -->
+            <section>
+                <h2>📌 Quick Reference</h2>
+
+                <h3>Important URLs</h3>
+                <ul>
+                    <li><strong>Website:</strong> <code>https://interopdigital.com</code></li>
+                    <li><strong>Sitemap:</strong> <code>https://interopdigital.com/sitemap.xml</code></li>
+                    <li><strong>Robots.txt:</strong> <code>https://interopdigital.com/robots.txt</code></li>
+                </ul>
+
+                <h3>Contact Information</h3>
+                <table>
+                    <tr>
+                        <td><strong>Company</strong></td>
+                        <td>Interop Digital Solutions Ltd</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Address</strong></td>
+                        <td>Trinity Mall, 70, Awolowo Way, Ikeja, Lagos, Nigeria</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phone</strong></td>
+                        <td>+234-809-945-1647</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email</strong></td>
+                        <td>info@interop.com</td>
+                    </tr>
+                </table>
+
+                <h3>Modified Files</h3>
+                <ol>
+                    <li><code>app/layout.tsx</code> - Global metadata</li>
+                    <li><code>components/StructuredData.tsx</code> - Schema markup</li>
+                    <li><code>app/sitemap.ts</code> - XML sitemap</li>
+                    <li><code>app/robots.ts</code> - Robots.txt</li>
+                    <li><code>app/services/page.tsx</code> - Services page SEO</li>
+                    <li><code>app/products/page.tsx</code> - Products page SEO</li>
+                    <li><code>app/masterclass/page.tsx</code> - Masterclass page SEO</li>
+                    <li><code>app/about/page.tsx</code> - About page SEO</li>
+                    <li><code>app/contact/page.tsx</code> - Contact page SEO</li>
+                </ol>
+            </section>
+        </main>
+
+        <footer>
+            <p><strong>Interop Digital Solutions Ltd</strong></p>
+            <p>SEO Implementation Documentation v1.0</p>
+            <p>Last Updated: November 27, 2025</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">For technical support, contact: info@interop.com</p>
+        </footer>
+
+        <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            ↑
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Show/hide back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        // Print functionality
+        function printDoc() {
+            window.print();
+        }
+    </script>
+</body>
+</html>

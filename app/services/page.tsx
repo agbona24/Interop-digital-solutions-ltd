@@ -1,9 +1,11 @@
 "use client";
 
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Services from "@/components/Services";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2, Users, Clock, DollarSign, Layers, Code, Database, Cloud, Shield } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -36,13 +38,63 @@ export default function ServicesPage() {
     },
   ];
 
+  // SEO: Update page title and meta description
+  useEffect(() => {
+    document.title = "Professional IT Services | Interop Digital Solutions Ltd";
+
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Comprehensive IT services including API Development, UI/UX Design, Cloud Solutions, Cybersecurity, AI/ML, Database Management, and more. 500+ projects delivered across 13 industries.');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = 'Comprehensive IT services including API Development, UI/UX Design, Cloud Solutions, Cybersecurity, AI/ML, Database Management, and more. 500+ projects delivered across 13 industries.';
+      document.head.appendChild(meta);
+    }
+  }, []);
+
   return (
     <main className="min-h-screen bg-white">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative pt-32 pb-16 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700 overflow-hidden">
+        {/* Hero Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero1.jpg"
+            alt="IT Services Background"
+            fill
+            className="object-cover object-center"
+            quality={90}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary-900/85 via-secondary-800/80 to-secondary-900/85"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/10 via-transparent to-primary-500/5"></div>
+        </div>
+
+        {/* Animated Background */}
+        <div className="absolute inset-0 overflow-hidden z-10">
+          <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-primary-500/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-primary-600/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        </div>
+
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 z-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
+
+        {/* Floating Animated Shapes */}
+        <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+          <svg className="absolute top-20 left-10 w-16 h-16 text-primary-500/30 animate-float" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="currentColor" />
+          </svg>
+          <svg className="absolute top-40 right-20 w-20 h-20 text-blue-400/20 animate-float-delayed" viewBox="0 0 100 100">
+            <polygon points="50,10 90,90 10,90" fill="currentColor" />
+          </svg>
+          <svg className="absolute bottom-32 left-1/4 w-12 h-12 text-primary-400/40 animate-float" viewBox="0 0 100 100">
+            <rect x="20" y="20" width="60" height="60" fill="currentColor" />
+          </svg>
+        </div>
+
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
             Professional IT{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-600">
@@ -54,7 +106,7 @@ export default function ServicesPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-6 mt-8">
             <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
-              <span className="text-white font-semibold">9 Core Services</span>
+              <span className="text-white font-semibold">12 Core Services</span>
             </div>
             <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
               <span className="text-white font-semibold">500+ Projects</span>

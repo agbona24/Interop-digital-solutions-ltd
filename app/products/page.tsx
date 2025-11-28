@@ -1,9 +1,11 @@
 "use client";
 
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Products from "@/components/Products";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Zap, Shield, BarChart3, Globe, CheckCircle, Rocket, Target, TrendingUp, Star } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -11,6 +13,22 @@ export default function ProductsPage() {
   const useCasesReveal = useScrollReveal();
   const pricingReveal = useScrollReveal();
   const testimonialsReveal = useScrollReveal();
+
+  // SEO: Update page title and meta description
+  useEffect(() => {
+    document.title = "Innovative IT Products | Interop Digital Solutions Ltd";
+
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Cutting-edge IT products including Process Automation, Payment Solutions, Commerce Platforms, and Geo Services. Enterprise-grade solutions built for scale and performance.');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = 'Cutting-edge IT products including Process Automation, Payment Solutions, Commerce Platforms, and Geo Services. Enterprise-grade solutions built for scale and performance.';
+      document.head.appendChild(meta);
+    }
+  }, []);
+
   const capabilities = [
     {
       icon: Zap,
@@ -39,8 +57,43 @@ export default function ProductsPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative pt-32 pb-16 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700 overflow-hidden">
+        {/* Hero Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero1.jpg"
+            alt="IT Products Background"
+            fill
+            className="object-cover object-center"
+            quality={90}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary-900/85 via-secondary-800/80 to-secondary-900/85"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/10 via-transparent to-primary-500/5"></div>
+        </div>
+
+        {/* Animated Background */}
+        <div className="absolute inset-0 overflow-hidden z-10">
+          <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-primary-500/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-primary-600/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        </div>
+
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 z-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
+
+        {/* Floating Animated Shapes */}
+        <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+          <svg className="absolute top-20 right-10 w-16 h-16 text-primary-500/30 animate-float" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="currentColor" />
+          </svg>
+          <svg className="absolute bottom-40 left-20 w-20 h-20 text-blue-400/20 animate-float-delayed" viewBox="0 0 100 100">
+            <polygon points="50,10 90,90 10,90" fill="currentColor" />
+          </svg>
+          <svg className="absolute top-1/2 right-1/4 w-12 h-12 text-primary-400/40 animate-float" viewBox="0 0 100 100">
+            <rect x="20" y="20" width="60" height="60" fill="currentColor" />
+          </svg>
+        </div>
+
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
             Enterprise{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-600">
@@ -50,19 +103,13 @@ export default function ProductsPage() {
           <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
             Powerful, scalable solutions designed to streamline your operations and drive growth
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-primary-500/50 transition-all hover:scale-105"
             >
               Request a Demo
               <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              href="#pricing"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full font-semibold hover:bg-white/20 transition-all border border-white/20"
-            >
-              View Pricing
             </Link>
           </div>
         </div>
@@ -256,132 +303,6 @@ export default function ProductsPage() {
                     </div>
                   ))}
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Tiers */}
-      <section id="pricing" className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            ref={pricingReveal.ref}
-            className={`text-center mb-16 scroll-reveal ${pricingReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Flexible{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
-                Pricing Plans
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose the plan that fits your business needs. All plans include 30-day free trial.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                name: "Starter",
-                price: "$499",
-                period: "/month",
-                description: "Perfect for small businesses and startups",
-                features: [
-                  "Up to 10,000 transactions/month",
-                  "Standard API access",
-                  "Email support (48hr response)",
-                  "Basic analytics dashboard",
-                  "99.5% uptime SLA",
-                  "5GB storage"
-                ],
-                cta: "Start Free Trial",
-                highlighted: false
-              },
-              {
-                name: "Professional",
-                price: "$1,499",
-                period: "/month",
-                description: "For growing businesses with higher volume",
-                features: [
-                  "Up to 100,000 transactions/month",
-                  "Advanced API with webhooks",
-                  "Priority support (12hr response)",
-                  "Advanced analytics & reporting",
-                  "99.9% uptime SLA",
-                  "50GB storage",
-                  "Custom integrations",
-                  "Dedicated account manager"
-                ],
-                cta: "Start Free Trial",
-                highlighted: true
-              },
-              {
-                name: "Enterprise",
-                price: "Custom",
-                period: "",
-                description: "Tailored solutions for large organizations",
-                features: [
-                  "Unlimited transactions",
-                  "Full API access with custom endpoints",
-                  "24/7 dedicated support",
-                  "Custom analytics & BI tools",
-                  "99.99% uptime SLA",
-                  "Unlimited storage",
-                  "White-label options",
-                  "On-premise deployment",
-                  "Custom development",
-                  "SLA guarantees"
-                ],
-                cta: "Contact Sales",
-                highlighted: false
-              }
-            ].map((plan, index) => (
-              <div
-                key={index}
-                className={`rounded-3xl p-8 ${
-                  plan.highlighted
-                    ? 'bg-gradient-to-br from-primary-500 to-primary-600 text-white shadow-2xl scale-105'
-                    : 'bg-white text-gray-900 shadow-lg'
-                } hover:shadow-2xl relative hover-lift scroll-reveal ${pricingReveal.isVisible ? `revealed animate-scale-in stagger-${index + 1}` : ''}`}
-              >
-                {plan.highlighted && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary-700 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                    Most Popular
-                  </div>
-                )}
-                <h3 className={`text-2xl font-bold mb-2 ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
-                  {plan.name}
-                </h3>
-                <div className="mb-4">
-                  <span className={`text-5xl font-black ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
-                    {plan.price}
-                  </span>
-                  <span className={`text-lg ${plan.highlighted ? 'text-orange-100' : 'text-gray-600'}`}>
-                    {plan.period}
-                  </span>
-                </div>
-                <p className={`mb-8 ${plan.highlighted ? 'text-orange-100' : 'text-gray-600'}`}>
-                  {plan.description}
-                </p>
-                <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <CheckCircle className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.highlighted ? 'text-orange-200' : 'text-primary-500'}`} />
-                      <span className={plan.highlighted ? 'text-white' : 'text-gray-700'}>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/contact"
-                  className={`block w-full text-center px-6 py-4 rounded-xl font-semibold transition-all hover:scale-105 ${
-                    plan.highlighted
-                      ? 'bg-white text-primary-600 hover:shadow-xl'
-                      : 'bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:shadow-xl'
-                  }`}
-                >
-                  {plan.cta}
-                </Link>
               </div>
             ))}
           </div>

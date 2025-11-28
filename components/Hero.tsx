@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,17 +17,33 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700"
     >
+      {/* Hero Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero2.jpg"
+          alt="Interop Digital Solutions Team"
+          fill
+          priority
+          className="object-cover object-center"
+          quality={90}
+        />
+        {/* Dark overlay with brand colors for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary-900/85 via-secondary-800/80 to-secondary-900/85"></div>
+        {/* Orange accent overlay */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/10 via-transparent to-primary-500/5"></div>
+      </div>
+
       {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden z-10">
         <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-primary-500/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-primary-600/20 to-transparent rounded-full blur-3xl animate-pulse delay-700"></div>
       </div>
 
       {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
+      <div className="absolute inset-0 z-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
 
       {/* Particle Effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
         {[...Array(15)].map((_, i) => (
           <div
             key={i}
@@ -44,7 +61,7 @@ export default function Hero() {
       </div>
 
       {/* Floating Animated Shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
         {/* Orange Circle - Top Left */}
         <svg
           className="absolute top-20 left-10 w-20 h-20 text-primary-500/30 animate-float"
@@ -135,7 +152,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
         <div
           className={`transition-all duration-1000 ${
             isVisible
@@ -186,10 +203,10 @@ export default function Hero() {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
             {[
-              { label: "Projects Delivered", value: "500+" },
-              { label: "Happy Clients", value: "200+" },
-              { label: "Team Members", value: "50+" },
-              { label: "Countries Served", value: "25+" },
+              { label: "Microsoft Partner", value: "Certified" },
+              { label: "Happy Clients", value: "17+" },
+              { label: "Team Members", value: "19+" },
+              { label: "Industries Served", value: "13" },
             ].map((stat, index) => (
               <div
                 key={index}
@@ -212,7 +229,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
         </div>

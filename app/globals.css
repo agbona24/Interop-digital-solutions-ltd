@@ -240,6 +240,17 @@
     }
   }
 
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   /* Animation Classes */
   .animate-fade-in-up {
     animation: fadeInUp 0.6s ease-out forwards;
@@ -273,6 +284,10 @@
     animation: slideInRight 0.4s ease-out forwards;
   }
 
+  .animate-slideUp {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
   /* Stagger Delays */
   .stagger-1 { animation-delay: 0.1s; }
   .stagger-2 { animation-delay: 0.2s; }
@@ -301,7 +316,7 @@
     position: absolute;
     inset: -2px;
     border-radius: inherit;
-    background: linear-gradient(45deg, #f97316, #ea580c);
+    background: linear-gradient(45deg, #FF6600, #e65c00);
     opacity: 0;
     z-index: -1;
     transition: opacity 0.3s ease;

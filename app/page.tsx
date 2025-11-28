@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import AnimatedStat from "@/components/AnimatedStat";
 import ClientLogosTicker from "@/components/ClientLogosTicker";
+import IndustriesWeServe from "@/components/IndustriesWeServe";
 import Link from "next/link";
 import { Code2, Package, Users, Mail, Shield, Zap, Award, TrendingUp, CheckCircle, ArrowRight, Sparkles } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -123,7 +124,7 @@ export default function Home() {
               {
                 icon: Award,
                 title: "Proven Excellence",
-                description: "15+ years serving Fortune 500 companies with 98% client retention and satisfaction rates"
+                description: "17+ happy clients with consistent satisfaction and long-term partnerships"
               },
               {
                 icon: TrendingUp,
@@ -243,6 +244,9 @@ export default function Home() {
 
       {/* Client Logos */}
       <ClientLogosTicker />
+
+      {/* Industries We Serve */}
+      <IndustriesWeServe />
 
       {/* CTA Section */}
       <section className="py-24 bg-white">

@@ -9,18 +9,23 @@ interface Client {
 }
 
 const clients: Client[] = [
-  { name: "TechCorp Global", logo: "TC", industry: "Technology" },
-  { name: "Financial Solutions Inc", logo: "FSI", industry: "Finance" },
-  { name: "HealthCare Plus", logo: "HC+", industry: "Healthcare" },
-  { name: "Retail Giants Co", logo: "RGC", industry: "Retail" },
-  { name: "Manufacturing Pro", logo: "MP", industry: "Manufacturing" },
-  { name: "Education Hub", logo: "EH", industry: "Education" },
-  { name: "Energy Systems Ltd", logo: "ESL", industry: "Energy" },
-  { name: "Transport Logistics", logo: "TL", industry: "Logistics" },
-  { name: "Media Networks", logo: "MN", industry: "Media" },
-  { name: "Pharma Innovations", logo: "PI", industry: "Pharmaceutical" },
-  { name: "Real Estate Group", logo: "REG", industry: "Real Estate" },
-  { name: "Insurance Partners", logo: "IP", industry: "Insurance" },
+  { name: "PricewaterhouseCoopers", logo: "PWC", industry: "Professional Services" },
+  { name: "Energia Limited", logo: "EL", industry: "Energy" },
+  { name: "AIPEC Group", logo: "AG", industry: "Oil & Gas" },
+  { name: "Refem Millers Limited", logo: "RM", industry: "Manufacturing" },
+  { name: "Tethys Limited", logo: "TL", industry: "Engineering" },
+  { name: "United Motor Company", logo: "UMC", industry: "Automotive" },
+  { name: "Emzor Pharmaceutical", logo: "EP", industry: "Healthcare" },
+  { name: "Estendo Power Products", logo: "EPP", industry: "Energy" },
+  { name: "Mano Palm Oil Industries", logo: "MPO", industry: "Manufacturing" },
+  { name: "Labianca Company Limited", logo: "LCL", industry: "Distribution" },
+  { name: "Geoplex Drillteq Limited", logo: "GD", industry: "Engineering" },
+  { name: "Nett Pharmacy", logo: "NP", industry: "Healthcare" },
+  { name: "Okitipupa Oil Palm Plc", logo: "OOP", industry: "Manufacturing" },
+  { name: "H&A Corporation", logo: "H&A", industry: "Professional Services" },
+  { name: "Quilox Restaurant & Bar", logo: "QR", industry: "Retail" },
+  { name: "Westgate Technologies", logo: "WT", industry: "Technology" },
+  { name: "Bayrock Lifestyle", logo: "BL", industry: "Retail" },
 ];
 
 // Gradient colors for logos
@@ -70,25 +75,25 @@ export default function ClientLogosTicker() {
         >
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-bold text-primary-500 mb-2">
-              150+
+              17+
             </div>
             <div className="text-gray-600 font-medium">Happy Clients</div>
           </div>
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-bold text-primary-500 mb-2">
-              98%
+              19+
             </div>
-            <div className="text-gray-600 font-medium">Satisfaction Rate</div>
+            <div className="text-gray-600 font-medium">Team Members</div>
           </div>
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-bold text-primary-500 mb-2">
-              500+
+              3
             </div>
-            <div className="text-gray-600 font-medium">Projects Delivered</div>
+            <div className="text-gray-600 font-medium">Countries Served</div>
           </div>
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-bold text-primary-500 mb-2">
-              12
+              13
             </div>
             <div className="text-gray-600 font-medium">Industries Served</div>
           </div>
@@ -132,10 +137,10 @@ export default function ClientLogosTicker() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { icon: "🏆", title: "Award Winning", desc: "Best IT Solutions 2024" },
-            { icon: "🔒", title: "ISO Certified", desc: "ISO 27001:2013" },
-            { icon: "⭐", title: "Top Rated", desc: "4.9/5 on Clutch" },
-            { icon: "🌍", title: "Global Reach", desc: "30+ Countries" },
+            { icon: "🤝", title: "Microsoft Partner", desc: "Certified Solutions" },
+            { icon: "🛡️", title: "Fortinet Partner", desc: "Security Expert" },
+            { icon: "⭐", title: "Client Focused", desc: "Proven Excellence" },
+            { icon: "🌍", title: "Regional Reach", desc: "Nigeria, Ghana, Liberia" },
           ].map((badge, index) => (
             <div
               key={badge.title}

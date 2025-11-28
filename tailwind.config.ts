@@ -9,31 +9,44 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand Orange - Primary Color
+        // Brand Orange - Primary Color (#FF6600)
         primary: {
-          50: '#fff7ed',
-          100: '#ffedd5',
-          200: '#fed7aa',
-          300: '#fdba74',
-          400: '#fb923c',
-          500: '#f97316', // Vibrant Orange
-          600: '#ea580c',
-          700: '#c2410c',
-          800: '#9a3412',
-          900: '#7c2d12',
+          50: '#fff4e6',
+          100: '#ffe0b3',
+          200: '#ffcc80',
+          300: '#ffb84d',
+          400: '#ffa31a',
+          500: '#FF6600', // Main Brand Orange
+          600: '#e65c00',
+          700: '#cc5200',
+          800: '#b34700',
+          900: '#993d00',
         },
-        // Brand Navy - Secondary Color
+        // Brand Dark Blue - Secondary Color (#00204A)
         secondary: {
-          50: '#f0f4f8',
-          100: '#d9e2ec',
-          200: '#bcccdc',
-          300: '#9fb3c8',
-          400: '#829ab1',
-          500: '#627d98',
-          600: '#486581',
-          700: '#334e68', // Deep Navy Blue
-          800: '#243b53',
-          900: '#102a43',
+          50: '#e6ecf2',
+          100: '#b3c5d9',
+          200: '#809ebf',
+          300: '#4d77a6',
+          400: '#1a508c',
+          500: '#003773',
+          600: '#002e5a',
+          700: '#00204A', // Main Brand Dark Blue
+          800: '#001a3d',
+          900: '#001430',
+        },
+        // Brand Grey (#808080)
+        neutral: {
+          50: '#f7f7f7',
+          100: '#e6e6e6',
+          200: '#cccccc',
+          300: '#b3b3b3',
+          400: '#999999',
+          500: '#808080', // Main Brand Grey
+          600: '#666666',
+          700: '#4d4d4d',
+          800: '#333333',
+          900: '#1a1a1a',
         },
       },
       fontFamily: {

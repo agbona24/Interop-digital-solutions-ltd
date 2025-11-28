@@ -2,11 +2,19 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
+  Mail,
+  Database,
+  Server,
+  MonitorPlay,
+  HardDrive,
+  Shield,
+  ShieldCheck,
+  CheckCircle,
+  ArrowRight,
   Workflow,
   CreditCard,
   ShoppingCart,
   MapPin,
-  ArrowRight,
 } from "lucide-react";
 
 export default function Products() {
@@ -37,28 +45,28 @@ export default function Products() {
   const products = [
     {
       icon: Workflow,
-      title: "Process Automation",
+      title: "Process Automation Platform",
       description:
-        "Streamline your business operations with intelligent automation solutions that reduce manual work and increase efficiency.",
+        "Intelligent automation solution that streamlines workflows, reduces manual tasks, and increases operational efficiency. Automate repetitive processes and free your team to focus on high-value work.",
       features: [
-        "Workflow Automation",
-        "Document Processing",
-        "Task Scheduling",
-        "Integration Hub",
+        "Visual Workflow Builder",
+        "API & System Integration",
+        "Real-time Monitoring",
+        "Custom Rule Engine",
       ],
       color: "from-primary-500 to-primary-600",
-      image: "🤖",
+      image: "⚡",
     },
     {
       icon: CreditCard,
-      title: "Payment Solutions",
+      title: "Payment Gateway Solution",
       description:
-        "Secure, fast, and reliable payment processing systems designed for modern businesses and seamless transactions.",
+        "Secure, PCI-DSS compliant payment processing supporting multiple payment methods. Process transactions globally with instant settlement, fraud detection, and comprehensive reporting.",
       features: [
         "Multi-Currency Support",
-        "Fraud Detection",
-        "Real-time Processing",
-        "Compliance Ready",
+        "Fraud Detection & Prevention",
+        "Instant Settlement",
+        "Comprehensive Analytics",
       ],
       color: "from-secondary-700 to-secondary-900",
       image: "💳",
@@ -67,29 +75,127 @@ export default function Products() {
       icon: ShoppingCart,
       title: "Commerce Platform",
       description:
-        "End-to-end e-commerce solutions that power your online business with cutting-edge technology and user experience.",
+        "Full-featured e-commerce solution with inventory management, order processing, and omnichannel capabilities. Build, scale, and optimize your online store with enterprise-grade features.",
       features: [
-        "Shopping Cart",
-        "Inventory Management",
-        "Order Tracking",
-        "Analytics Dashboard",
+        "Multi-channel Sales",
+        "Real-time Inventory Sync",
+        "Advanced Analytics",
+        "Mobile-Optimized",
       ],
       color: "from-primary-500 to-primary-700",
       image: "🛒",
     },
     {
       icon: MapPin,
-      title: "Geo Services",
+      title: "Geo Services Platform",
       description:
-        "Advanced geolocation and mapping solutions for location-based services, tracking, and spatial analytics.",
+        "Location intelligence and mapping services with real-time tracking, route optimization, and geofencing. Power your logistics, delivery, and location-based applications with accurate geo data.",
       features: [
-        "Real-time Tracking",
+        "Real-time GPS Tracking",
         "Route Optimization",
-        "Geofencing",
+        "Geofencing & Alerts",
         "Location Analytics",
       ],
       color: "from-secondary-600 to-secondary-800",
       image: "🗺️",
+    },
+    {
+      icon: Mail,
+      title: "Microsoft Office 365",
+      description:
+        "Cloud-based productivity platform including Word, Excel, PowerPoint, Outlook, and OneDrive with advanced security and intelligent cloud services.",
+      features: [
+        "Seamless Integration & Collaboration",
+        "Access Anywhere, Anytime",
+        "Advanced Security Features",
+        "Continuous Innovation",
+      ],
+      color: "from-primary-500 to-primary-600",
+      image: "📧",
+    },
+    {
+      icon: Database,
+      title: "Microsoft SQL Server",
+      description:
+        "Relational database management system (RDBMS) for storing and retrieving data with robust security and high performance.",
+      features: [
+        "Robust Security Features",
+        "High Performance & Scalability",
+        "Comprehensive Data Management",
+        "Good Integration with Microsoft Products",
+      ],
+      color: "from-secondary-700 to-secondary-900",
+      image: "💾",
+    },
+    {
+      icon: Server,
+      title: "Microsoft Windows Server",
+      description:
+        "Platform for building infrastructure of connected applications, networks, and web services, bridging on-premises with Azure.",
+      features: [
+        "Network Administration",
+        "File Management",
+        "Enterprise-level Management",
+        "Azure Integration",
+      ],
+      color: "from-primary-500 to-primary-700",
+      image: "🖥️",
+    },
+    {
+      icon: MonitorPlay,
+      title: "Microsoft Remote Desktop Service",
+      description:
+        "Virtualization platform for delivering individual applications, secure mobile and remote desktop access, and cloud-based operations.",
+      features: [
+        "Virtualized Applications",
+        "Secure Remote Access",
+        "Cloud Deployment",
+        "Flexible Deployment Options",
+      ],
+      color: "from-secondary-600 to-secondary-800",
+      image: "🖥️",
+    },
+    {
+      icon: HardDrive,
+      title: "HP ProLiant Hardware Server",
+      description:
+        "High-performance servers designed for hybrid environments with exceptional energy efficiency, security features, and AI optimization.",
+      features: [
+        "Integrated Lights-Out (iLO)",
+        "Tool-free Serviceability",
+        "Optimized for AI Workloads",
+        "Backup & Recovery Solutions",
+      ],
+      color: "from-primary-400 to-primary-600",
+      image: "⚙️",
+    },
+    {
+      icon: Shield,
+      title: "Cisco Fire Power Firewall",
+      description:
+        "Network security suite protecting against malware and hackers with threat defense, policy management, and continuous monitoring.",
+      features: [
+        "Threat Defence",
+        "Policy Management",
+        "Centralized Management",
+        "Continuous Monitoring",
+      ],
+      color: "from-secondary-700 to-secondary-900",
+      image: "🛡️",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Fortinet Next-Generation Firewall",
+      description:
+        "Advanced networking with robust security, AI-enhanced threat protection, custom ASIC architecture for superior performance and energy efficiency.",
+      features: [
+        "AI-Enhanced Protection",
+        "Superior Performance",
+        "Integrated SD-WAN & ZTNA",
+        "Unified Policy Management",
+      ],
+      color: "from-primary-500 to-primary-600",
+      image: "🔒",
     },
   ];
 
