@@ -206,7 +206,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                 Appointment Booked!
               </h3>
               <p className="text-gray-600">
-                We've received your request and will send you a confirmation email shortly.
+                We&apos;ve received your request and will send you a confirmation email shortly.
               </p>
             </div>
           ) : (
@@ -215,7 +215,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
               {step === 1 && (
                 <div className="space-y-4 animate-fadeIn">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    Let's get to know you
+                    Let&apos;s get to know you
                   </h3>
 
                   <div>
@@ -347,7 +347,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                 <div className="space-y-6 animate-fadeIn">
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4">
-                      What's your timeline?
+                      What&apos;s your timeline?
                     </h3>
                     <div className="space-y-2">
                       {timelineOptions.map((timeline) => (
@@ -375,7 +375,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
 
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 mb-3">
-                      What's your budget range?
+                      What&apos;s your budget range?
                     </h3>
                     <div className="space-y-2">
                       {budgetOptions.map((budget) => (
