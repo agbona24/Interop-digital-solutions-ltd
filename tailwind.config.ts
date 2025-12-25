@@ -22,18 +22,18 @@ const config: Config = {
           800: '#b34700',
           900: '#993d00',
         },
-        // Brand Dark Blue - Secondary Color (#00204A)
+        // Brand Navy Blue - Secondary Color
         secondary: {
-          50: '#e6ecf2',
-          100: '#b3c5d9',
-          200: '#809ebf',
-          300: '#4d77a6',
-          400: '#1a508c',
-          500: '#003773',
-          600: '#002e5a',
-          700: '#00204A', // Main Brand Dark Blue
-          800: '#001a3d',
-          900: '#001430',
+          50: '#e6f0ff',
+          100: '#cce0ff',
+          200: '#99c2ff',
+          300: '#66a3ff',
+          400: '#3385ff',
+          500: '#0066ff',
+          600: '#0052cc',
+          700: '#003d99',
+          800: '#002B5C', // Main Brand Navy Blue
+          900: '#001a3d',
         },
         // Brand Grey (#808080)
         neutral: {

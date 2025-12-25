@@ -134,25 +134,45 @@ export default function Services() {
     <section
       id="services"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-b from-white to-gray-50"
+      className="py-24 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Background Decoration */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary-700/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
+          <div
+            className={`inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 backdrop-blur-lg border border-primary-500/20 rounded-full mb-6 transition-all duration-700 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <span className="text-primary-600 text-sm font-semibold">
+              What We Do
+            </span>
+          </div>
           <h2
-            className={`text-4xl md:text-5xl font-bold text-gray-900 mb-4 transition-all duration-700 ${
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 transition-all duration-700 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
           >
             Our{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-secondary-600">
-              Services
+            <span className="relative inline-block">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-secondary-600">
+                Services
+              </span>
+              <span className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-secondary-600 rounded-full opacity-30"></span>
             </span>
           </h2>
           <p
-            className={`text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-700 delay-100 ${
+            className={`text-lg md:text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-700 delay-100 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -164,11 +184,11 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 ${
+              className={`group relative bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 hover:border-primary-200 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -177,23 +197,26 @@ export default function Services() {
             >
               {/* Icon */}
               <div
-                className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}
               >
-                <service.icon className="w-8 h-8 text-white" />
+                <service.icon className="w-7 h-7 text-white" />
               </div>
 
               {/* Content */}
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-sm">
                 {service.description}
               </p>
 
-              {/* Hover Effect */}
+              {/* Hover Effect Border */}
               <div
-                className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`}
               ></div>
+              
+              {/* Corner Accent */}
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary-500/0 to-primary-500/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           ))}
         </div>

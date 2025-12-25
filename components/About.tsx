@@ -73,29 +73,43 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden"
+      className="py-24 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden"
     >
       {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary-100 rounded-full filter blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-100 rounded-full filter blur-3xl opacity-20 translate-x-1/2 translate-y-1/2"></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500/10 rounded-full filter blur-3xl opacity-50 -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-700/10 rounded-full filter blur-3xl opacity-50 translate-x-1/2 translate-y-1/2"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
+          <div
+            className={`inline-flex items-center gap-2 px-4 py-2 bg-secondary-700/10 backdrop-blur-lg border border-secondary-700/20 rounded-full mb-6 transition-all duration-700 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <span className="text-secondary-700 text-sm font-semibold">
+              Who We Are
+            </span>
+          </div>
           <h2
-            className={`text-4xl md:text-5xl font-bold text-gray-900 mb-4 transition-all duration-700 ${
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 transition-all duration-700 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
           >
             About{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
-              Interop Digital
+            <span className="relative inline-block">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
+                Interop Digital
+              </span>
+              <span className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full opacity-30"></span>
             </span>
           </h2>
           <p
-            className={`text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-700 delay-100 ${
+            className={`text-lg md:text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-700 delay-100 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -152,12 +166,13 @@ export default function About() {
               {values.map((value, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100"
+                  className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 hover:border-primary-200 relative overflow-hidden"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mb-4">
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary-500/0 to-primary-500/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
                     <value.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="text-lg font-bold text-gray-900 mb-2">
+                  <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
                     {value.title}
                   </h4>
                   <p className="text-sm text-gray-600">{value.description}</p>
@@ -169,24 +184,28 @@ export default function About() {
 
         {/* Stats Section */}
         <div
-          className={`bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700 rounded-3xl p-12 transition-all duration-700 delay-300 ${
+          className={`bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700 rounded-3xl p-12 shadow-2xl transition-all duration-700 delay-300 relative overflow-hidden ${
             isVisible
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {/* Decorative Elements */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="group text-center">
                 <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 bg-white/10 backdrop-blur-lg rounded-2xl flex items-center justify-center border border-white/20">
+                  <div className="w-16 h-16 bg-white/10 backdrop-blur-lg rounded-2xl flex items-center justify-center border border-white/20 group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300 shadow-lg">
                     <stat.icon className="w-8 h-8 text-white" />
                   </div>
                 </div>
-                <div className="text-4xl font-bold text-white mb-2">
+                <div className="text-4xl font-bold text-white mb-2 group-hover:scale-110 transition-transform">
                   {stat.value}
                 </div>
-                <div className="text-sm text-primary-100">{stat.label}</div>
+                <div className="text-sm text-primary-100 group-hover:text-white transition-colors">{stat.label}</div>
               </div>
             ))}
           </div>

@@ -1,23 +1,41 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, Shield, Award, TrendingUp, Code2, Cloud, Rocket } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     setIsVisible(true);
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 20 - 10,
+        y: (e.clientY / window.innerHeight) * 20 - 10,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+  const features = [
+    { icon: Zap, label: "Lightning Fast", color: "from-yellow-400 to-orange-500" },
+    { icon: Shield, label: "Secure", color: "from-blue-400 to-cyan-500" },
+    { icon: Award, label: "Award Winning", color: "from-purple-400 to-pink-500" },
+    { icon: TrendingUp, label: "Scalable", color: "from-green-400 to-emerald-500" },
+  ];
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100"
     >
-      {/* Hero Background Image */}
+      {/* Hero Background Image with Orange Fade */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero2.jpg"
@@ -27,211 +45,206 @@ export default function Hero() {
           className="object-cover object-center"
           quality={90}
         />
-        {/* Dark overlay with brand colors for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary-900/85 via-secondary-800/80 to-secondary-900/85"></div>
-        {/* Orange accent overlay */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/10 via-transparent to-primary-500/5"></div>
+        {/* Orange faded overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-500/40 via-orange-400/35 to-primary-600/45"></div>
+        {/* White overlay for brightness */}
+        <div className="absolute inset-0 bg-white/60"></div>
+        {/* Additional gradient for depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/40"></div>
+      </div>
+      {/* Animated Gradient Orbs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div 
+          className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary-500/30 to-orange-500/20 blur-3xl animate-blob"
+          style={{
+            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
+            transition: "transform 0.3s ease-out",
+          }}
+        ></div>
+        <div 
+          className="absolute top-1/3 -right-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-secondary-700/30 to-secondary-500/20 blur-3xl animate-blob animation-delay-2000"
+          style={{
+            transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`,
+            transition: "transform 0.3s ease-out",
+          }}
+        ></div>
+        <div className="absolute -bottom-32 left-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-secondary-600/20 to-secondary-400/15 blur-3xl animate-blob animation-delay-4000"></div>
       </div>
 
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden z-10">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-primary-500/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-primary-600/20 to-transparent rounded-full blur-3xl animate-pulse delay-700"></div>
+      {/* Floating Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+
+      {/* Modern Geometric Shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Top Right Corner Shape */}
+        <div className="absolute -top-20 -right-20 w-80 h-80 bg-gradient-to-br from-primary-500/10 to-transparent rounded-full blur-2xl"></div>
+        
+        {/* Bottom Left Corner Shape */}
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-tr from-secondary-700/10 to-transparent rounded-full blur-2xl"></div>
+
+        {/* Floating Code Icon */}
+        <Code2 className="absolute top-20 right-1/4 w-16 h-16 text-primary-500/20 animate-float" />
+        <Cloud className="absolute bottom-32 left-1/4 w-20 h-20 text-secondary-700/20 animate-float-delayed" />
+        <Rocket className="absolute top-1/3 left-20 w-12 h-12 text-orange-500/20 animate-bounce-slow" />
       </div>
 
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 z-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
-
-      {/* Particle Effects */}
-      <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
+      {/* Main Content Container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Left Column - Main Content */}
           <div
-            key={i}
-            className={`absolute w-1 h-1 rounded-full ${
-              i % 3 === 0 ? 'bg-primary-400' : 'bg-blue-300'
-            } opacity-50 animate-particle`}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${8 + Math.random() * 4}s`,
-            }}
-          />
-        ))}
-      </div>
+            className={`transition-all duration-1000 ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+            }`}
+          >
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 border border-primary-500/20 rounded-full mb-6">
+              <Sparkles className="w-4 h-4 text-primary-600" />
+              <span className="text-gray-700 text-sm font-semibold">
+                Transforming Ideas into Digital Reality
+              </span>
+            </div>
 
-      {/* Floating Animated Shapes */}
-      <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
-        {/* Orange Circle - Top Left */}
-        <svg
-          className="absolute top-20 left-10 w-20 h-20 text-primary-500/30 animate-float"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="50" cy="50" r="40" fill="currentColor" />
-        </svg>
+            {/* Main Heading */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 leading-[1.1]">
+              Building the{" "}
+              <span className="relative inline-block">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-orange-500 to-primary-600">
+                  Future
+                </span>
+                <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 300 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 5.5C50 2.5 100 1 150 3.5C200 6 250 4.5 299 5.5" stroke="url(#paint0_linear)" strokeWidth="3" strokeLinecap="round"/>
+                  <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="300" y2="0" gradientUnits="userSpaceOnUse">
+                      <stop stopColor="#FF6600"/>
+                      <stop offset="1" stopColor="#ff8833"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </span>
+              <br />
+              of Digital Excellence
+            </h1>
 
-        {/* Navy Triangle - Top Right */}
-        <svg
-          className="absolute top-40 right-20 w-24 h-24 text-blue-400/60 animate-float-delayed"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <polygon points="50,10 90,90 10,90" fill="currentColor" />
-        </svg>
+            {/* Subheading */}
+            <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl">
+              Empowering businesses with cutting-edge IT solutions in Cloud, AI, IoT, and beyond. 
+              From concept to deployment, we turn vision into reality.
+            </p>
 
-        {/* Orange Hexagon - Bottom Left */}
-        <svg
-          className="absolute bottom-40 left-20 w-28 h-28 text-primary-600/30 animate-spin-slow"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M50 5 L85 27.5 L85 72.5 L50 95 L15 72.5 L15 27.5 Z" fill="currentColor" />
-        </svg>
-
-        {/* Navy Square - Bottom Right */}
-        <svg
-          className="absolute bottom-32 right-32 w-16 h-16 text-blue-300/50 animate-pulse"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect x="20" y="20" width="60" height="60" rx="10" fill="currentColor" />
-        </svg>
-
-        {/* Small Orange Dots */}
-        <svg
-          className="absolute top-1/3 left-1/4 w-12 h-12 text-primary-400/40 animate-ping-slow"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="30" cy="30" r="8" fill="currentColor" />
-          <circle cx="70" cy="30" r="8" fill="currentColor" />
-          <circle cx="30" cy="70" r="8" fill="currentColor" />
-          <circle cx="70" cy="70" r="8" fill="currentColor" />
-        </svg>
-
-        {/* Code Bracket Shapes */}
-        <svg
-          className="absolute top-1/2 right-1/4 w-20 h-20 text-primary-500/30 animate-float"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M30 20 L10 50 L30 80" stroke="currentColor" strokeWidth="4" fill="none" />
-          <path d="M70 20 L90 50 L70 80" stroke="currentColor" strokeWidth="4" fill="none" />
-        </svg>
-
-        {/* Gear Icon Shape */}
-        <svg
-          className="absolute bottom-1/4 left-1/3 w-24 h-24 text-blue-400/50 animate-spin-slow"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M50 30 L55 40 L65 40 L58 47 L60 57 L50 50 L40 57 L42 47 L35 40 L45 40 Z" fill="currentColor" />
-          <circle cx="50" cy="50" r="10" fill="currentColor" />
-        </svg>
-
-        {/* Circuit Line Pattern */}
-        <svg
-          className="absolute top-1/4 right-1/3 w-32 h-32 text-primary-400/20 animate-pulse"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M10 10 L40 10 L40 40 L70 40 L70 70 L90 70" stroke="currentColor" strokeWidth="3" fill="none" />
-          <circle cx="40" cy="40" r="5" fill="currentColor" />
-          <circle cx="70" cy="70" r="5" fill="currentColor" />
-        </svg>
-
-        {/* Plus Signs */}
-        <svg
-          className="absolute bottom-1/3 right-1/4 w-16 h-16 text-primary-500/35 animate-ping-slow"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M50 20 L50 80 M20 50 L80 50" stroke="currentColor" strokeWidth="6" />
-        </svg>
-      </div>
-
-      {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
-        <div
-          className={`transition-all duration-1000 ${
-            isVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-10"
-          }`}
-        >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 backdrop-blur-lg border border-primary-500/30 rounded-full mb-8">
-            <Sparkles className="w-4 h-4 text-primary-400" />
-            <span className="text-white text-sm font-semibold">
-              Transforming Ideas into Digital Reality
-            </span>
-          </div>
-
-          {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-            Your Partner in
-            <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-600">
-              Digital Excellence
-            </span>
-          </h1>
-
-          {/* Subheading */}
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Empowering businesses with cutting-edge IT solutions in Cloud, AI,
-            IoT, and more. From concept to deployment, we deliver excellence.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/contact"
-              className="group px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-primary-500/50 transition-all hover:scale-105 flex items-center gap-2"
-            >
-              Start Your Project
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/services"
-              className="px-8 py-4 bg-white text-secondary-900 rounded-full font-semibold hover:bg-gray-100 transition-all border-2 border-white/20"
-            >
-              Explore Services
-            </Link>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
-            {[
-              { label: "Microsoft Partner", value: "Certified" },
-              { label: "Happy Clients", value: "17+" },
-              { label: "Team Members", value: "19+" },
-              { label: "Industries Served", value: "13" },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className={`transition-all duration-700 delay-${
-                  index * 100
-                } ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <Link
+                href="/contact"
+                className="group relative px-8 py-4 bg-gradient-to-r from-primary-500 to-orange-600 text-white rounded-2xl font-semibold hover:shadow-2xl hover:shadow-primary-500/40 transition-all hover:scale-105 flex items-center justify-center gap-2 overflow-hidden"
               >
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  {stat.value}
+                <span className="absolute inset-0 bg-gradient-to-r from-orange-600 to-primary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="relative">Start Your Project</span>
+                <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="/services"
+                className="group px-8 py-4 bg-white border-2 border-gray-200 text-gray-900 rounded-2xl font-semibold hover:border-primary-500 transition-all hover:scale-105 flex items-center justify-center gap-2"
+              >
+                Explore Services
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Link>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="flex flex-wrap gap-6">
+              {[
+                { value: "17+", label: "Happy Clients" },
+                { value: "19+", label: "Expert Team" },
+                { value: "13", label: "Industries" },
+              ].map((stat, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span className="text-white font-bold text-lg">{stat.value}</span>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">{stat.label}</p>
+                  </div>
                 </div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column - Floating Cards */}
+          <div
+            className={`relative transition-all duration-1000 delay-300 ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+            }`}
+          >
+            {/* Main Feature Card */}
+            <div className="relative">
+              {/* Large Card - Microsoft Partner */}
+              <div className="relative bg-gradient-to-br from-secondary-700 to-secondary-600 rounded-3xl p-8 shadow-2xl hover:scale-105 transition-transform duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-transparent rounded-3xl"></div>
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-16 h-16 bg-white/10 backdrop-blur-lg rounded-2xl flex items-center justify-center">
+                      <Award className="w-8 h-8 text-primary-400" />
+                    </div>
+                    <span className="px-4 py-1 bg-primary-500/20 text-primary-400 text-xs font-semibold rounded-full">
+                      CERTIFIED
+                    </span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-white mb-3">
+                    Microsoft Partner
+                  </h3>
+                  <p className="text-blue-100 leading-relaxed">
+                    Officially certified to deliver enterprise-grade solutions with Microsoft's trusted technology stack.
+                  </p>
+                </div>
               </div>
-            ))}
+
+              {/* Floating Mini Cards */}
+              <div className="absolute -top-6 -right-6 grid grid-cols-2 gap-4">
+                {features.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="group w-28 h-28 bg-white rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer"
+                    style={{
+                      animationDelay: `${index * 200}ms`,
+                      animation: isVisible ? "float 3s ease-in-out infinite" : "none",
+                      animationDelay: `${index * 0.5}s`,
+                    }}
+                  >
+                    <div className={`w-10 h-10 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform`}>
+                      <feature.icon className="w-5 h-5 text-white" />
+                    </div>
+                    <p className="text-xs font-semibold text-gray-700 text-center leading-tight">
+                      {feature.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Bottom Stats Card */}
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100 hover:scale-105 transition-transform duration-300">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center">
+                    <TrendingUp className="w-7 h-7 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-gray-900">98%</p>
+                    <p className="text-sm text-gray-500">Client Satisfaction</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-gray-600 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>

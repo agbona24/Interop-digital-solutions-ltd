@@ -31,8 +31,8 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
+          ? "bg-white shadow-lg"
+          : "bg-white shadow-md"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,16 +45,12 @@ export default function Navigation() {
                   src="/images/logo-white.png"
                   alt="Interop Digital Solutions Ltd Logo"
                   fill
-                  className={`object-contain transition-all duration-300 ${
-                    isScrolled ? "brightness-0" : ""
-                  }`}
+                  className="object-contain brightness-0"
                   priority
                 />
               </div>
               <span
-                className={`text-xl font-bold transition-colors ${
-                  isScrolled ? "text-gray-900" : "text-white"
-                }`}
+                className="text-xl font-bold text-gray-900"
               >
                 Interop Digital Solutions Ltd
               </span>
@@ -67,18 +63,18 @@ export default function Navigation() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary-600 ${
-                  isScrolled ? "text-gray-700" : "text-white"
-                }`}
+                className="text-sm font-medium transition-all hover:text-primary-600 relative group text-gray-700"
               >
                 {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
             <button
               onClick={() => setIsQuizModalOpen(true)}
-              className="px-6 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all hover:scale-105"
+              className="relative px-6 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-primary-500/40 transition-all hover:scale-105 overflow-hidden group"
             >
-              Get Started
+              <span className="absolute inset-0 bg-gradient-to-r from-primary-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              <span className="relative">Get Started</span>
             </button>
           </div>
 
@@ -88,9 +84,9 @@ export default function Navigation() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className={isScrolled ? "text-gray-900" : "text-white"} />
+              <X className="text-gray-900" />
             ) : (
-              <Menu className={isScrolled ? "text-gray-900" : "text-white"} />
+              <Menu className="text-gray-900" />
             )}
           </button>
         </div>
@@ -98,14 +94,15 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
+        <div className="md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200 shadow-xl animate-slide-down">
           <div className="px-4 py-6 space-y-4">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="block text-gray-700 hover:text-primary-600 font-medium"
+                className="block text-gray-700 hover:text-primary-600 font-medium transition-all hover:translate-x-2 py-2 px-3 rounded-lg hover:bg-primary-50"
                 onClick={() => setIsMobileMenuOpen(false)}
+                style={{ animationDelay: `${index * 50}ms` }}
               >
                 {link.name}
               </Link>
@@ -115,7 +112,7 @@ export default function Navigation() {
                 setIsQuizModalOpen(true);
                 setIsMobileMenuOpen(false);
               }}
-              className="block w-full px-6 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold text-center"
+              className="block w-full px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold text-center hover:shadow-lg hover:shadow-primary-500/30 transition-all hover:scale-105 mt-4"
             >
               Get Started
             </button>

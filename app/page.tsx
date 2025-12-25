@@ -52,19 +52,32 @@ export default function Home() {
       <Hero />
 
       {/* Quick Links Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary-700/5 rounded-full blur-3xl"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div
             ref={quickLinksReveal.ref}
             className={`text-center mb-16 scroll-reveal ${quickLinksReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 backdrop-blur-lg border border-primary-500/20 rounded-full mb-6">
+              <Sparkles className="w-4 h-4 text-primary-600" />
+              <span className="text-primary-600 text-sm font-semibold">
+                Quick Access
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
               Explore Our{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
-                Solutions
+              <span className="relative inline-block">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
+                  Solutions
+                </span>
+                <span className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full opacity-30"></span>
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Discover how we can help transform your business
             </p>
           </div>
@@ -74,19 +87,20 @@ export default function Home() {
               <Link
                 key={index}
                 href={link.href}
-                className={`group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift scroll-reveal ${quickLinksReveal.isVisible ? `revealed animate-fade-in-up stagger-${index + 1}` : ''}`}
+                className={`group bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl border border-gray-100 hover:border-primary-200 hover-lift scroll-reveal relative overflow-hidden ${quickLinksReveal.isVisible ? `revealed animate-fade-in-up stagger-${index + 1}` : ''}`}
               >
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary-500/0 to-primary-500/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div
-                  className={`w-16 h-16 rounded-xl bg-gradient-to-br ${link.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${link.color} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}
                 >
-                  <link.icon className="w-8 h-8 text-white" />
+                  <link.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
                   {link.title}
                 </h3>
-                <p className="text-gray-600">{link.description}</p>
-                <div className="mt-4 text-primary-600 font-semibold group-hover:translate-x-2 transition-transform inline-block">
-                  Learn more →
+                <p className="text-gray-600 text-sm">{link.description}</p>
+                <div className="mt-4 text-primary-600 font-semibold group-hover:translate-x-2 transition-transform inline-flex items-center gap-2">
+                  Learn more <ArrowRight className="w-4 h-4" />
                 </div>
               </Link>
             ))}
@@ -95,16 +109,29 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-24 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-500 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div
             ref={whyChooseReveal.ref}
             className={`text-center mb-16 scroll-reveal ${whyChooseReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Why Industry Leaders Choose Us
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-lg border border-white/20 rounded-full mb-6">
+              <Award className="w-4 h-4 text-primary-400" />
+              <span className="text-white text-sm font-semibold">
+                Why Choose Us
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+              Why Industry Leaders{" "}
+              <span className="text-primary-400">Choose Us</span>
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
               We deliver exceptional results through innovation, expertise, and unwavering commitment to excellence
             </p>
           </div>
@@ -134,11 +161,13 @@ export default function Home() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover-lift scroll-reveal ${whyChooseReveal.isVisible ? `revealed animate-scale-in stagger-${index + 1}` : ''}`}
+                className={`group bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover-lift scroll-reveal hover:scale-105 ${whyChooseReveal.isVisible ? `revealed animate-scale-in stagger-${index + 1}` : ''}`}
               >
-                <feature.icon className="w-12 h-12 text-primary-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                <p className="text-blue-100">{feature.description}</p>
+                <div className="w-12 h-12 bg-primary-400/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary-400/30 group-hover:scale-110 transition-all duration-300">
+                  <feature.icon className="w-7 h-7 text-primary-400" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary-400 transition-colors">{feature.title}</h3>
+                <p className="text-blue-100 text-sm group-hover:text-white transition-colors">{feature.description}</p>
               </div>
             ))}
           </div>

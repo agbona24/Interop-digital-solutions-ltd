@@ -59,19 +59,6 @@ export default function ServicesPage() {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700 overflow-hidden">
-        {/* Hero Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/hero1.jpg"
-            alt="IT Services Background"
-            fill
-            className="object-cover object-center"
-            quality={90}
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-secondary-900/85 via-secondary-800/80 to-secondary-900/85"></div>
-          <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/10 via-transparent to-primary-500/5"></div>
-        </div>
-
         {/* Animated Background */}
         <div className="absolute inset-0 overflow-hidden z-10">
           <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-primary-500/20 to-transparent rounded-full blur-3xl animate-pulse"></div>

@@ -203,28 +203,46 @@ export default function Products() {
     <section
       id="products"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden"
+      className="py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDAsIDAsIDAsIDAuMDIpIi8+PC9nPjwvc3ZnPg==')] opacity-40"></div>
 
+      {/* Decorative Elements */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-secondary-700/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-72 h-72 bg-primary-500/5 rounded-full blur-3xl"></div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
+          <div
+            className={`inline-flex items-center gap-2 px-4 py-2 bg-secondary-700/10 backdrop-blur-lg border border-secondary-700/20 rounded-full mb-6 transition-all duration-700 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <span className="text-secondary-700 text-sm font-semibold">
+              What We Offer
+            </span>
+          </div>
           <h2
-            className={`text-4xl md:text-5xl font-bold text-gray-900 mb-4 transition-all duration-700 ${
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 transition-all duration-700 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
           >
             Our{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-secondary-600">
-              Products
+            <span className="relative inline-block">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-secondary-600">
+                Products
+              </span>
+              <span className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-secondary-600 rounded-full opacity-30"></span>
             </span>
           </h2>
           <p
-            className={`text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-700 delay-100 ${
+            className={`text-lg md:text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-700 delay-100 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -240,7 +258,7 @@ export default function Products() {
           {products.map((product, index) => (
             <div
               key={index}
-              className={`group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 overflow-hidden relative ${
+              className={`group bg-white rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 hover:border-primary-200 overflow-hidden relative ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -256,18 +274,18 @@ export default function Products() {
                 {/* Icon & Emoji */}
                 <div className="flex items-center gap-4 mb-6">
                   <div
-                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${product.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${product.color} flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}
                   >
-                    <product.icon className="w-8 h-8 text-white" />
+                    <product.icon className="w-7 h-7 text-white" />
                   </div>
-                  <span className="text-5xl">{product.image}</span>
+                  <span className="text-4xl group-hover:scale-110 transition-transform duration-300">{product.image}</span>
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
                   {product.title}
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-600 mb-6 leading-relaxed text-sm">
                   {product.description}
                 </p>
 
@@ -276,22 +294,21 @@ export default function Products() {
                   {product.features.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-2 text-sm text-gray-700"
+                      className="flex items-center gap-2 text-sm text-gray-700 group-hover:text-gray-900 transition-colors"
                     >
-                      <div
-                        className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${product.color}`}
-                      ></div>
-                      {feature}
+                      <CheckCircle className={`w-4 h-4 text-primary-500`} />
+                      <span className="font-medium">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* CTA */}
                 <button
-                  className={`group/btn flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${product.color} text-white px-6 py-3 rounded-full hover:shadow-lg transition-all hover:scale-105`}
+                  className={`group/btn flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${product.color} text-white px-6 py-3 rounded-full hover:shadow-lg transition-all hover:scale-105 relative overflow-hidden`}
                 >
-                  Learn More
-                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  <span className={`absolute inset-0 bg-gradient-to-r ${product.color.split(' ').reverse().join(' ')} opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300`}></span>
+                  <span className="relative">Learn More</span>
+                  <ArrowRight className="relative w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
             </div>

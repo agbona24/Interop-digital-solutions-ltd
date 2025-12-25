@@ -45,9 +45,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white">
+    <footer className="bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white relative overflow-hidden">
+      {/* Decorative Background */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-500 rounded-full blur-3xl"></div>
+      </div>
+      
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
@@ -69,20 +75,20 @@ export default function Footer() {
             <div className="space-y-3">
               <a
                 href="mailto:info@interop.com"
-                className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all hover:translate-x-1"
               >
-                <Mail className="w-4 h-4" />
+                <Mail className="w-4 h-4 group-hover:text-primary-400 transition-colors" />
                 <span className="text-sm">info@interop.com</span>
               </a>
               <a
                 href="tel:+2348099451647"
-                className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+                className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all hover:translate-x-1"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4 group-hover:text-primary-400 transition-colors" />
                 <span className="text-sm">+234 (809) 945-1647</span>
               </a>
-              <div className="flex items-center gap-2 text-gray-300">
-                <MapPin className="w-4 h-4" />
+              <div className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all">
+                <MapPin className="w-4 h-4 group-hover:text-primary-400 transition-colors" />
                 <span className="text-sm">Trinity Mall, 70, Awolowo Way, Ikeja, Lagos, Nigeria</span>
               </div>
             </div>
@@ -153,14 +159,15 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
+                className="flex-1 px-4 py-2 bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white/20 text-sm transition-all"
                 required
               />
               <button
                 type="submit"
-                className="px-6 py-2 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all hover:scale-105 text-sm"
+                className="px-6 py-2 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all hover:scale-105 text-sm relative overflow-hidden group"
               >
-                Subscribe
+                <span className="absolute inset-0 bg-gradient-to-r from-primary-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="relative">Subscribe</span>
               </button>
             </form>
           </div>
