@@ -197,7 +197,7 @@ export default function Hero() {
                     Microsoft Partner
                   </h3>
                   <p className="text-blue-100 leading-relaxed">
-                    Officially certified to deliver enterprise-grade solutions with Microsoft's trusted technology stack.
+                    Officially certified to deliver enterprise-grade solutions with Microsoft&apos;s trusted technology stack.
                   </p>
                 </div>
               </div>

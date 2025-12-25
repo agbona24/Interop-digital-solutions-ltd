@@ -99,7 +99,7 @@ export default function Contact() {
             }`}
           >
             <span className="text-primary-600 text-sm font-semibold">
-              Let's Connect
+              Let&apos;s Connect
             </span>
           </div>
           <h2
