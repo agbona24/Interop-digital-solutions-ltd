@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import StructuredData from "@/components/StructuredData";
-import BackToTop from "@/components/BackToTop";
+import ScrollProgress from "@/components/ScrollProgress";
+import FloatingContact from "@/components/FloatingContact";
 import { ToastProvider } from "@/components/Toast";
 
 export const viewport: Viewport = {
@@ -186,7 +187,8 @@ export default function RootLayout({
         */}
         <ToastProvider>
           {children}
-          <BackToTop />
+          <ScrollProgress />
+          <FloatingContact />
         </ToastProvider>
       </body>
     </html>

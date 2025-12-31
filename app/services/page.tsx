@@ -57,48 +57,99 @@ export default function ServicesPage() {
     <main className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-16 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700 overflow-hidden">
-        {/* Animated Background */}
+      {/* Hero Section - Vibrant Orange Gradient with Background Image */}
+      <section className="relative pt-32 pb-16 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('/images/hero1.jpg')] bg-cover bg-center"></div>
+          {/* Vibrant Orange Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-500/90 via-orange-500/85 to-amber-500/90"></div>
+        </div>
+
+        {/* Animated Background - Brighter */}
         <div className="absolute inset-0 overflow-hidden z-10">
-          <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-primary-500/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-primary-600/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-yellow-300/25 to-transparent rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-orange-300/30 to-transparent rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-yellow-200/20 to-transparent rounded-full blur-3xl animate-ping-slow"></div>
         </div>
 
         {/* Grid Pattern */}
-        <div className="absolute inset-0 z-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
+        <div className="absolute inset-0 z-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMTIpIi8+PC9nPjwvc3ZnPg==')] opacity-50"></div>
 
-        {/* Floating Animated Shapes */}
+        {/* Floating Animated Shapes & Vectors */}
         <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
-          <svg className="absolute top-20 left-10 w-16 h-16 text-primary-500/30 animate-float" viewBox="0 0 100 100">
+          {/* Geometric Shapes */}
+          <svg className="absolute top-20 left-10 w-16 h-16 text-white/30 animate-float" viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="40" fill="currentColor" />
           </svg>
-          <svg className="absolute top-40 right-20 w-20 h-20 text-blue-400/20 animate-float-delayed" viewBox="0 0 100 100">
+          <svg className="absolute top-32 right-20 w-20 h-20 text-yellow-300/25 animate-float-delayed" viewBox="0 0 100 100">
             <polygon points="50,10 90,90 10,90" fill="currentColor" />
           </svg>
-          <svg className="absolute bottom-32 left-1/4 w-12 h-12 text-primary-400/40 animate-float" viewBox="0 0 100 100">
+          <svg className="absolute bottom-32 left-1/4 w-12 h-12 text-white/35 animate-float" viewBox="0 0 100 100">
             <rect x="20" y="20" width="60" height="60" fill="currentColor" />
+          </svg>
+          {/* Star Shape */}
+          <svg className="absolute top-1/2 right-16 w-14 h-14 text-yellow-200/20 animate-spin-slow" viewBox="0 0 100 100">
+            <polygon points="50,5 61,40 98,40 68,62 79,97 50,75 21,97 32,62 2,40 39,40" fill="currentColor" />
+          </svg>
+          {/* Hexagon */}
+          <svg className="absolute bottom-20 right-1/4 w-16 h-16 text-white/20 animate-float" viewBox="0 0 100 100">
+            <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="currentColor" />
+          </svg>
+          {/* Plus Sign */}
+          <svg className="absolute top-24 left-1/3 w-10 h-10 text-yellow-300/30 animate-pulse" viewBox="0 0 100 100">
+            <rect x="40" y="10" width="20" height="80" fill="currentColor" />
+            <rect x="10" y="40" width="80" height="20" fill="currentColor" />
+          </svg>
+          {/* Dotted Circle */}
+          <svg className="absolute bottom-40 left-16 w-24 h-24 text-white/15 animate-spin-slow" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="8 8" />
+          </svg>
+          {/* Diamond */}
+          <svg className="absolute top-16 right-1/3 w-12 h-12 text-orange-200/25 animate-bounce-slow" viewBox="0 0 100 100">
+            <polygon points="50,5 95,50 50,95 5,50" fill="currentColor" />
+          </svg>
+          {/* Animated Lines */}
+          <svg className="absolute top-1/3 left-8 w-32 h-2 text-white/20" viewBox="0 0 100 10">
+            <rect x="0" y="0" width="100" height="10" fill="currentColor" rx="5">
+              <animate attributeName="width" values="20;100;20" dur="3s" repeatCount="indefinite" />
+            </rect>
+          </svg>
+          <svg className="absolute bottom-1/3 right-8 w-32 h-2 text-yellow-300/20" viewBox="0 0 100 10">
+            <rect x="0" y="0" width="100" height="10" fill="currentColor" rx="5">
+              <animate attributeName="width" values="100;20;100" dur="3s" repeatCount="indefinite" />
+            </rect>
+          </svg>
+          {/* Code Bracket */}
+          <svg className="absolute bottom-24 left-1/3 w-14 h-14 text-white/25 animate-float-delayed" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round">
+            <path d="M35 20 L15 50 L35 80" />
+            <path d="M65 20 L85 50 L65 80" />
+          </svg>
+          {/* Floating Rings */}
+          <svg className="absolute top-40 left-20 w-20 h-20 text-orange-300/15 animate-ping-slow" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="3" />
+            <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" strokeWidth="2" />
           </svg>
         </div>
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
+          <h1 className="text-5xl md:text-6xl font-black text-white mb-6 drop-shadow-lg">
             Professional IT{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-600">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 to-white">
               Services
             </span>
           </h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto mb-8">
             End-to-end technology solutions designed to accelerate your digital transformation journey
           </p>
           <div className="flex flex-wrap justify-center gap-6 mt-8">
-            <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
+            <div className="bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
               <span className="text-white font-semibold">12 Core Services</span>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
+            <div className="bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
               <span className="text-white font-semibold">500+ Projects</span>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
+            <div className="bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
               <span className="text-white font-semibold">24/7 Support</span>
             </div>
           </div>
@@ -348,17 +399,49 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Success Story Preview */}
-      <section className="py-24 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Success Story Preview - Orange Pattern */}
+      <section className="py-24 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('/images/hero1.jpg')] bg-cover bg-center bg-fixed"></div>
+          {/* Vibrant Orange Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-500/90 via-orange-500/85 to-amber-500/90"></div>
+        </div>
+
+        {/* Animated Background */}
+        <div className="absolute inset-0 overflow-hidden z-10">
+          <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-yellow-300/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-orange-300/25 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        </div>
+
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 z-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMTApIi8+PC9nPjwvc3ZnPg==')] opacity-40"></div>
+
+        {/* Floating Shapes */}
+        <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+          <svg className="absolute top-10 left-10 w-12 h-12 text-white/20 animate-float" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="currentColor" />
+          </svg>
+          <svg className="absolute bottom-10 right-10 w-16 h-16 text-yellow-300/20 animate-float-delayed" viewBox="0 0 100 100">
+            <polygon points="50,10 90,90 10,90" fill="currentColor" />
+          </svg>
+          <svg className="absolute top-1/2 right-20 w-10 h-10 text-white/25 animate-bounce-slow" viewBox="0 0 100 100">
+            <polygon points="50,5 95,50 50,95 5,50" fill="currentColor" />
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
           <div
             ref={storiesReveal.ref}
             className={`text-center mb-16 scroll-reveal ${storiesReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Client Success Stories
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+              Client{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 to-white">
+                Success Stories
+              </span>
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Real results from real projects across diverse industries
             </p>
           </div>
@@ -386,14 +469,14 @@ export default function ServicesPage() {
             ].map((story, index) => (
               <div
                 key={index}
-                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover-lift scroll-reveal ${storiesReveal.isVisible ? `revealed animate-scale-in stagger-${index + 1}` : ''}`}
+                className={`bg-white/15 backdrop-blur-sm rounded-2xl p-8 border border-white/30 hover-lift scroll-reveal ${storiesReveal.isVisible ? `revealed animate-scale-in stagger-${index + 1}` : ''}`}
               >
-                <div className="text-primary-400 font-bold text-sm mb-2">{story.industry}</div>
+                <div className="text-yellow-200 font-bold text-sm mb-2">{story.industry}</div>
                 <h3 className="text-xl font-bold text-white mb-3">{story.challenge}</h3>
-                <p className="text-blue-100 mb-6">{story.result}</p>
+                <p className="text-white/80 mb-6">{story.result}</p>
                 <div className="flex flex-wrap gap-2">
                   {story.metrics.map((metric, i) => (
-                    <span key={i} className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm font-semibold">
+                    <span key={i} className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-semibold border border-white/30">
                       {metric}
                     </span>
                   ))}

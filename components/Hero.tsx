@@ -1,41 +1,30 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowRight, Sparkles, Zap, Shield, Award, TrendingUp, Code2, Cloud, Rocket } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, Shield, Award, TrendingUp, Mail, MessageCircle, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     setIsVisible(true);
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 20 - 10,
-        y: (e.clientY / window.innerHeight) * 20 - 10,
-      });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   const features = [
-    { icon: Zap, label: "Lightning Fast", color: "from-yellow-400 to-orange-500" },
-    { icon: Shield, label: "Secure", color: "from-blue-400 to-cyan-500" },
-    { icon: Award, label: "Award Winning", color: "from-purple-400 to-pink-500" },
-    { icon: TrendingUp, label: "Scalable", color: "from-green-400 to-emerald-500" },
+    { icon: Zap, label: "Lightning Fast", color: "from-primary-500 to-orange-500" },
+    { icon: Shield, label: "Secure", color: "from-secondary-600 to-secondary-700" },
+    { icon: Award, label: "Award Winning", color: "from-primary-500 to-orange-500" },
+    { icon: TrendingUp, label: "Scalable", color: "from-green-500 to-emerald-600" },
   ];
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Hero Background Image with Orange Fade */}
+      {/* Hero Background with Brown/Rust Color */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero2.jpg"
@@ -45,53 +34,27 @@ export default function Hero() {
           className="object-cover object-center"
           quality={90}
         />
-        {/* Orange faded overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-500/40 via-orange-400/35 to-primary-600/45"></div>
-        {/* White overlay for brightness */}
-        <div className="absolute inset-0 bg-white/60"></div>
-        {/* Additional gradient for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/40"></div>
-      </div>
-      {/* Animated Gradient Orbs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary-500/30 to-orange-500/20 blur-3xl animate-blob"
-          style={{
-            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
-            transition: "transform 0.3s ease-out",
-          }}
-        ></div>
-        <div 
-          className="absolute top-1/3 -right-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-secondary-700/30 to-secondary-500/20 blur-3xl animate-blob animation-delay-2000"
-          style={{
-            transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`,
-            transition: "transform 0.3s ease-out",
-          }}
-        ></div>
-        <div className="absolute -bottom-32 left-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-secondary-600/20 to-secondary-400/15 blur-3xl animate-blob animation-delay-4000"></div>
+        {/* Brown/Rust Gradient Overlay to match screenshot */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#A0522D] via-[#8B4513] to-[#6B3410] opacity-95"></div>
       </div>
 
-      {/* Floating Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-
-      {/* Modern Geometric Shapes */}
+      {/* Animated Background Pulses */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Top Right Corner Shape */}
-        <div className="absolute -top-20 -right-20 w-80 h-80 bg-gradient-to-br from-primary-500/10 to-transparent rounded-full blur-2xl"></div>
-        
-        {/* Bottom Left Corner Shape */}
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-tr from-secondary-700/10 to-transparent rounded-full blur-2xl"></div>
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gradient-radial from-orange-500/10 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-radial from-yellow-600/10 to-transparent rounded-full blur-3xl"></div>
+      </div>
 
-        {/* Floating Code Icon */}
-        <Code2 className="absolute top-20 right-1/4 w-16 h-16 text-primary-500/20 animate-float" />
-        <Cloud className="absolute bottom-32 left-1/4 w-20 h-20 text-secondary-700/20 animate-float-delayed" />
-        <Rocket className="absolute top-1/3 left-20 w-12 h-12 text-orange-500/20 animate-bounce-slow" />
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }}></div>
       </div>
 
       {/* Main Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          
+
           {/* Left Column - Main Content */}
           <div
             className={`transition-all duration-1000 ${
@@ -99,37 +62,28 @@ export default function Hero() {
             }`}
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 border border-primary-500/20 rounded-full mb-6">
-              <Sparkles className="w-4 h-4 text-primary-600" />
-              <span className="text-gray-700 text-sm font-semibold">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-lg border border-white/20 rounded-full mb-6">
+              <Sparkles className="w-4 h-4 text-yellow-300" />
+              <span className="text-white text-sm font-semibold">
                 Transforming Ideas into Digital Reality
               </span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 leading-[1.1]">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]">
               Building the{" "}
               <span className="relative inline-block">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-orange-500 to-primary-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB84D] via-[#FFA31A] to-[#FF8800]">
                   Future
                 </span>
-                <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 300 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 5.5C50 2.5 100 1 150 3.5C200 6 250 4.5 299 5.5" stroke="url(#paint0_linear)" strokeWidth="3" strokeLinecap="round"/>
-                  <defs>
-                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="300" y2="0" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#FF6600"/>
-                      <stop offset="1" stopColor="#ff8833"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
               </span>
               <br />
               of Digital Excellence
             </h1>
 
             {/* Subheading */}
-            <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl">
-              Empowering businesses with cutting-edge IT solutions in Cloud, AI, IoT, and beyond. 
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-xl">
+              Empowering businesses with cutting-edge IT solutions in Cloud, AI, IoT, and beyond.
               From concept to deployment, we turn vision into reality.
             </p>
 
@@ -137,36 +91,33 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Link
                 href="/contact"
-                className="group relative px-8 py-4 bg-gradient-to-r from-primary-500 to-orange-600 text-white rounded-2xl font-semibold hover:shadow-2xl hover:shadow-primary-500/40 transition-all hover:scale-105 flex items-center justify-center gap-2 overflow-hidden"
+                className="group relative px-8 py-4 bg-gradient-to-r from-[#FF6600] to-[#FF8533] text-white rounded-2xl font-semibold hover:shadow-2xl hover:shadow-[#FF6600]/40 transition-all hover:scale-105 flex items-center justify-center gap-2 overflow-hidden shadow-lg"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-orange-600 to-primary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative">Start Your Project</span>
                 <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/services"
-                className="group px-8 py-4 bg-white border-2 border-gray-200 text-gray-900 rounded-2xl font-semibold hover:border-primary-500 transition-all hover:scale-105 flex items-center justify-center gap-2"
+                className="group px-8 py-4 bg-white/10 backdrop-blur-lg border-2 border-white/30 text-white rounded-2xl font-semibold hover:bg-white/20 hover:border-white/40 transition-all hover:scale-105 flex items-center justify-center gap-2"
               >
                 Explore Services
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
             {/* Quick Stats */}
             <div className="flex flex-wrap gap-6">
               {[
-                { value: "17+", label: "Happy Clients" },
-                { value: "19+", label: "Expert Team" },
-                { value: "13", label: "Industries" },
+                { value: "7+", label: "Happy Clients" },
+                { value: "8+", label: "Expert Team" },
+                { value: "5", label: "Industries" },
               ].map((stat, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <span className="text-white font-bold text-lg">{stat.value}</span>
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#FF6600] to-[#FF8533] rounded-2xl flex items-center justify-center shadow-lg">
+                    <span className="text-white font-bold text-xl">{stat.value}</span>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">{stat.label}</p>
+                    <p className="text-sm text-white/90 font-medium">{stat.label}</p>
                   </div>
                 </div>
               ))}
@@ -179,43 +130,38 @@ export default function Hero() {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
             }`}
           >
-            {/* Main Feature Card */}
-            <div className="relative">
-              {/* Large Card - Microsoft Partner */}
-              <div className="relative bg-gradient-to-br from-secondary-700 to-secondary-600 rounded-3xl p-8 shadow-2xl hover:scale-105 transition-transform duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-transparent rounded-3xl"></div>
-                <div className="relative">
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-16 h-16 bg-white/10 backdrop-blur-lg rounded-2xl flex items-center justify-center">
-                      <Award className="w-8 h-8 text-primary-400" />
-                    </div>
-                    <span className="px-4 py-1 bg-primary-500/20 text-primary-400 text-xs font-semibold rounded-full">
-                      CERTIFIED
-                    </span>
+            {/* Main Feature Card - Microsoft Partner */}
+            <div className="relative mb-8 mt-20">
+              <div className="relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8 shadow-2xl">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-lg rounded-2xl flex items-center justify-center">
+                    <Award className="w-8 h-8 text-[#FFB84D]" />
                   </div>
-                  <h3 className="text-3xl font-bold text-white mb-3">
-                    Microsoft Partner
-                  </h3>
-                  <p className="text-blue-100 leading-relaxed">
-                    Officially certified to deliver enterprise-grade solutions with Microsoft&apos;s trusted technology stack.
-                  </p>
+                  <span className="px-3 py-1 bg-[#FF6600]/20 text-white text-xs font-semibold rounded-full border border-[#FF6600]/30">
+                    CERTIFIED
+                  </span>
                 </div>
+                <h3 className="text-3xl font-bold text-white mb-3">
+                  Microsoft Partner
+                </h3>
+                <p className="text-white/80 leading-relaxed">
+                  Officially certified to deliver enterprise-grade solutions with Microsoft&apos;s trusted technology stack.
+                </p>
               </div>
 
-              {/* Floating Mini Cards */}
-              <div className="absolute -top-6 -right-6 grid grid-cols-2 gap-4">
+              {/* Floating Mini Feature Cards - Top Right */}
+              <div className="absolute -top-16 -right-8 grid grid-cols-2 gap-4">
                 {features.map((feature, index) => (
                   <div
                     key={index}
                     className="group w-28 h-28 bg-white rounded-2xl shadow-xl p-4 flex flex-col items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer"
                     style={{
-                      animationDelay: `${index * 200}ms`,
                       animation: isVisible ? "float 3s ease-in-out infinite" : "none",
                       animationDelay: `${index * 0.5}s`,
                     }}
                   >
-                    <div className={`w-10 h-10 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform`}>
-                      <feature.icon className="w-5 h-5 text-white" />
+                    <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform shadow-md`}>
+                      <feature.icon className="w-6 h-6 text-white" />
                     </div>
                     <p className="text-xs font-semibold text-gray-700 text-center leading-tight">
                       {feature.label}
@@ -224,15 +170,15 @@ export default function Hero() {
                 ))}
               </div>
 
-              {/* Bottom Stats Card */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100 hover:scale-105 transition-transform duration-300">
+              {/* Client Satisfaction Card - Bottom Left */}
+              <div className="absolute -bottom-20 -left-12 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100 hover:scale-105 transition-transform duration-300">
                 <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#FF6600] to-[#FF8533] rounded-xl flex items-center justify-center shadow-lg">
                     <TrendingUp className="w-7 h-7 text-white" />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-gray-900">98%</p>
-                    <p className="text-sm text-gray-500">Client Satisfaction</p>
+                    <p className="text-3xl font-bold text-gray-900">44%</p>
+                    <p className="text-xs text-[#0066ff] font-medium">Client Satisfaction</p>
                   </div>
                 </div>
               </div>
@@ -242,9 +188,12 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-600 rounded-full mt-2 animate-pulse"></div>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="flex flex-col items-center gap-2 animate-bounce">
+          <span className="text-xs text-white/70 font-medium">Scroll Down</span>
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
+          </div>
         </div>
       </div>
     </section>

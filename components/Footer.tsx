@@ -45,11 +45,19 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-secondary-800 via-secondary-700 to-secondary-800 text-white relative overflow-hidden">
-      {/* Decorative Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-500 rounded-full blur-3xl"></div>
+    <footer className="text-white relative overflow-hidden">
+      {/* Background Image with Orange Gradient Overlay */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[url('/images/hero1.jpg')] bg-cover bg-center bg-fixed"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/95 via-primary-800/92 to-orange-900/95"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDMpIi8+PC9nPjwvc3ZnPg==')] opacity-30"></div>
+      </div>
+
+      {/* Animated Gradient Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-morph"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-morph animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-500/10 rounded-full blur-3xl animate-ping-slow"></div>
       </div>
       
       {/* Main Footer */}
@@ -68,27 +76,27 @@ export default function Footer() {
               </div>
               <span className="text-xl font-bold">Interop Digital Solutions Ltd</span>
             </div>
-            <p className="text-gray-300 mb-6 max-w-md">
+            <p className="text-primary-100 mb-6 max-w-md">
               Transforming businesses through innovative IT solutions. Your
               trusted partner in digital excellence.
             </p>
             <div className="space-y-3">
               <a
                 href="mailto:info@interop.com"
-                className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all hover:translate-x-1"
+                className="group flex items-center gap-2 text-primary-100 hover:text-white transition-all hover:translate-x-1"
               >
-                <Mail className="w-4 h-4 group-hover:text-primary-400 transition-colors" />
+                <Mail className="w-4 h-4 group-hover:text-white transition-colors" />
                 <span className="text-sm">info@interop.com</span>
               </a>
               <a
                 href="tel:+2348099451647"
-                className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all hover:translate-x-1"
+                className="group flex items-center gap-2 text-primary-100 hover:text-white transition-all hover:translate-x-1"
               >
-                <Phone className="w-4 h-4 group-hover:text-primary-400 transition-colors" />
+                <Phone className="w-4 h-4 group-hover:text-white transition-colors" />
                 <span className="text-sm">+234 (809) 945-1647</span>
               </a>
-              <div className="group flex items-center gap-2 text-gray-300 hover:text-white transition-all">
-                <MapPin className="w-4 h-4 group-hover:text-primary-400 transition-colors" />
+              <div className="group flex items-center gap-2 text-primary-100 hover:text-white transition-all">
+                <MapPin className="w-4 h-4 group-hover:text-white transition-colors" />
                 <span className="text-sm">Trinity Mall, 70, Awolowo Way, Ikeja, Lagos, Nigeria</span>
               </div>
             </div>
@@ -96,13 +104,13 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Services</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                    className="text-primary-100 hover:text-white transition-colors text-sm hover:translate-x-1 inline-block"
                   >
                     {link.name}
                   </a>
@@ -113,13 +121,13 @@ export default function Footer() {
 
           {/* Products */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Products</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Products</h3>
             <ul className="space-y-2">
               {footerLinks.products.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                    className="text-primary-100 hover:text-white transition-colors text-sm hover:translate-x-1 inline-block"
                   >
                     {link.name}
                   </a>
@@ -130,13 +138,13 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Company</h3>
             <ul className="space-y-2">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                    className="text-primary-100 hover:text-white transition-colors text-sm hover:translate-x-1 inline-block"
                   >
                     {link.name}
                   </a>
@@ -147,12 +155,12 @@ export default function Footer() {
         </div>
 
         {/* Newsletter */}
-        <div className="mt-12 pt-8 border-t border-white/10">
+        <div className="mt-12 pt-8 border-t border-white/20">
           <div className="max-w-md">
-            <h3 className="text-lg font-semibold mb-4">
+            <h3 className="text-lg font-semibold mb-4 text-white">
               Subscribe to Our Newsletter
             </h3>
-            <p className="text-gray-300 mb-4 text-sm">
+            <p className="text-primary-100 mb-4 text-sm">
               Get the latest updates on technology trends and our services.
             </p>
             <form className="flex gap-2">
@@ -175,14 +183,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-white/20 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
-            <div className="flex items-center gap-1 text-sm text-gray-300">
+            <div className="flex flex-wrap items-center justify-center gap-1 text-sm text-primary-100">
               <span>© {currentYear} Interop Digital Solutions Ltd.</span>
               <span className="flex items-center gap-1">
-                Made with <Heart className="w-4 h-4 text-red-500" /> for
+                Made with <Heart className="w-4 h-4 text-red-400 animate-pulse" /> for
                 innovation
               </span>
             </div>
@@ -193,10 +201,10 @@ export default function Footer() {
                 <a
                   key={index}
                   href={social.href}
-                  className="w-10 h-10 bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg flex items-center justify-center hover:bg-white/20 transition-all hover:scale-110"
+                  className="w-10 h-10 bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl flex items-center justify-center hover:bg-white/20 transition-all hover:scale-110 hover:rotate-6 group"
                   aria-label={social.name}
                 >
-                  <social.icon className="w-5 h-5 text-white" />
+                  <social.icon className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
                 </a>
               ))}
             </div>

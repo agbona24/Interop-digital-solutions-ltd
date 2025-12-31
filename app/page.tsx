@@ -109,11 +109,19 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-24 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700 relative overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-500 rounded-full blur-3xl"></div>
+      <section className="py-24 relative overflow-hidden">
+        {/* Background Image with Blue Gradient Overlay */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('/images/hero2.jpg')] bg-cover bg-center bg-fixed"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary-900/95 via-secondary-800/90 to-secondary-900/95"></div>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDMpIi8+PC9nPjwvc3ZnPg==')] opacity-30"></div>
+        </div>
+
+        {/* Animated Gradient Orbs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl animate-morph"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-500/20 rounded-full blur-3xl animate-morph animation-delay-2000"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-500/10 rounded-full blur-3xl animate-ping-slow"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -175,19 +183,35 @@ export default function Home() {
       </section>
 
       {/* Featured Services Preview */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-gradient-to-b from-white via-gray-50/50 to-white relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 right-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-primary-500/3 to-orange-500/3 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div
             ref={servicesReveal.ref}
             className={`text-center mb-16 scroll-reveal ${servicesReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 backdrop-blur-lg border border-primary-500/20 rounded-full mb-6">
+              <Code2 className="w-4 h-4 text-primary-600" />
+              <span className="text-primary-600 text-sm font-semibold">
+                Our Expertise
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
               Comprehensive IT{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
-                Services
+              <span className="relative inline-block">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
+                  Services
+                </span>
+                <span className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full opacity-30"></span>
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               End-to-end solutions powered by cutting-edge technology and delivered by expert teams
             </p>
           </div>
@@ -212,9 +236,15 @@ export default function Home() {
             ].map((service, index) => (
               <div
                 key={index}
-                className={`bg-gray-50 rounded-2xl p-8 border border-gray-200 hover-lift scroll-reveal ${servicesReveal.isVisible ? `revealed animate-fade-in-up stagger-${index + 1}` : ''}`}
+                className={`group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary-200 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 scroll-reveal relative overflow-hidden ${servicesReveal.isVisible ? `revealed animate-fade-in-up stagger-${index + 1}` : ''}`}
               >
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
+                {/* Top Accent Line */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-primary-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                {/* Corner Decoration */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary-500/0 to-primary-500/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors">{service.title}</h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
                 <ul className="space-y-3">
                   {service.features.map((feature, i) => (
@@ -231,10 +261,11 @@ export default function Home() {
           <div className={`text-center scroll-reveal ${servicesReveal.isVisible ? 'revealed animate-fade-in-up stagger-4' : ''}`}>
             <Link
               href="/services"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-105 btn-ripple"
+              className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 hover:scale-105 btn-ripple relative overflow-hidden"
             >
-              View All Services
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <span className="absolute inset-0 bg-gradient-to-r from-primary-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              <span className="relative">View All Services</span>
+              <ArrowRight className="relative ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>
@@ -279,12 +310,21 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div
             ref={ctaReveal.ref}
-            className={`bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700 rounded-3xl p-12 md:p-16 relative overflow-hidden scroll-reveal ${ctaReveal.isVisible ? 'revealed animate-scale-in' : ''}`}
+            className={`rounded-3xl p-12 md:p-16 relative overflow-hidden scroll-reveal ${ctaReveal.isVisible ? 'revealed animate-scale-in' : ''}`}
           >
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
+            {/* Background Image with Blue Gradient */}
+            <div className="absolute inset-0 rounded-3xl overflow-hidden">
+              <div className="absolute inset-0 bg-[url('/images/hero2.jpg')] bg-cover bg-center"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary-900/95 via-secondary-800/90 to-secondary-900/95"></div>
+              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
+            </div>
+
+            {/* Animated Orbs */}
+            <div className="absolute -top-20 -left-20 w-60 h-60 bg-primary-500/20 rounded-full blur-3xl animate-morph"></div>
+            <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-secondary-500/20 rounded-full blur-3xl animate-morph animation-delay-2000"></div>
             <div className="relative z-10">
               <Sparkles className="w-16 h-16 text-primary-400 mx-auto mb-6 animate-pulse" />
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">

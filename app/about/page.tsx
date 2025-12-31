@@ -61,26 +61,27 @@ export default function AboutPage() {
     <main className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-16 bg-gradient-to-br from-secondary-700 via-secondary-600 to-secondary-700 overflow-hidden">
+      {/* Hero Section - Orange Gradient */}
+      <section className="relative pt-32 pb-16 bg-gradient-to-br from-primary-600 via-primary-500 to-orange-600 overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 overflow-hidden z-10">
-          <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-primary-500/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-primary-600/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-white/15 to-transparent rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-orange-400/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-yellow-400/10 to-transparent rounded-full blur-3xl animate-ping-slow"></div>
         </div>
 
         {/* Grid Pattern */}
-        <div className="absolute inset-0 z-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
+        <div className="absolute inset-0 z-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDgpIi8+PC9nPjwvc3ZnPg==')] opacity-40"></div>
 
         {/* Floating Animated Shapes */}
         <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
-          <svg className="absolute top-20 left-10 w-16 h-16 text-primary-500/30 animate-float" viewBox="0 0 100 100">
+          <svg className="absolute top-20 left-10 w-16 h-16 text-white/20 animate-float" viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="40" fill="currentColor" />
           </svg>
-          <svg className="absolute bottom-32 right-20 w-20 h-20 text-blue-400/20 animate-float-delayed" viewBox="0 0 100 100">
+          <svg className="absolute bottom-32 right-20 w-20 h-20 text-yellow-400/15 animate-float-delayed" viewBox="0 0 100 100">
             <polygon points="50,10 90,90 10,90" fill="currentColor" />
           </svg>
-          <svg className="absolute top-1/3 right-1/4 w-12 h-12 text-primary-400/40 animate-float" viewBox="0 0 100 100">
+          <svg className="absolute top-1/3 right-1/4 w-12 h-12 text-white/25 animate-float" viewBox="0 0 100 100">
             <rect x="20" y="20" width="60" height="60" fill="currentColor" />
           </svg>
         </div>
@@ -88,11 +89,11 @@ export default function AboutPage() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
             About{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-600">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-primary-100">
               Interop Digital
             </span>
           </h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+          <p className="text-xl text-primary-100 max-w-3xl mx-auto">
             We&apos;re on a mission to empower businesses with transformative technology solutions
           </p>
         </div>
