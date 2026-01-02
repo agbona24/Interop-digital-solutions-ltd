@@ -56,49 +56,80 @@ export default function ProductsPage() {
     <main className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Hero Section - Orange Gradient */}
-      <section className="relative pt-32 pb-16 bg-gradient-to-br from-primary-600 via-primary-500 to-orange-600 overflow-hidden">
-        {/* Animated Background */}
+      {/* Hero Section - Vibrant Orange Gradient with Background Image */}
+      <section className="relative pt-32 pb-16 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('/images/hero1.jpg')] bg-cover bg-center"></div>
+          {/* Vibrant Orange Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-500/90 via-orange-500/85 to-amber-500/90"></div>
+        </div>
+
+        {/* Animated Background - Brighter */}
         <div className="absolute inset-0 overflow-hidden z-10">
-          <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-white/15 to-transparent rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-orange-400/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-yellow-400/10 to-transparent rounded-full blur-3xl animate-ping-slow"></div>
+          <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-yellow-300/25 to-transparent rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-orange-300/30 to-transparent rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-yellow-200/20 to-transparent rounded-full blur-3xl animate-ping-slow"></div>
         </div>
 
         {/* Grid Pattern */}
-        <div className="absolute inset-0 z-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDgpIi8+PC9nPjwvc3ZnPg==')] opacity-40"></div>
+        <div className="absolute inset-0 z-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMTIpIi8+PC9nPjwvc3ZnPg==')] opacity-50"></div>
 
-        {/* Floating Animated Shapes */}
+        {/* Floating Animated Shapes & Vectors */}
         <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
-          <svg className="absolute top-20 right-10 w-16 h-16 text-white/20 animate-float" viewBox="0 0 100 100">
+          {/* Geometric Shapes */}
+          <svg className="absolute top-20 left-10 w-16 h-16 text-white/30 animate-float" viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="40" fill="currentColor" />
           </svg>
-          <svg className="absolute bottom-40 left-20 w-20 h-20 text-yellow-400/15 animate-float-delayed" viewBox="0 0 100 100">
+          <svg className="absolute top-32 right-20 w-20 h-20 text-yellow-300/25 animate-float-delayed" viewBox="0 0 100 100">
             <polygon points="50,10 90,90 10,90" fill="currentColor" />
           </svg>
-          <svg className="absolute top-1/2 right-1/4 w-12 h-12 text-white/25 animate-float" viewBox="0 0 100 100">
+          <svg className="absolute bottom-32 left-1/4 w-12 h-12 text-white/35 animate-float" viewBox="0 0 100 100">
             <rect x="20" y="20" width="60" height="60" fill="currentColor" />
+          </svg>
+          {/* Star Shape */}
+          <svg className="absolute top-1/2 right-16 w-14 h-14 text-yellow-200/20 animate-spin-slow" viewBox="0 0 100 100">
+            <polygon points="50,5 61,40 98,40 68,62 79,97 50,75 21,97 32,62 2,40 39,40" fill="currentColor" />
+          </svg>
+          {/* Hexagon */}
+          <svg className="absolute bottom-20 right-1/4 w-16 h-16 text-white/20 animate-float" viewBox="0 0 100 100">
+            <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="currentColor" />
+          </svg>
+          {/* Plus Sign */}
+          <svg className="absolute top-24 left-1/3 w-10 h-10 text-yellow-300/30 animate-pulse" viewBox="0 0 100 100">
+            <rect x="40" y="10" width="20" height="80" fill="currentColor" />
+            <rect x="10" y="40" width="80" height="20" fill="currentColor" />
+          </svg>
+          {/* Dotted Circle */}
+          <svg className="absolute bottom-40 left-16 w-24 h-24 text-white/15 animate-spin-slow" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="8 8" />
+          </svg>
+          {/* Diamond */}
+          <svg className="absolute top-16 right-1/3 w-12 h-12 text-orange-200/25 animate-bounce-slow" viewBox="0 0 100 100">
+            <polygon points="50,5 95,50 50,95 5,50" fill="currentColor" />
           </svg>
         </div>
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
+          <h1 className="text-5xl md:text-6xl font-black text-white mb-6 drop-shadow-lg">
             Enterprise{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-primary-100">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 to-white">
               Products
             </span>
           </h1>
-          <p className="text-xl text-primary-100 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto mb-8">
             Powerful, scalable solutions designed to streamline your operations and drive growth
           </p>
-          <div className="flex justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-primary-500/50 transition-all hover:scale-105"
-            >
-              Request a Demo
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+          <div className="flex flex-wrap justify-center gap-6 mt-8">
+            <div className="bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
+              <span className="text-white font-semibold">4 Core Products</span>
+            </div>
+            <div className="bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
+              <span className="text-white font-semibold">99.9% Uptime</span>
+            </div>
+            <div className="bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
+              <span className="text-white font-semibold">Enterprise Ready</span>
+            </div>
           </div>
         </div>
       </section>
