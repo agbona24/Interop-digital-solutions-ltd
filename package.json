@@ -9,11 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "next": "15.0.7",
-=======
     "next": "^15.1.4",
->>>>>>> 5f3c565 (Upgrade)
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "framer-motion": "^11.5.0",

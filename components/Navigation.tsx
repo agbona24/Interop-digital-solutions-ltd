@@ -39,21 +39,16 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="relative w-10 h-10">
+            <Link href="/" className="flex items-center">
+              <div className="relative w-32 h-16">
                 <Image
-                  src="/images/logo-white.png"
+                  src="/images/logo.png"
                   alt="Interop Digital Solutions Ltd Logo"
                   fill
-                  className="object-contain brightness-0"
+                  className="object-contain"
                   priority
                 />
               </div>
-              <span
-                className="text-xl font-bold text-gray-900"
-              >
-                Interop Digital Solutions Ltd
-              </span>
             </Link>
           </div>
 
