@@ -65,16 +65,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="relative w-10 h-10">
+            <div className="flex items-center mb-6">
+              <div className="relative w-40 h-20">
                 <Image
-                  src="/images/logo-white.png"
+                  src="/images/logo-white1.png"
                   alt="Interop Digital Solutions Ltd Logo"
                   fill
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-bold">Interop Digital Solutions Ltd</span>
             </div>
             <p className="text-primary-100 mb-6 max-w-md">
               Transforming businesses through innovative IT solutions. Your
@@ -82,11 +81,11 @@ export default function Footer() {
             </p>
             <div className="space-y-3">
               <a
-                href="mailto:info@interop.com"
+                href="mailto:info@interopdigitalsolutions.com"
                 className="group flex items-center gap-2 text-primary-100 hover:text-white transition-all hover:translate-x-1"
               >
                 <Mail className="w-4 h-4 group-hover:text-white transition-colors" />
-                <span className="text-sm">info@interop.com</span>
+                <span className="text-sm">info@interopdigitalsolutions.com</span>
               </a>
               <a
                 href="tel:+2348099451647"

@@ -1,9 +1,19 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from 'next/font/google';
 import "./globals.css";
 import StructuredData from "@/components/StructuredData";
 import ScrollProgress from "@/components/ScrollProgress";
 import FloatingContact from "@/components/FloatingContact";
 import { ToastProvider } from "@/components/Toast";
+
+// Optimize font loading
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -98,7 +108,7 @@ export const metadata: Metadata = {
       },
     ],
     countryName: "Nigeria",
-    emails: ["info@interop.com"],
+    emails: ["info@interopdigitalsolutions.com"],
     phoneNumbers: ["+234-809-945-1647"],
   },
   twitter: {
@@ -125,7 +135,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
         {/* SEO-visible Developer Credit - Not visible to users, but indexed by search engines */}
         <meta name="developer" content="Harzotech - Premium Web Solutions | WhatsApp: +234-706-971-6822" />
@@ -165,7 +175,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans antialiased">
+      <body className={`${inter.className} antialiased`}>
         {/* HTML Comment - Visible in page source but not to users */}
         {/*
           ═══════════════════════════════════════════════════════════

@@ -49,14 +49,16 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   const totalSteps = 4;
 
   const serviceOptions = [
-    "API Development",
-    "UI/UX Design",
-    "Cloud Solutions",
-    "Cybersecurity",
-    "AI & Machine Learning",
-    "Database Management",
-    "IoT Solutions",
-    "Digital Transformation",
+    "Custom Software Development",
+    "Cloud Solutions (Azure, AWS, Google Cloud)",
+    "AI & Machine Learning Integration",
+    "IoT Solutions & Smart Systems",
+    "Database Design & Management",
+    "API Development & Integration",
+    "Cybersecurity & Network Solutions",
+    "Digital Transformation Consulting",
+    "UI/UX Design & Branding",
+    "Microsoft 365 & Power Platform",
   ];
 
   const timelineOptions = [
@@ -214,9 +216,12 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
               {/* Step 1: Contact Information */}
               {step === 1 && (
                 <div className="space-y-4 animate-fadeIn">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    Let&apos;s get to know you
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    👋 Let&apos;s get to know you
                   </h3>
+                  <p className="text-gray-600 mb-4">
+                    Tell us a bit about yourself so we can better understand your needs
+                  </p>
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -284,11 +289,11 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
               {step === 2 && (
                 <div className="space-y-6 animate-fadeIn">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">
-                      What services do you need?
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      🎯 What services interest you?
                     </h3>
                     <p className="text-sm text-gray-600 mb-4">
-                      Select all that apply
+                      Select all that apply - this helps us prepare the right solutions for you
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {serviceOptions.map((service) => (
@@ -346,9 +351,12 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
               {step === 3 && (
                 <div className="space-y-6 animate-fadeIn">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">
-                      What&apos;s your timeline?
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      ⏰ What&apos;s your timeline?
                     </h3>
+                    <p className="text-sm text-gray-600 mb-4">
+                      Understanding your timeline helps us allocate the right resources
+                    </p>
                     <div className="space-y-2">
                       {timelineOptions.map((timeline) => (
                         <button
@@ -374,9 +382,12 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-3">
-                      What&apos;s your budget range?
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">
+                      💰 What&apos;s your budget range?
                     </h3>
+                    <p className="text-sm text-gray-600 mb-3">
+                      This helps us tailor our proposal to match your investment level
+                    </p>
                     <div className="space-y-2">
                       {budgetOptions.map((budget) => (
                         <button
@@ -407,10 +418,10 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                   <div className="text-center mb-6">
                     <Calendar className="w-16 h-16 text-primary-500 mx-auto mb-3" />
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      Book Your Consultation
+                      📅 Let&apos;s Schedule Your Free Consultation
                     </h3>
                     <p className="text-gray-600">
-                      Choose a date and time that works for you
+                      Pick a convenient time for a 30-minute discussion about your project
                     </p>
                   </div>
 

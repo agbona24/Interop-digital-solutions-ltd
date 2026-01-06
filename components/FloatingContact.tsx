@@ -41,8 +41,8 @@ export default function FloatingContact() {
     {
       icon: Mail,
       label: "Email Us",
-      sublabel: "info@interop.com",
-      href: "mailto:info@interop.com",
+      sublabel: "info@interopdigitalsolutions.com",
+      href: "mailto:info@interopdigitalsolutions.com",
       color: "from-blue-500 to-blue-600",
       hoverColor: "hover:bg-blue-50",
     },
@@ -70,7 +70,7 @@ export default function FloatingContact() {
             : "opacity-0 translate-y-4 pointer-events-none"
         }`}
       >
-        <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden w-72">
+        <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden w-80">
           {/* Header */}
           <div className="bg-gradient-to-r from-primary-500 to-primary-600 px-5 py-4">
             <div className="flex items-center gap-3">

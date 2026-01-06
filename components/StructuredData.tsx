@@ -18,7 +18,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           url: "https://interopdigital.com",
           logo: "https://interopdigital.com/images/logo-white.png",
           image: "https://interopdigital.com/og-image.png",
-          email: "info@interop.com",
+          email: "info@interopdigitalsolutions.com",
           telephone: "+234-809-945-1647",
           sameAs: [
             "https://linkedin.com/company/interop-digital",
@@ -30,7 +30,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
               "@type": "ContactPoint",
               telephone: "+234-809-945-1647",
               contactType: "Customer Service",
-              email: "info@interop.com",
+              email: "info@interopdigitalsolutions.com",
               areaServed: ["NG", "Worldwide"],
               availableLanguage: ["English"],
               contactOption: "TollFree",
@@ -45,7 +45,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
               "@type": "ContactPoint",
               telephone: "+234-809-945-1647",
               contactType: "Sales",
-              email: "info@interop.com",
+              email: "info@interopdigitalsolutions.com",
               areaServed: ["NG", "Worldwide"],
               availableLanguage: ["English"]
             }
@@ -117,7 +117,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           "@id": "https://interopdigital.com",
           url: "https://interopdigital.com",
           telephone: "+234-809-945-1647",
-          email: "info@interop.com",
+          email: "info@interopdigitalsolutions.com",
           priceRange: "$$",
           address: {
             "@type": "PostalAddress",

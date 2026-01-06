@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles, Zap, Shield, Award, TrendingUp, Mail, MessageCircle, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import QuizModal from "./QuizModal";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isQuizModalOpen, setIsQuizModalOpen] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -32,7 +34,8 @@ export default function Hero() {
           fill
           priority
           className="object-cover object-center"
-          quality={90}
+          quality={75}
+          sizes="100vw"
         />
         {/* Brown/Rust Gradient Overlay to match screenshot */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#A0522D] via-[#8B4513] to-[#6B3410] opacity-95"></div>
@@ -89,13 +92,13 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Link
-                href="/contact"
+              <button
+                onClick={() => setIsQuizModalOpen(true)}
                 className="group relative px-8 py-4 bg-gradient-to-r from-[#FF6600] to-[#FF8533] text-white rounded-2xl font-semibold hover:shadow-2xl hover:shadow-[#FF6600]/40 transition-all hover:scale-105 flex items-center justify-center gap-2 overflow-hidden shadow-lg"
               >
                 <span className="relative">Start Your Project</span>
                 <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </button>
               <Link
                 href="/services"
                 className="group px-8 py-4 bg-white/10 backdrop-blur-lg border-2 border-white/30 text-white rounded-2xl font-semibold hover:bg-white/20 hover:border-white/40 transition-all hover:scale-105 flex items-center justify-center gap-2"
@@ -196,6 +199,12 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      {/* Quiz Modal */}
+      <QuizModal
+        isOpen={isQuizModalOpen}
+        onClose={() => setIsQuizModalOpen(false)}
+      />
     </section>
   );
 }

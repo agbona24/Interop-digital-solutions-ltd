@@ -1,16 +1,22 @@
 "use client";
 
+import { useState } from "react";
+import dynamic from "next/dynamic";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import Footer from "@/components/Footer";
-import AnimatedStat from "@/components/AnimatedStat";
-import ClientLogosTicker from "@/components/ClientLogosTicker";
-import IndustriesWeServe from "@/components/IndustriesWeServe";
 import Link from "next/link";
 import { Code2, Package, Users, Mail, Shield, Zap, Award, TrendingUp, CheckCircle, ArrowRight, Sparkles } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+// Lazy load heavy components for better performance
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
+const AnimatedStat = dynamic(() => import("@/components/AnimatedStat"), { ssr: false });
+const ClientLogosTicker = dynamic(() => import("@/components/ClientLogosTicker"), { ssr: false });
+const IndustriesWeServe = dynamic(() => import("@/components/IndustriesWeServe"), { ssr: false });
+const QuizModal = dynamic(() => import("@/components/QuizModal"), { ssr: false });
+
 export default function Home() {
+  const [isQuizModalOpen, setIsQuizModalOpen] = useState(false);
   const quickLinksReveal = useScrollReveal();
   const whyChooseReveal = useScrollReveal();
   const servicesReveal = useScrollReveal();
@@ -334,13 +340,13 @@ export default function Home() {
                 Join hundreds of companies leveraging our expertise to build the future. Let&apos;s discuss your project today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact"
+                <button
+                  onClick={() => setIsQuizModalOpen(true)}
                   className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-105 btn-ripple"
                 >
                   Start Your Project
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
+                </button>
                 <Link
                   href="/services"
                   className="inline-flex items-center justify-center px-8 py-4 bg-white text-secondary-700 font-semibold rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-105"
@@ -352,6 +358,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Quiz Modal */}
+      <QuizModal
+        isOpen={isQuizModalOpen}
+        onClose={() => setIsQuizModalOpen(false)}
+      />
 
       <Footer />
     </main>

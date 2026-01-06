@@ -56,8 +56,8 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      content: "info@interop.com",
-      link: "mailto:info@interop.com",
+      content: "info@interopdigitalsolutions.com",
+      link: "mailto:info@interopdigitalsolutions.com",
     },
     {
       icon: Phone,
@@ -404,7 +404,7 @@ export default function Contact() {
               </div>
               <h4 className="font-bold text-gray-900 mb-2">Email First</h4>
               <p className="text-sm text-gray-600">
-                Prefer email? Reach us at info@interop.com anytime
+                Prefer email? Reach us at info@interopdigitalsolutions.com anytime
               </p>
             </div>
           </div>

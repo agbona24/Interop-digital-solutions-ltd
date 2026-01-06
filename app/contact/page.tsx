@@ -18,11 +18,11 @@ export default function ContactPage() {
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Get in touch with Interop Digital Solutions Ltd. Located at Trinity Mall, Ikeja, Lagos. Call +234-809-945-1647 or email info@interop.com. Book a consultation today.');
+      metaDescription.setAttribute('content', 'Get in touch with Interop Digital Solutions Ltd. Located at Trinity Mall, Ikeja, Lagos. Call +234-809-945-1647 or email info@interopdigitalsolutions.com. Book a consultation today.');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'description';
-      meta.content = 'Get in touch with Interop Digital Solutions Ltd. Located at Trinity Mall, Ikeja, Lagos. Call +234-809-945-1647 or email info@interop.com. Book a consultation today.';
+      meta.content = 'Get in touch with Interop Digital Solutions Ltd. Located at Trinity Mall, Ikeja, Lagos. Call +234-809-945-1647 or email info@interopdigitalsolutions.com. Book a consultation today.';
       document.head.appendChild(meta);
     }
   }, []);
