@@ -88,11 +88,11 @@ export default function Footer() {
                 <span className="text-sm">info@interopdigitalsolutions.com</span>
               </a>
               <a
-                href="tel:+2348099451647"
+                href="tel:+2349060531418"
                 className="group flex items-center gap-2 text-primary-100 hover:text-white transition-all hover:translate-x-1"
               >
                 <Phone className="w-4 h-4 group-hover:text-white transition-colors" />
-                <span className="text-sm">+234 (809) 945-1647</span>
+                <span className="text-sm">+234 (906) 053-1418</span>
               </a>
               <div className="group flex items-center gap-2 text-primary-100 hover:text-white transition-all">
                 <MapPin className="w-4 h-4 group-hover:text-white transition-colors" />

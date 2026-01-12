@@ -49,8 +49,8 @@ export default function FloatingContact() {
     {
       icon: Phone,
       label: "WhatsApp",
-      sublabel: "+234 809 945 1647",
-      href: "https://wa.me/2348099451647?text=Hello%20Interop%20Digital%20Solutions!%20I%27m%20interested%20in%20your%20services.",
+      sublabel: "+234 906 053 1418",
+      href: "https://wa.me/2349060531418?text=Hello%20Interop%20Digital%20Solutions!%20I%27m%20interested%20in%20your%20services.",
       color: "from-green-500 to-green-600",
       hoverColor: "hover:bg-green-50",
     },

@@ -19,7 +19,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           logo: "https://interopdigital.com/images/logo-white.png",
           image: "https://interopdigital.com/og-image.png",
           email: "info@interopdigitalsolutions.com",
-          telephone: "+234-809-945-1647",
+          telephone: "++234-906-053-1418",
           sameAs: [
             "https://linkedin.com/company/interop-digital",
             "https://twitter.com/interopdigital",
@@ -28,7 +28,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           contactPoint: [
             {
               "@type": "ContactPoint",
-              telephone: "+234-809-945-1647",
+              telephone: "++234-906-053-1418",
               contactType: "Customer Service",
               email: "info@interopdigitalsolutions.com",
               areaServed: ["NG", "Worldwide"],
@@ -43,7 +43,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
             },
             {
               "@type": "ContactPoint",
-              telephone: "+234-809-945-1647",
+              telephone: "++234-906-053-1418",
               contactType: "Sales",
               email: "info@interopdigitalsolutions.com",
               areaServed: ["NG", "Worldwide"],
@@ -116,7 +116,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           image: "https://interopdigital.com/og-image.png",
           "@id": "https://interopdigital.com",
           url: "https://interopdigital.com",
-          telephone: "+234-809-945-1647",
+          telephone: "++234-906-053-1418",
           email: "info@interopdigitalsolutions.com",
           priceRange: "$$",
           address: {
@@ -196,7 +196,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           availableChannel: {
             "@type": "ServiceChannel",
             serviceUrl: "https://interopdigital.com/contact",
-            servicePhone: "+234-809-945-1647",
+            servicePhone: "++234-906-053-1418",
             servicePostalAddress: {
               "@type": "PostalAddress",
               streetAddress: "Trinity Mall, 79, Awolowo Way",

@@ -62,8 +62,8 @@ export default function Contact() {
     {
       icon: Phone,
       title: "Phone",
-      content: "+234 (809) 945-1647",
-      link: "tel:+2348099451647",
+      content: "+234 (906) 053-1418",
+      link: "tel:+234 906 053 1418",
     },
     {
       icon: MapPin,
@@ -394,7 +394,7 @@ export default function Contact() {
               </div>
               <h4 className="font-bold text-gray-900 mb-2">Call Ahead</h4>
               <p className="text-sm text-gray-600">
-                Schedule a visit by calling us at +234 (809) 945-1647
+                Schedule a visit by calling us at +234 906 053 1418
               </p>
             </div>
 

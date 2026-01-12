@@ -109,7 +109,7 @@ export const metadata: Metadata = {
     ],
     countryName: "Nigeria",
     emails: ["info@interopdigitalsolutions.com"],
-    phoneNumbers: ["+234-809-945-1647"],
+    phoneNumbers: ["++234-906-053-1418"],
   },
   twitter: {
     card: "summary_large_image",
