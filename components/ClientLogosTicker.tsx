@@ -70,7 +70,7 @@ export default function ClientLogosTicker() {
         </div>
 
         {/* Stats */}
-        <div
+       {/*  <div
           className={`grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 scroll-reveal ${headerReveal.isVisible ? 'revealed animate-fade-in-up' : ''}`}
         >
           <div className="text-center">
@@ -97,7 +97,7 @@ export default function ClientLogosTicker() {
             </div>
             <div className="text-gray-600 font-medium">Industries Served</div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Infinite Ticker */}
@@ -107,7 +107,7 @@ export default function ClientLogosTicker() {
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
 
         {/* Scrolling Container */}
-        <div className="flex overflow-hidden">
+      {/*   <div className="flex overflow-hidden">
           <div className="flex animate-scroll-left">
             {duplicatedClients.map((client, index) => (
               <div
@@ -130,7 +130,7 @@ export default function ClientLogosTicker() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Trust Badges */}
@@ -151,7 +151,7 @@ export default function ClientLogosTicker() {
               <div className="text-sm text-gray-600">{badge.desc}</div>
             </div>
           ))}
-        </div>
+        </div> 
       </div>
 
       {/* Add CSS for infinite scroll animation */}

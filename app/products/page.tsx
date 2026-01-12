@@ -328,64 +328,7 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* Customer Testimonials */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            ref={testimonialsReveal.ref}
-            className={`text-center mb-16 scroll-reveal ${testimonialsReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Trusted by{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
-                Industry Leaders
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Hear what our customers say about our products
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "Interop&apos;s automation platform cut our processing time by 70% and eliminated costly manual errors. The ROI was evident within the first quarter.",
-                author: "Sarah Chen",
-                role: "CTO, TechCorp E-commerce",
-                rating: 5
-              },
-              {
-                quote: "The payment gateway handles our peak loads flawlessly. We&apos;ve processed over 10M transactions with zero downtime. Outstanding reliability.",
-                author: "Michael Rodriguez",
-                role: "VP Engineering, PayFlow Solutions",
-                rating: 5
-              },
-              {
-                quote: "Best commerce platform we&apos;ve used. Real-time inventory sync across 50+ stores and the analytics give us insights we never had before.",
-                author: "Emily Thompson",
-                role: "Operations Director, RetailMax",
-                rating: 5
-              }
-            ].map((testimonial, index) => (
-              <div
-                key={index}
-                className={`bg-gray-50 rounded-2xl p-8 border border-gray-200 hover-lift scroll-reveal ${testimonialsReveal.isVisible ? `revealed animate-fade-in-up stagger-${index + 1}` : ''}`}
-              >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-primary-500 text-primary-500" />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 italic">&quot;{testimonial.quote}&quot;</p>
-                <div>
-                  <div className="font-bold text-gray-900">{testimonial.author}</div>
-                  <div className="text-sm text-gray-600">{testimonial.role}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Final CTA */}
       <section className="py-24 bg-gradient-to-r from-primary-500 to-primary-600">

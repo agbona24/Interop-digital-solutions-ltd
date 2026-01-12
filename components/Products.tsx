@@ -43,62 +43,7 @@ export default function Products() {
   }, []);
 
   const products = [
-    {
-      icon: Workflow,
-      title: "Process Automation Platform",
-      description:
-        "Intelligent automation solution that streamlines workflows, reduces manual tasks, and increases operational efficiency. Automate repetitive processes and free your team to focus on high-value work.",
-      features: [
-        "Visual Workflow Builder",
-        "API & System Integration",
-        "Real-time Monitoring",
-        "Custom Rule Engine",
-      ],
-      color: "from-primary-500 to-primary-600",
-      image: "⚡",
-    },
-    {
-      icon: CreditCard,
-      title: "Payment Gateway Solution",
-      description:
-        "Secure, PCI-DSS compliant payment processing supporting multiple payment methods. Process transactions globally with instant settlement, fraud detection, and comprehensive reporting.",
-      features: [
-        "Multi-Currency Support",
-        "Fraud Detection & Prevention",
-        "Instant Settlement",
-        "Comprehensive Analytics",
-      ],
-      color: "from-secondary-700 to-secondary-900",
-      image: "💳",
-    },
-    {
-      icon: ShoppingCart,
-      title: "Commerce Platform",
-      description:
-        "Full-featured e-commerce solution with inventory management, order processing, and omnichannel capabilities. Build, scale, and optimize your online store with enterprise-grade features.",
-      features: [
-        "Multi-channel Sales",
-        "Real-time Inventory Sync",
-        "Advanced Analytics",
-        "Mobile-Optimized",
-      ],
-      color: "from-primary-500 to-primary-700",
-      image: "🛒",
-    },
-    {
-      icon: MapPin,
-      title: "Geo Services Platform",
-      description:
-        "Location intelligence and mapping services with real-time tracking, route optimization, and geofencing. Power your logistics, delivery, and location-based applications with accurate geo data.",
-      features: [
-        "Real-time GPS Tracking",
-        "Route Optimization",
-        "Geofencing & Alerts",
-        "Location Analytics",
-      ],
-      color: "from-secondary-600 to-secondary-800",
-      image: "🗺️",
-    },
+ 
     {
       icon: Mail,
       title: "Microsoft Office 365",

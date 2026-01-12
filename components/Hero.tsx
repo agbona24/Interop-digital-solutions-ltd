@@ -111,9 +111,8 @@ export default function Hero() {
             {/* Quick Stats */}
             <div className="flex flex-wrap gap-6">
               {[
-                { value: "7+", label: "Happy Clients" },
+                { value: "10+", label: "Happy Clients" },
                 { value: "8+", label: "Expert Team" },
-                { value: "5", label: "Industries" },
               ].map((stat, index) => (
                 <div key={index} className="flex items-center gap-3">
                   <div className="w-14 h-14 bg-gradient-to-br from-[#FF6600] to-[#FF8533] rounded-2xl flex items-center justify-center shadow-lg">
@@ -179,10 +178,7 @@ export default function Hero() {
                   <div className="w-14 h-14 bg-gradient-to-br from-[#FF6600] to-[#FF8533] rounded-xl flex items-center justify-center shadow-lg">
                     <TrendingUp className="w-7 h-7 text-white" />
                   </div>
-                  <div>
-                    <p className="text-3xl font-bold text-gray-900">44%</p>
-                    <p className="text-xs text-[#0066ff] font-medium">Client Satisfaction</p>
-                  </div>
+            
                 </div>
               </div>
             </div>

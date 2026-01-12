@@ -251,99 +251,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Engagement Models */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            ref={engagementReveal.ref}
-            className={`text-center mb-16 scroll-reveal ${engagementReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Flexible{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
-                Engagement Models
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose the collaboration model that best fits your project needs and budget
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Users,
-                title: "Dedicated Team",
-                description: "Full-time team members exclusively focused on your project with complete control and flexibility.",
-                features: [
-                  "Exclusive resource allocation",
-                  "Full project transparency",
-                  "Direct communication",
-                  "Flexible scaling"
-                ],
-                bestFor: "Long-term projects, ongoing development"
-              },
-              {
-                icon: Clock,
-                title: "Time & Materials",
-                description: "Pay for actual time and resources used. Perfect for evolving requirements and iterative development.",
-                features: [
-                  "Flexible scope changes",
-                  "Transparent billing",
-                  "Agile methodology",
-                  "Regular updates"
-                ],
-                bestFor: "Dynamic projects, uncertain scope"
-              },
-              {
-                icon: DollarSign,
-                title: "Fixed Price",
-                description: "Predetermined cost and timeline for well-defined projects with clear deliverables and milestones.",
-                features: [
-                  "Budget certainty",
-                  "Defined scope",
-                  "Milestone payments",
-                  "Risk mitigation"
-                ],
-                bestFor: "Well-defined projects, tight budgets"
-              }
-            ].map((model, index) => (
-              <div
-                key={index}
-                className={`bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover-lift scroll-reveal ${engagementReveal.isVisible ? `revealed animate-fade-in-up stagger-${index + 1}` : ''}`}
-              >
-                <model.icon className="w-12 h-12 text-primary-500 mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{model.title}</h3>
-                <p className="text-gray-600 mb-6">{model.description}</p>
-
-                <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-3">Key Features:</h4>
-                  <ul className="space-y-2">
-                    {model.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2 text-gray-700">
-                        <CheckCircle2 className="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="pt-4 border-t border-gray-200">
-                  <p className="text-sm font-semibold text-gray-900 mb-1">Best For:</p>
-                  <p className="text-sm text-gray-600">{model.bestFor}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Technologies We Use */}
-      <section className="py-24 bg-white">
+      <section className="py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={techReveal.ref}
-            className={`text-center mb-16 scroll-reveal ${techReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+            className={`text-center mb-8 scroll-reveal ${techReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Cutting-Edge{" "}
@@ -361,12 +274,12 @@ export default function ServicesPage() {
               {
                 icon: Code,
                 title: "Development",
-                stack: ["React & Next.js", "Node.js & Python", "TypeScript", "GraphQL & REST", "Microservices"]
+                stack: ["ASP.NET CORE", "C#", "React", "React Native", "Next.js", "Typescript"]
               },
               {
                 icon: Database,
                 title: "Databases",
-                stack: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "Cassandra"]
+                stack: ["Microsoft SQL Server", "Qdrant", "Redis", "MangoDB", "PostgreSQL"]
               },
               {
                 icon: Cloud,
@@ -399,100 +312,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Success Story Preview - Orange Pattern */}
-      <section className="py-24 relative overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[url('/images/hero1.jpg')] bg-cover bg-center bg-fixed"></div>
-          {/* Vibrant Orange Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-500/90 via-orange-500/85 to-amber-500/90"></div>
-        </div>
-
-        {/* Animated Background */}
-        <div className="absolute inset-0 overflow-hidden z-10">
-          <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-yellow-300/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-orange-300/25 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        </div>
-
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 z-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMTApIi8+PC9nPjwvc3ZnPg==')] opacity-40"></div>
-
-        {/* Floating Shapes */}
-        <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
-          <svg className="absolute top-10 left-10 w-12 h-12 text-white/20 animate-float" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="40" fill="currentColor" />
-          </svg>
-          <svg className="absolute bottom-10 right-10 w-16 h-16 text-yellow-300/20 animate-float-delayed" viewBox="0 0 100 100">
-            <polygon points="50,10 90,90 10,90" fill="currentColor" />
-          </svg>
-          <svg className="absolute top-1/2 right-20 w-10 h-10 text-white/25 animate-bounce-slow" viewBox="0 0 100 100">
-            <polygon points="50,5 95,50 50,95 5,50" fill="currentColor" />
-          </svg>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-          <div
-            ref={storiesReveal.ref}
-            className={`text-center mb-16 scroll-reveal ${storiesReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
-              Client{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 to-white">
-                Success Stories
-              </span>
-            </h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Real results from real projects across diverse industries
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                industry: "E-commerce",
-                challenge: "Legacy system modernization",
-                result: "300% increase in transaction speed, 99.9% uptime achieved",
-                metrics: ["3x faster", "99.9% uptime", "40% cost reduction"]
-              },
-              {
-                industry: "Healthcare",
-                challenge: "HIPAA-compliant patient portal",
-                result: "Secure portal serving 50K+ patients with zero breaches",
-                metrics: ["50K+ users", "Zero breaches", "HIPAA certified"]
-              },
-              {
-                industry: "FinTech",
-                challenge: "Real-time payment processing",
-                result: "Processing 1M+ transactions daily with 99.99% accuracy",
-                metrics: ["1M+ daily txns", "99.99% accuracy", "<50ms latency"]
-              }
-            ].map((story, index) => (
-              <div
-                key={index}
-                className={`bg-white/15 backdrop-blur-sm rounded-2xl p-8 border border-white/30 hover-lift scroll-reveal ${storiesReveal.isVisible ? `revealed animate-scale-in stagger-${index + 1}` : ''}`}
-              >
-                <div className="text-yellow-200 font-bold text-sm mb-2">{story.industry}</div>
-                <h3 className="text-xl font-bold text-white mb-3">{story.challenge}</h3>
-                <p className="text-white/80 mb-6">{story.result}</p>
-                <div className="flex flex-wrap gap-2">
-                  {story.metrics.map((metric, i) => (
-                    <span key={i} className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-semibold border border-white/30">
-                      {metric}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
-      <section className="py-24 bg-white">
+      <section className="pt-8 pb-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={faqReveal.ref}
-            className={`text-center mb-16 scroll-reveal ${faqReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
+            className={`text-center mb-6 scroll-reveal ${faqReveal.isVisible ? 'revealed animate-fade-in-down' : ''}`}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Frequently Asked{" "}
@@ -502,7 +327,7 @@ export default function ServicesPage() {
             </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {[
               {
                 question: "What is your typical project timeline?",
@@ -529,8 +354,8 @@ export default function ServicesPage() {
                 key={index}
                 className={`bg-gray-50 rounded-2xl p-8 border border-gray-200 hover-lift scroll-reveal ${faqReveal.isVisible ? `revealed animate-fade-in-up stagger-${Math.min(index + 1, 6)}` : ''}`}
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{faq.question}</h3>
-                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{faq.question}</h3>
+                <p className="text-gray-600 leading-relaxed text-sm">{faq.answer}</p>
               </div>
             ))}
           </div>

@@ -114,6 +114,140 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Core Products Section */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        {/* Decorative Background */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 backdrop-blur-lg border border-primary-500/20 rounded-full mb-6">
+              <Package className="w-4 h-4 text-primary-600" />
+              <span className="text-primary-600 text-sm font-semibold">
+                Core Products
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+              Our{" "}
+              <span className="relative inline-block">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
+                  Flagship Solutions
+                </span>
+                <span className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full opacity-30"></span>
+              </span>
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              Enterprise-grade products designed to accelerate your digital transformation
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Process Automation Platform */}
+            <div className="group bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-200 hover:border-primary-300 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+              <div className="text-5xl mb-6">⚡</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors">
+                Process Automation Platform
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Intelligent automation solution that streamlines workflows, reduces manual tasks, and increases operational efficiency. Automate repetitive processes and free your team to focus on high-value work.
+              </p>
+              <ul className="space-y-3 mb-6">
+                {["Visual Workflow Builder", "API & System Integration", "Real-time Monitoring", "Custom Rule Engine"].map((feature, i) => (
+                  <li key={i} className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-primary-500 mr-3 flex-shrink-0" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/products"
+                className="inline-flex items-center text-primary-600 font-semibold group-hover:translate-x-2 transition-transform"
+              >
+                Learn More <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* Payment Gateway Solution */}
+            <div className="group bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-200 hover:border-primary-300 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+              <div className="text-5xl mb-6">💳</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors">
+                Payment Gateway Solution
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Secure, PCI-DSS compliant payment processing supporting multiple payment methods. Process transactions globally with instant settlement, fraud detection, and comprehensive reporting.
+              </p>
+              <ul className="space-y-3 mb-6">
+                {["Multi-Currency Support", "Fraud Detection & Prevention", "Instant Settlement", "Comprehensive Analytics"].map((feature, i) => (
+                  <li key={i} className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-primary-500 mr-3 flex-shrink-0" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/products"
+                className="inline-flex items-center text-primary-600 font-semibold group-hover:translate-x-2 transition-transform"
+              >
+                Learn More <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* Commerce Platform */}
+            <div className="group bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-200 hover:border-primary-300 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+              <div className="text-5xl mb-6">🛒</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors">
+                Commerce Platform
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Full-featured e-commerce solution with inventory management, order processing, and omnichannel capabilities. Build, scale, and optimize your online store with enterprise-grade features.
+              </p>
+              <ul className="space-y-3 mb-6">
+                {["Multi-channel Sales", "Real-time Inventory Sync", "Advanced Analytics", "Mobile-Optimized"].map((feature, i) => (
+                  <li key={i} className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-primary-500 mr-3 flex-shrink-0" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/products"
+                className="inline-flex items-center text-primary-600 font-semibold group-hover:translate-x-2 transition-transform"
+              >
+                Learn More <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* Geo Services Platform */}
+            <div className="group bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-200 hover:border-primary-300 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+              <div className="text-5xl mb-6">🗺️</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors">
+                Geo Services Platform
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Location intelligence and mapping services with real-time tracking, route optimization, and geofencing. Power your logistics, delivery, and location-based applications with accurate geo data.
+              </p>
+              <ul className="space-y-3 mb-6">
+                {["Real-time GPS Tracking", "Route Optimization", "Geofencing & Alerts", "Location Analytics"].map((feature, i) => (
+                  <li key={i} className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-primary-500 mr-3 flex-shrink-0" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/products"
+                className="inline-flex items-center text-primary-600 font-semibold group-hover:translate-x-2 transition-transform"
+              >
+                Learn More <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us Section */}
       <section className="py-24 relative overflow-hidden">
         {/* Background Image with Blue Gradient Overlay */}
@@ -165,7 +299,7 @@ export default function Home() {
               {
                 icon: Award,
                 title: "Proven Excellence",
-                description: "17+ happy clients with consistent satisfaction and long-term partnerships"
+                description: "10+ happy clients with consistent satisfaction and long-term partnerships"
               },
               {
                 icon: TrendingUp,
@@ -291,8 +425,8 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: "17+", label: "Happy Clients", description: "Trusted partnerships" },
-              { value: "13", label: "Industries Served", description: "Diverse expertise" },
+              { value: "10+", label: "Happy Clients", description: "Trusted partnerships" },
+              { value: "8+", label: "Expert Team", description: "Skilled professionals" },
               { value: "24/7", label: "Support Available", description: "Always here for you" },
               { value: "98%", label: "Client Retention", description: "Satisfaction guaranteed" }
             ].map((stat, index) => (
@@ -311,8 +445,6 @@ export default function Home() {
       {/* Client Logos */}
       <ClientLogosTicker />
 
-      {/* Industries We Serve */}
-      <IndustriesWeServe />
 
       {/* CTA Section */}
       <section className="py-24 bg-white">
