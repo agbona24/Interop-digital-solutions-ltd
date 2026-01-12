@@ -44,11 +44,11 @@ export default function ServicesPage() {
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Comprehensive IT services including API Development, UI/UX Design, Cloud Solutions, Cybersecurity, AI/ML, Database Management, and more. 500+ projects delivered across 13 industries.');
+      metaDescription.setAttribute('content', 'Comprehensive IT services including API Development, UI/UX Design, Cloud Solutions, Cybersecurity, AI/ML, Database Management, and more. 10+ projects delivered across 13 industries.');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'description';
-      meta.content = 'Comprehensive IT services including API Development, UI/UX Design, Cloud Solutions, Cybersecurity, AI/ML, Database Management, and more. 500+ projects delivered across 13 industries.';
+      meta.content = 'Comprehensive IT services including API Development, UI/UX Design, Cloud Solutions, Cybersecurity, AI/ML, Database Management, and more. 10+ projects delivered across 13 industries.';
       document.head.appendChild(meta);
     }
   }, []);
@@ -147,7 +147,7 @@ export default function ServicesPage() {
               <span className="text-white font-semibold">12 Core Services</span>
             </div>
             <div className="bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
-              <span className="text-white font-semibold">500+ Projects</span>
+              <span className="text-white font-semibold">10+ Projects</span>
             </div>
             <div className="bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
               <span className="text-white font-semibold">24/7 Support</span>
@@ -220,7 +220,7 @@ export default function ServicesPage() {
               <div className="space-y-4">
                 {[
                   "Expert team with 15+ years of experience",
-                  "Proven track record with 500+ successful projects",
+                  "Proven track record with 10+ successful projects",
                   "Agile methodology for faster delivery",
                   "24/7 support and maintenance",
                   "Scalable solutions that grow with your business",

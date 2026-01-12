@@ -68,7 +68,7 @@ export default function Contact() {
     {
       icon: MapPin,
       title: "Location",
-      content: "Trinity Mall, 70, Awolowo Way, Ikeja, Lagos, Nigeria",
+      content: "Trinity Mall, 79, Awolowo Way, Ikeja, Lagos, Nigeria",
       link: "https://maps.google.com/?q=Trinity+Mall+70+Awolowo+Way+Ikeja+Lagos+Nigeria",
     },
   ];
@@ -359,7 +359,7 @@ export default function Contact() {
                 <div>
                   <h4 className="font-bold text-gray-900 mb-1">Our Location</h4>
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    Trinity Mall, 70, Awolowo Way, Ikeja, Lagos, Nigeria
+                    Trinity Mall, 79, Awolowo Way, Ikeja, Lagos, Nigeria
                   </p>
                 </div>
               </div>

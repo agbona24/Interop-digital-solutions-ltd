@@ -411,6 +411,78 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Technology Stack Section */}
+      <section className="py-16 bg-gradient-to-br from-secondary-900 via-secondary-800 to-gray-900 relative overflow-hidden">
+        {/* Background Pattern & Glow Effects */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDMpIi8+PC9nPjwvc3ZnPg==')] opacity-20"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 tracking-wide">
+              USE THE FULL POTENTIAL OF THE MODERN TECH STACK
+            </h2>
+            <p className="text-lg text-orange-200/80">
+              FOR YOUR WEB OR MOBILE APP
+            </p>
+          </div>
+
+          {/* Technology Icons */}
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+            {[
+              { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+              { name: "ASP.NET", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" },
+              { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+              { name: "React Native", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+              { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+              { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+              { name: "C#", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+              { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+              { name: "Azure", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
+            ].map((tech, index) => (
+              <div
+                key={index}
+                className="group flex flex-col items-center gap-3 transition-all duration-300 hover:-translate-y-2"
+              >
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/10 backdrop-blur-sm border border-orange-500/20 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-primary-500/20 group-hover:to-orange-500/20 group-hover:border-primary-400/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-primary-500/30 p-3">
+                  <img 
+                    src={tech.logo} 
+                    alt={tech.name}
+                    className="w-full h-full object-contain filter brightness-0 invert opacity-90 group-hover:opacity-100 group-hover:drop-shadow-[0_0_8px_rgba(249,115,22,0.6)] transition-all duration-300"
+                  />
+                </div>
+                <span className="text-xs md:text-sm text-orange-200/70 group-hover:text-primary-400 transition-colors font-medium">
+                  {tech.name}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Additional Tech Badges */}
+          <div className="mt-12 flex flex-wrap justify-center gap-3">
+            {[
+              "Microsoft SQL Server",
+              "PostgreSQL",
+              "MongoDB",
+              "Redis",
+              "Docker",
+              "Kubernetes",
+              "CI/CD",
+              "GraphQL",
+              "REST API"
+            ].map((tech, index) => (
+              <div
+                key={index}
+                className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-orange-500/20 rounded-full text-sm text-orange-200/80 hover:bg-gradient-to-r hover:from-primary-500/20 hover:to-orange-500/20 hover:border-primary-400/50 hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary-500/20"
+              >
+                {tech}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Client Success Stats */}
       <section className="py-24 bg-gradient-to-r from-primary-500 to-primary-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

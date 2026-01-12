@@ -116,13 +116,6 @@ export default function Services() {
       color: "from-secondary-600 to-secondary-800",
     },
     {
-      icon: Code2,
-      title: "Software Development",
-      description:
-        "Custom software applications, frameworks, and tools tailored to your unique business needs. We transform your ideas into powerful, scalable solutions that drive results.",
-      color: "from-primary-500 to-primary-700",
-    },
-    {
       icon: GraduationCap,
       title: "Training",
       description:
