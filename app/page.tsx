@@ -434,12 +434,13 @@ export default function Home() {
               { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
               { name: "ASP.NET", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" },
               { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-              { name: "React Native", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-              { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-              { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+              { name: "Blazor", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" },
               { name: "C#", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
-              { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
               { name: "Azure", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
+              { name: "SQL Server", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" },
+              { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+              { name: "Redis", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
+              { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
             ].map((tech, index) => (
               <div
                 key={index}
@@ -455,28 +456,6 @@ export default function Home() {
                 <span className="text-xs md:text-sm text-orange-200/70 group-hover:text-primary-400 transition-colors font-medium">
                   {tech.name}
                 </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Additional Tech Badges */}
-          <div className="mt-12 flex flex-wrap justify-center gap-3">
-            {[
-              "Microsoft SQL Server",
-              "PostgreSQL",
-              "MongoDB",
-              "Redis",
-              "Docker",
-              "Kubernetes",
-              "CI/CD",
-              "GraphQL",
-              "REST API"
-            ].map((tech, index) => (
-              <div
-                key={index}
-                className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-orange-500/20 rounded-full text-sm text-orange-200/80 hover:bg-gradient-to-r hover:from-primary-500/20 hover:to-orange-500/20 hover:border-primary-400/50 hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary-500/20"
-              >
-                {tech}
               </div>
             ))}
           </div>

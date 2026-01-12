@@ -96,7 +96,7 @@ export default function Footer() {
               </a>
               <div className="group flex items-center gap-2 text-primary-100 hover:text-white transition-all">
                 <MapPin className="w-4 h-4 group-hover:text-white transition-colors" />
-                <span className="text-sm">Trinity Mall, 70, Awolowo Way, Ikeja, Lagos, Nigeria</span>
+                <span className="text-sm">Trinity Mall, 79, Awolowo Way, Ikeja, Lagos, Nigeria</span>
               </div>
             </div>
           </div>

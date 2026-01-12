@@ -52,7 +52,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           ],
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Trinity Mall, 70, Awolowo Way",
+            streetAddress: "Trinity Mall, 79, Awolowo Way",
             addressLocality: "Ikeja",
             addressRegion: "Lagos",
             addressCountry: "NG",
@@ -121,7 +121,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           priceRange: "$$",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Trinity Mall, 70, Awolowo Way",
+            streetAddress: "Trinity Mall, 79, Awolowo Way",
             addressLocality: "Ikeja",
             addressRegion: "Lagos",
             postalCode: "100001",
@@ -199,7 +199,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
             servicePhone: "+234-809-945-1647",
             servicePostalAddress: {
               "@type": "PostalAddress",
-              streetAddress: "Trinity Mall, 70, Awolowo Way",
+              streetAddress: "Trinity Mall, 79, Awolowo Way",
               addressLocality: "Ikeja",
               addressRegion: "Lagos",
               addressCountry: "NG"

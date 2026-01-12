@@ -274,7 +274,7 @@ export default function ServicesPage() {
               {
                 icon: Code,
                 title: "Development",
-                stack: ["ASP.NET CORE", "C#", "React", "React Native", "Next.js", "Typescript"]
+                stack: ["ASP.NET CORE", "Blazor", "C#", "React", "React Native", "Next.js", "Typescript"]
               },
               {
                 icon: Database,
