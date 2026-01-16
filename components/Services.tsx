@@ -53,7 +53,7 @@ export default function Services() {
       color: "from-primary-500 to-primary-600",
     },
     {
-      icon: Palette,
+      icon: Palette, d
       title: "UI/UX Design",
       description:
         "Create intuitive, user-centered interfaces that delight your customers. Our design team crafts beautiful, responsive experiences that drive engagement and conversions across web and mobile platforms.",

@@ -21,8 +21,17 @@ export default function Footer() {
     services: [
       { name: "API Development", href: "#services" },
       { name: "UI/UX Design", href: "#services" },
-      { name: "Cloud Services", href: "#services" },
-      { name: "AI Solutions", href: "#services" },
+      { name: "Testing & Quality Assurance", href: "#services" },
+      { name: "Deployment Engineering", href: "#services" },
+      { name: "Maintenance & Support", href: "#services" },
+      { name: "Identity & Access Management", href: "#services" },
+      { name: "Database Management", href: "#services" },
+      { name: "AI & Machine Learning ", href: "#services" },
+      { name: "Iot  Solutions", href: "#services" },
+      { name: "Cloud Solutions ", href: "#services" },
+      { name: "Training & Development", href: "#services" },
+      { name: "System Infrastructure & Architecture", href: "#services" },
+      { name: "Cybersecurity", href: "#services" },
     ],
     products: [
       { name: "Microsoft Office 365", href: "#products" },
@@ -62,7 +71,7 @@ export default function Footer() {
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-morph animation-delay-2000"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-500/10 rounded-full blur-3xl animate-ping-slow"></div>
       </div>
-      
+
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
