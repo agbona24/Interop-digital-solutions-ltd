@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Navigation from "@/components/Navigation";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
@@ -11,7 +12,10 @@ import Image from "next/image";
 import { ArrowRight, Briefcase } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+const CareersModal = dynamic(() => import("@/components/CareersModal"), { ssr: false });
+
 export default function AboutPage() {
+  const [isCareersModalOpen, setIsCareersModalOpen] = useState(false);
   const timelineReveal = useScrollReveal();
 
   // SEO: Update page title and meta description
@@ -211,16 +215,22 @@ export default function AboutPage() {
             <p className="text-xl text-gray-100 max-w-2xl mx-auto mb-8">
               We&apos;re always looking for talented individuals who are passionate about technology and innovation.
             </p>
-            <Link
-              href="/contact"
+            <button
+              onClick={() => setIsCareersModalOpen(true)}
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-secondary-700 rounded-full font-semibold hover:shadow-lg transition-all hover:scale-105"
             >
               View Open Positions
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
+
+      {/* Careers Modal */}
+      <CareersModal
+        isOpen={isCareersModalOpen}
+        onClose={() => setIsCareersModalOpen(false)}
+      />
 
       <Footer />
     </main>
