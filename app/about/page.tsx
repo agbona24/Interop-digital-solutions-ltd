@@ -131,13 +131,13 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-6 mt-8">
             <div className="bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
-              <span className="text-white font-semibold">15+ Years Experience</span>
+              <span className="text-white font-semibold">98% Clients Satisfaction</span>
             </div>
             <div className="bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
-              <span className="text-white font-semibold">50+ Team Members</span>
+              <span className="text-white font-semibold">5+ Team Members</span>
             </div>
             <div className="bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
-              <span className="text-white font-semibold">25+ Countries</span>
+              <span className="text-white font-semibold">24/7 Customer Support</span>
             </div>
           </div>
         </div>

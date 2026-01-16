@@ -446,16 +446,16 @@ export default function Home() {
           {/* Technology Icons */}
           <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
             {[
-              { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-              { name: "ASP.NET", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" },
-              { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-              { name: "Blazor", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" },
-              { name: "C#", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
-              { name: "Azure", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
-              { name: "SQL Server", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" },
-              { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-              { name: "Redis", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
-              { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+              { name: "Next.js", logo: "/images/stack/1.png" },
+              { name: "React", logo: "/images/stack/2.png" },
+              { name: "SQL Server", logo: "/images/stack/3.png" },
+              { name: "Redis", logo: "/images/stack/4.png" },
+              { name: "ASP.NET", logo: "/images/stack/5.png" },
+              { name: "MongoDB", logo: "/images/stack/6.png" },
+              { name: "C#", logo: "/images/stack/7.png" },
+              { name: "Docker", logo: "/images/stack/8.png" },
+              { name: "Azure", logo: "/images/stack/9.png" },
+              { name: "Blazor", logo: "/images/stack/10.png" },
             ].map((tech, index) => (
               <div
                 key={index}
