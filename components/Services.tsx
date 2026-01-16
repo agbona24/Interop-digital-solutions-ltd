@@ -122,6 +122,20 @@ export default function Services() {
         "Comprehensive training programs for your team covering modern technologies, best practices, and industry standards. We ensure your team has the skills to succeed in the digital age.",
       color: "from-secondary-700 to-secondary-900",
     },
+    {
+      icon: Settings,
+      title: "System Infrastructure & Architecture",
+      description:
+        "Robust IT frameworks for resilience and scalability. Design and implement network architectures, server setups, and infrastructure solutions that align with your business needs.",
+      color: "from-secondary-700 to-secondary-900",
+    },
+    {
+      icon: Shield,
+      title: "Cybersecurity",
+      description:
+        "CBank-grade security with compliance certifications. Protect your digital assets with advanced threat detection, vulnerability assessments, and incident response strategies.",
+      color: "from-secondary-700 to-secondary-900",
+    },
   ];
 
   return (

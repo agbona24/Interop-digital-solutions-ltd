@@ -112,7 +112,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-6">
               {[
                 { value: "10+", label: "Happy Clients" },
-                { value: "8+", label: "Expert Team" },
+                { value: "5+", label: "Expert Team" },
               ].map((stat, index) => (
                 <div key={index} className="flex items-center gap-3">
                   <div className="w-14 h-14 bg-gradient-to-br from-[#FF6600] to-[#FF8533] rounded-2xl flex items-center justify-center shadow-lg">

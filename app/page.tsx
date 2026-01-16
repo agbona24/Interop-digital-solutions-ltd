@@ -14,9 +14,14 @@ const AnimatedStat = dynamic(() => import("@/components/AnimatedStat"), { ssr: f
 const ClientLogosTicker = dynamic(() => import("@/components/ClientLogosTicker"), { ssr: false });
 const IndustriesWeServe = dynamic(() => import("@/components/IndustriesWeServe"), { ssr: false });
 const QuizModal = dynamic(() => import("@/components/QuizModal"), { ssr: false });
+const ProductInquiryModal = dynamic(() => import("@/components/ProductInquiryModal"), { ssr: false });
 
 export default function Home() {
   const [isQuizModalOpen, setIsQuizModalOpen] = useState(false);
+  const [productInquiryModal, setProductInquiryModal] = useState<{ isOpen: boolean; productName: string }>({
+    isOpen: false,
+    productName: "",
+  });
   const quickLinksReveal = useScrollReveal();
   const whyChooseReveal = useScrollReveal();
   const servicesReveal = useScrollReveal();
@@ -162,12 +167,12 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/products"
+              <button
+                onClick={() => setProductInquiryModal({ isOpen: true, productName: "Process Automation Platform" })}
                 className="inline-flex items-center text-primary-600 font-semibold group-hover:translate-x-2 transition-transform"
               >
                 Learn More <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
+              </button>
             </div>
 
             {/* Payment Gateway Solution */}
@@ -187,12 +192,12 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/products"
+              <button
+                onClick={() => setProductInquiryModal({ isOpen: true, productName: "Payment Gateway Solution" })}
                 className="inline-flex items-center text-primary-600 font-semibold group-hover:translate-x-2 transition-transform"
               >
                 Learn More <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
+              </button>
             </div>
 
             {/* Commerce Platform */}
@@ -212,12 +217,12 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/products"
+              <button
+                onClick={() => setProductInquiryModal({ isOpen: true, productName: "Commerce Platform" })}
                 className="inline-flex items-center text-primary-600 font-semibold group-hover:translate-x-2 transition-transform"
               >
                 Learn More <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
+              </button>
             </div>
 
             {/* Geo Services Platform */}
@@ -237,12 +242,12 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/products"
+              <button
+                onClick={() => setProductInquiryModal({ isOpen: true, productName: "Geo Services Platform" })}
                 className="inline-flex items-center text-primary-600 font-semibold group-hover:translate-x-2 transition-transform"
               >
                 Learn More <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -356,7 +361,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-12">
             {[
               {
                 title: "API Development & Integration",
@@ -372,6 +377,16 @@ export default function Home() {
                 title: "AI & Machine Learning",
                 description: "Leverage advanced AI models for predictive analytics, natural language processing, and computer vision.",
                 features: ["Custom ML Models", "Neural Networks", "Data Analytics"]
+              },
+              {
+                title: "System Infrastructure & Architecture",
+                description: "Robust IT frameworks for resilience and scalability. Design and implement enterprise-grade infrastructure solutions.",
+                features: ["Enterprise Architecture", "High Availability", "Performance Optimization"]
+              },
+              {
+                title: "Cybersecurity",
+                description: "Bank-grade security with compliance certifications. Protect your business with comprehensive security solutions.",
+                features: ["Threat Detection & Prevention", "Compliance Management", "Security Audits"]
               }
             ].map((service, index) => (
               <div
@@ -546,6 +561,13 @@ export default function Home() {
       <QuizModal
         isOpen={isQuizModalOpen}
         onClose={() => setIsQuizModalOpen(false)}
+      />
+
+      {/* Product Inquiry Modal */}
+      <ProductInquiryModal
+        isOpen={productInquiryModal.isOpen}
+        onClose={() => setProductInquiryModal({ isOpen: false, productName: "" })}
+        productName={productInquiryModal.productName}
       />
 
       <Footer />

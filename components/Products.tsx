@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import {
   Mail,
   Database,
@@ -17,8 +18,14 @@ import {
   MapPin,
 } from "lucide-react";
 
+const ProductInquiryModal = dynamic(() => import("@/components/ProductInquiryModal"), { ssr: false });
+
 export default function Products() {
   const [isVisible, setIsVisible] = useState(false);
+  const [productInquiryModal, setProductInquiryModal] = useState<{ isOpen: boolean; productName: string }>({
+    isOpen: false,
+    productName: "",
+  });
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -249,6 +256,7 @@ export default function Products() {
 
                 {/* CTA */}
                 <button
+                  onClick={() => setProductInquiryModal({ isOpen: true, productName: product.title })}
                   className={`group/btn flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${product.color} text-white px-6 py-3 rounded-full hover:shadow-lg transition-all hover:scale-105 relative overflow-hidden`}
                 >
                   <span className={`absolute inset-0 bg-gradient-to-r ${product.color.split(' ').reverse().join(' ')} opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300`}></span>
@@ -260,6 +268,13 @@ export default function Products() {
           ))}
         </div>
       </div>
+
+      {/* Product Inquiry Modal */}
+      <ProductInquiryModal
+        isOpen={productInquiryModal.isOpen}
+        onClose={() => setProductInquiryModal({ isOpen: false, productName: "" })}
+        productName={productInquiryModal.productName}
+      />
     </section>
   );
 }
