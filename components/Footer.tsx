@@ -25,10 +25,13 @@ export default function Footer() {
       { name: "AI Solutions", href: "#services" },
     ],
     products: [
-      { name: "Process Automation", href: "#products" },
-      { name: "Payment Solutions", href: "#products" },
-      { name: "Commerce Platform", href: "#products" },
-      { name: "Geo Services", href: "#products" },
+      { name: "Microsoft Office 365", href: "#products" },
+      { name: "Microsoft SQL Server", href: "#products" },
+      { name: "Microsoft Windows Server", href: "#products" },
+      { name: "Microsoft Remote Desktop Service", href: "#products" },
+      { name: "HP ProLiant Hardware Server", href: "#products" },
+      { name: "Cisco Fire Power Firewall", href: "#products" },
+      { name: "Fortinet Next-Generation Firewall", href: "#products" },
     ],
     company: [
       { name: "About Us", href: "#about" },
