@@ -477,7 +477,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { value: "10+", label: "Happy Clients", description: "Trusted partnerships" },
-              { value: "8+", label: "Expert Team", description: "Skilled professionals" },
+              { value: "5+", label: "Expert Team", description: "Skilled professionals" },
               { value: "24/7", label: "Support Available", description: "Always here for you" },
               { value: "98%", label: "Client Retention", description: "Satisfaction guaranteed" }
             ].map((stat, index) => (

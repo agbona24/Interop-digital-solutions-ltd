@@ -63,8 +63,8 @@ export default function About() {
   ];
 
   const stats = [
-    { icon: TrendingUp, value: "98%", label: "Client Satisfaction" },
-    { icon: Award, value: "15+", label: "Years Experience" },
+    { icon: TrendingUp, value: "24/7", label: "Support Available" },
+    { icon: Award, value: "98%", label: "Clients Satisfaction" },
     { icon: Users, value: "5+", label: "Expert Team" },
     { icon: Heart, value: "10+", label: "Happy Clients" },
   ];
