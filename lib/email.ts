@@ -208,7 +208,7 @@ const getConfirmationContent = (formType: string, data: Record<string, unknown>)
 // Send email to admin
 export const sendAdminNotification = async (formType: string, data: Record<string, unknown>) => {
     const transporter = createTransporter(
-        process.env.SMTP_FROM || '',
+        process.env.SMTP_USER || '',
         process.env.SMTP_PASSWORD || ''
     );
     const { subject, html } = getEmailContent(formType, data);
@@ -236,7 +236,7 @@ export const sendConfirmationEmail = async (formType: string, data: Record<strin
   if (!template) return { success: false, error: 'No confirmation template for this form type' };
 
   const transporter = createTransporter(
-    process.env.SMTP_FROM || '',
+    process.env.SMTP_USER || '',
     process.env.SMTP_PASSWORD || ''
   );
 
