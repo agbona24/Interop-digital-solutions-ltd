@@ -96,11 +96,31 @@ export default function AppointmentBooking() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      const response = await fetch("/api/forms", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "appointment",
+          ...formData,
+          date: formatDate(selectedDate),
+          time: selectedTime,
+        }),
+      });
 
-    setIsSubmitting(false);
-    setIsBooked(true);
+      const result = await response.json();
+
+      if (result.success) {
+        setIsBooked(true);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Appointment booking error:", error);
+      alert("Error booking appointment. Please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const formatDate = (date: Date | null) => {
@@ -161,19 +181,17 @@ export default function AppointmentBooking() {
           {[1, 2, 3].map((s) => (
             <div key={s} className="flex items-center">
               <div
-                className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-all ${
-                  step >= s
+                className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-all ${step >= s
                     ? "bg-primary-500 text-white"
                     : "bg-gray-200 text-gray-500"
-                }`}
+                  }`}
               >
                 {s}
               </div>
               {s < 3 && (
                 <div
-                  className={`w-16 h-1 mx-2 transition-all ${
-                    step > s ? "bg-primary-500" : "bg-gray-200"
-                  }`}
+                  className={`w-16 h-1 mx-2 transition-all ${step > s ? "bg-primary-500" : "bg-gray-200"
+                    }`}
                 />
               )}
             </div>
@@ -240,13 +258,12 @@ export default function AppointmentBooking() {
                     key={day}
                     onClick={() => handleDateSelect(day)}
                     disabled={disabled}
-                    className={`aspect-square rounded-lg flex items-center justify-center text-sm font-medium transition-all ${
-                      disabled
+                    className={`aspect-square rounded-lg flex items-center justify-center text-sm font-medium transition-all ${disabled
                         ? "text-gray-300 cursor-not-allowed"
                         : isSelected
-                        ? "bg-primary-500 text-white scale-110"
-                        : "hover:bg-primary-50 text-gray-700 hover-scale"
-                    }`}
+                          ? "bg-primary-500 text-white scale-110"
+                          : "hover:bg-primary-50 text-gray-700 hover-scale"
+                      }`}
                   >
                     {day}
                   </button>
@@ -278,13 +295,12 @@ export default function AppointmentBooking() {
                       key={slot.time}
                       onClick={() => slot.available && setSelectedTime(slot.time)}
                       disabled={!slot.available}
-                      className={`py-3 px-4 rounded-xl font-medium transition-all ${
-                        !slot.available
+                      className={`py-3 px-4 rounded-xl font-medium transition-all ${!slot.available
                           ? "bg-gray-100 text-gray-400 cursor-not-allowed"
                           : selectedTime === slot.time
-                          ? "bg-primary-500 text-white scale-105"
-                          : "bg-primary-50 text-primary-700 hover:bg-primary-100 hover-scale"
-                      }`}
+                            ? "bg-primary-500 text-white scale-105"
+                            : "bg-primary-50 text-primary-700 hover:bg-primary-100 hover-scale"
+                        }`}
                     >
                       {slot.time}
                       {!slot.available && (

@@ -108,27 +108,49 @@ export default function CareersModal({ isOpen, onClose }: CareersModalProps) {
   const handleSubmit = async () => {
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      // Note: File upload is not fully implemented in this simple JSON handler.
+      // We send the filename so the admin knows a file was selected.
+      const payload = {
+        formType: "careers",
+        ...formData,
+        resume: undefined, // Don't send the File object
+        resumeFileName: formData.resume ? formData.resume.name : "No file selected",
+      };
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
-
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setIsSuccess(false);
-      setStep(1);
-      setFormData({
-        position: "",
-        name: "",
-        email: "",
-        phone: "",
-        linkedin: "",
-        resume: null,
-        coverLetter: "",
+      const response = await fetch("/api/forms", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
-      onClose();
-    }, 3000);
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSuccess(true);
+        setTimeout(() => {
+          setIsSuccess(false);
+          setStep(1);
+          setFormData({
+            position: "",
+            name: "",
+            email: "",
+            phone: "",
+            linkedin: "",
+            resume: null,
+            coverLetter: "",
+          });
+          onClose();
+        }, 3000);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Application error:", error);
+      alert("Error submitting application. Please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const isStepValid = () => {
@@ -219,11 +241,10 @@ export default function CareersModal({ isOpen, onClose }: CareersModalProps) {
                         onClick={() =>
                           setFormData({ ...formData, position: position.title })
                         }
-                        className={`text-left p-4 rounded-xl border-2 transition-all ${
-                          formData.position === position.title
+                        className={`text-left p-4 rounded-xl border-2 transition-all ${formData.position === position.title
                             ? "border-secondary-600 bg-secondary-50"
                             : "border-gray-200 hover:border-secondary-300"
-                        }`}
+                          }`}
                       >
                         <div className="flex items-start justify-between gap-4">
                           <div className="flex-1">
@@ -350,11 +371,10 @@ export default function CareersModal({ isOpen, onClose }: CareersModalProps) {
                       />
                       <label
                         htmlFor="resume-upload"
-                        className={`flex items-center justify-center gap-3 w-full px-4 py-8 border-2 border-dashed rounded-lg cursor-pointer transition-all ${
-                          formData.resume
+                        className={`flex items-center justify-center gap-3 w-full px-4 py-8 border-2 border-dashed rounded-lg cursor-pointer transition-all ${formData.resume
                             ? "border-secondary-600 bg-secondary-50"
                             : "border-gray-300 hover:border-secondary-400 bg-gray-50"
-                        }`}
+                          }`}
                       >
                         <Upload className="w-6 h-6 text-gray-400" />
                         <div className="text-center">
@@ -429,11 +449,10 @@ export default function CareersModal({ isOpen, onClose }: CareersModalProps) {
             <button
               onClick={handleBack}
               disabled={step === 1}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
-                step === 1
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${step === 1
                   ? "text-gray-400 cursor-not-allowed"
                   : "text-gray-700 hover:bg-gray-200"
-              }`}
+                }`}
             >
               <ChevronLeft className="w-5 h-5" />
               Back
@@ -443,11 +462,10 @@ export default function CareersModal({ isOpen, onClose }: CareersModalProps) {
               <button
                 onClick={handleNext}
                 disabled={!isStepValid()}
-                className={`flex items-center gap-2 px-6 py-2 rounded-lg font-medium transition-all ${
-                  isStepValid()
+                className={`flex items-center gap-2 px-6 py-2 rounded-lg font-medium transition-all ${isStepValid()
                     ? "bg-gradient-to-r from-secondary-700 to-secondary-600 text-white hover:shadow-lg hover:scale-105"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                }`}
+                  }`}
               >
                 Continue
                 <ChevronRight className="w-5 h-5" />
@@ -456,11 +474,10 @@ export default function CareersModal({ isOpen, onClose }: CareersModalProps) {
               <button
                 onClick={handleSubmit}
                 disabled={!isStepValid() || isSubmitting}
-                className={`px-6 py-2 rounded-lg font-medium transition-all ${
-                  isStepValid() && !isSubmitting
+                className={`px-6 py-2 rounded-lg font-medium transition-all ${isStepValid() && !isSubmitting
                     ? "bg-gradient-to-r from-secondary-700 to-secondary-600 text-white hover:shadow-lg hover:scale-105"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                }`}
+                  }`}
               >
                 {isSubmitting ? "Submitting..." : "Submit Application"}
               </button>

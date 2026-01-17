@@ -42,14 +42,38 @@ export default function Contact() {
     e.preventDefault();
     setFormStatus("submitting");
 
-    // Simulate form submission
-    setTimeout(() => {
-      setFormStatus("success");
-      setTimeout(() => {
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("/api/forms", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formType: "contact", ...data }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormStatus("success");
+        setTimeout(() => {
+          setFormStatus("idle");
+          (e.target as HTMLFormElement).reset();
+        }, 5000);
+      } else {
+        alert("Something went wrong. Please try again.");
         setFormStatus("idle");
-        (e.target as HTMLFormElement).reset();
-      }, 3000);
-    }, 1500);
+      }
+    } catch (error) {
+      console.error("Contact form error:", error);
+      alert("Error submitting form. Please check your connection.");
+      setFormStatus("idle");
+    }
   };
 
   const contactInfo = [
@@ -92,22 +116,20 @@ export default function Contact() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div
-            className={`inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 backdrop-blur-lg border border-primary-500/20 rounded-full mb-6 transition-all duration-700 ${
-              isVisible
+            className={`inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 backdrop-blur-lg border border-primary-500/20 rounded-full mb-6 transition-all duration-700 ${isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
-            }`}
+              }`}
           >
             <span className="text-primary-600 text-sm font-semibold">
               Let&apos;s Connect
             </span>
           </div>
           <h2
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 transition-all duration-700 ${
-              isVisible
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 transition-all duration-700 ${isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
-            }`}
+              }`}
           >
             Get in{" "}
             <span className="relative inline-block">
@@ -118,11 +140,10 @@ export default function Contact() {
             </span>
           </h2>
           <p
-            className={`text-lg md:text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-700 delay-100 ${
-              isVisible
+            className={`text-lg md:text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-700 delay-100 ${isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
-            }`}
+              }`}
           >
             Ready to transform your business? Let&apos;s start a conversation about
             your next project
@@ -132,11 +153,10 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left Column - Contact Info */}
           <div
-            className={`transition-all duration-700 ${
-              isVisible
+            className={`transition-all duration-700 ${isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 -translate-x-10"
-            }`}
+              }`}
           >
             {/* Contact Cards */}
             <div className="space-y-6 mb-8">
@@ -189,11 +209,10 @@ export default function Contact() {
 
           {/* Right Column - Contact Form */}
           <div
-            className={`transition-all duration-700 delay-200 ${
-              isVisible
+            className={`transition-all duration-700 delay-200 ${isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 translate-x-10"
-            }`}
+              }`}
           >
             <form
               onSubmit={handleSubmit}
@@ -310,11 +329,10 @@ export default function Contact() {
 
         {/* Google Maps Section */}
         <div
-          className={`mt-20 transition-all duration-700 delay-300 ${
-            isVisible
+          className={`mt-20 transition-all duration-700 delay-300 ${isVisible
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-10"
-          }`}
+            }`}
         >
           <div className="text-center mb-10">
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

@@ -120,31 +120,47 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
   const handleSubmit = async () => {
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsSubmitting(false);
-    setIsSuccess(true);
-
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setIsSuccess(false);
-      setStep(1);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        services: [],
-        timeline: "",
-        budget: "",
-        projectType: "",
-        appointmentDate: "",
-        appointmentTime: "",
-        message: "",
+    try {
+      const response = await fetch("/api/forms", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "quiz",
+          ...formData,
+        }),
       });
-      onClose();
-    }, 3000);
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSuccess(true);
+        setTimeout(() => {
+          setIsSuccess(false);
+          setStep(1);
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            company: "",
+            services: [],
+            timeline: "",
+            budget: "",
+            projectType: "",
+            appointmentDate: "",
+            appointmentTime: "",
+            message: "",
+          });
+          onClose();
+        }, 3000);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Quiz submission error:", error);
+      alert("Error submitting details. Please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const isStepValid = () => {
@@ -300,11 +316,10 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                         <button
                           key={service}
                           onClick={() => handleServiceToggle(service)}
-                          className={`px-4 py-3 rounded-lg border-2 text-left transition-all ${
-                            formData.services.includes(service)
+                          className={`px-4 py-3 rounded-lg border-2 text-left transition-all ${formData.services.includes(service)
                               ? "border-primary-500 bg-primary-50 text-primary-700"
                               : "border-gray-300 hover:border-primary-300"
-                          }`}
+                            }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-medium">{service}</span>
@@ -328,11 +343,10 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                           onClick={() =>
                             setFormData({ ...formData, projectType: type })
                           }
-                          className={`w-full px-4 py-3 rounded-lg border-2 text-left transition-all ${
-                            formData.projectType === type
+                          className={`w-full px-4 py-3 rounded-lg border-2 text-left transition-all ${formData.projectType === type
                               ? "border-primary-500 bg-primary-50 text-primary-700"
                               : "border-gray-300 hover:border-primary-300"
-                          }`}
+                            }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-medium">{type}</span>
@@ -364,11 +378,10 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                           onClick={() =>
                             setFormData({ ...formData, timeline })
                           }
-                          className={`w-full px-4 py-3 rounded-lg border-2 text-left transition-all ${
-                            formData.timeline === timeline
+                          className={`w-full px-4 py-3 rounded-lg border-2 text-left transition-all ${formData.timeline === timeline
                               ? "border-primary-500 bg-primary-50 text-primary-700"
                               : "border-gray-300 hover:border-primary-300"
-                          }`}
+                            }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-medium">{timeline}</span>
@@ -393,11 +406,10 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                         <button
                           key={budget}
                           onClick={() => setFormData({ ...formData, budget })}
-                          className={`w-full px-4 py-3 rounded-lg border-2 text-left transition-all ${
-                            formData.budget === budget
+                          className={`w-full px-4 py-3 rounded-lg border-2 text-left transition-all ${formData.budget === budget
                               ? "border-primary-500 bg-primary-50 text-primary-700"
                               : "border-gray-300 hover:border-primary-300"
-                          }`}
+                            }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-medium">{budget}</span>
@@ -451,11 +463,10 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                           onClick={() =>
                             setFormData({ ...formData, appointmentTime: time })
                           }
-                          className={`px-4 py-2 rounded-lg border-2 transition-all ${
-                            formData.appointmentTime === time
+                          className={`px-4 py-2 rounded-lg border-2 transition-all ${formData.appointmentTime === time
                               ? "border-primary-500 bg-primary-50 text-primary-700"
                               : "border-gray-300 hover:border-primary-300"
-                          }`}
+                            }`}
                         >
                           {time}
                         </button>
@@ -489,11 +500,10 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
             <button
               onClick={handleBack}
               disabled={step === 1}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
-                step === 1
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${step === 1
                   ? "text-gray-400 cursor-not-allowed"
                   : "text-gray-700 hover:bg-gray-200"
-              }`}
+                }`}
             >
               <ChevronLeft className="w-5 h-5" />
               Back
@@ -503,11 +513,10 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
               <button
                 onClick={handleNext}
                 disabled={!isStepValid()}
-                className={`flex items-center gap-2 px-6 py-2 rounded-lg font-medium transition-all ${
-                  isStepValid()
+                className={`flex items-center gap-2 px-6 py-2 rounded-lg font-medium transition-all ${isStepValid()
                     ? "bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:shadow-lg hover:scale-105"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                }`}
+                  }`}
               >
                 Next
                 <ChevronRight className="w-5 h-5" />
@@ -516,11 +525,10 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
               <button
                 onClick={handleSubmit}
                 disabled={!isStepValid() || isSubmitting}
-                className={`px-6 py-2 rounded-lg font-medium transition-all ${
-                  isStepValid() && !isSubmitting
+                className={`px-6 py-2 rounded-lg font-medium transition-all ${isStepValid() && !isSubmitting
                     ? "bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:shadow-lg hover:scale-105"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                }`}
+                  }`}
               >
                 {isSubmitting ? "Submitting..." : "Book Appointment"}
               </button>

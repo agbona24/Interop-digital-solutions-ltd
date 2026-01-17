@@ -53,7 +53,7 @@ export default function Services() {
       color: "from-primary-500 to-primary-600",
     },
     {
-      icon: Palette, d
+      icon: Palette,
       title: "UI/UX Design",
       description:
         "Create intuitive, user-centered interfaces that delight your customers. Our design team crafts beautiful, responsive experiences that drive engagement and conversions across web and mobile platforms.",
@@ -154,22 +154,20 @@ export default function Services() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div
-            className={`inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 backdrop-blur-lg border border-primary-500/20 rounded-full mb-6 transition-all duration-700 ${
-              isVisible
+            className={`inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 backdrop-blur-lg border border-primary-500/20 rounded-full mb-6 transition-all duration-700 ${isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
-            }`}
+              }`}
           >
             <span className="text-primary-600 text-sm font-semibold">
               What We Do
             </span>
           </div>
           <h2
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 transition-all duration-700 ${
-              isVisible
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 transition-all duration-700 ${isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
-            }`}
+              }`}
           >
             Our{" "}
             <span className="relative inline-block">
@@ -180,11 +178,10 @@ export default function Services() {
             </span>
           </h2>
           <p
-            className={`text-lg md:text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-700 delay-100 ${
-              isVisible
+            className={`text-lg md:text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-700 delay-100 ${isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
-            }`}
+              }`}
           >
             Comprehensive IT solutions tailored to drive your business forward
             in the digital age
@@ -196,11 +193,10 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group relative bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 hover:border-primary-200 ${
-                isVisible
+              className={`group relative bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 hover:border-primary-200 ${isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
-              }`}
+                }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               {/* Icon */}
@@ -222,7 +218,7 @@ export default function Services() {
               <div
                 className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`}
               ></div>
-              
+
               {/* Corner Accent */}
               <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary-500/0 to-primary-500/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>

@@ -174,9 +174,45 @@ export default function Footer() {
             <p className="text-primary-100 mb-4 text-sm">
               Get the latest updates on technology trends and our services.
             </p>
-            <form className="flex gap-2">
+            <form onSubmit={async (e) => {
+              e.preventDefault();
+              const form = e.target as HTMLFormElement;
+              const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+              const button = form.querySelector('button');
+              const originalText = button ? button.innerHTML : 'Subscribe';
+
+              if (button) {
+                button.disabled = true;
+                button.innerHTML = '<span class="relative">Subscribing...</span>';
+              }
+
+              try {
+                const res = await fetch('/api/forms', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ formType: 'newsletter', email }),
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                  alert('Thank you for subscribing!');
+                  form.reset();
+                } else {
+                  alert('Something went wrong. Please try again.');
+                }
+              } catch (error) {
+                console.error('Newsletter error:', error);
+                alert('Error submitting form.');
+              } finally {
+                if (button) {
+                  button.disabled = false;
+                  button.innerHTML = originalText;
+                }
+              }
+            }} className="flex gap-2">
               <input
                 type="email"
+                name="email"
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-2 bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white/20 text-sm transition-all"
                 required

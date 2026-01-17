@@ -158,26 +158,43 @@ export default function ProductInquiryModal({ isOpen, onClose, productName }: Pr
   const handleSubmit = async () => {
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsSubmitting(false);
-    setIsSuccess(true);
-
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setIsSuccess(false);
-      setStep(1);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        interests: [],
-        message: "",
+    try {
+      const response = await fetch("/api/forms", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "productInquiry",
+          ...formData,
+          productName,
+        }),
       });
-      onClose();
-    }, 3000);
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSuccess(true);
+        setTimeout(() => {
+          setIsSuccess(false);
+          setStep(1);
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            company: "",
+            interests: [],
+            message: "",
+          });
+          onClose();
+        }, 3000);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Product inquiry error:", error);
+      alert("Error submitting inquiry. Please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const isStepValid = () => {
@@ -340,11 +357,10 @@ export default function ProductInquiryModal({ isOpen, onClose, productName }: Pr
                       <button
                         key={interest}
                         onClick={() => handleInterestToggle(interest)}
-                        className={`px-4 py-3 rounded-lg border-2 text-left transition-all ${
-                          formData.interests.includes(interest)
+                        className={`px-4 py-3 rounded-lg border-2 text-left transition-all ${formData.interests.includes(interest)
                             ? "border-primary-500 bg-primary-50 text-primary-700"
                             : "border-gray-300 hover:border-primary-300"
-                        }`}
+                          }`}
                       >
                         <div className="flex items-center justify-between">
                           <span className="font-medium text-sm">{interest}</span>
@@ -417,11 +433,10 @@ export default function ProductInquiryModal({ isOpen, onClose, productName }: Pr
             <button
               onClick={handleBack}
               disabled={step === 1}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
-                step === 1
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${step === 1
                   ? "text-gray-400 cursor-not-allowed"
                   : "text-gray-700 hover:bg-gray-200"
-              }`}
+                }`}
             >
               <ChevronLeft className="w-5 h-5" />
               Back
@@ -431,11 +446,10 @@ export default function ProductInquiryModal({ isOpen, onClose, productName }: Pr
               <button
                 onClick={handleNext}
                 disabled={!isStepValid()}
-                className={`flex items-center gap-2 px-6 py-2 rounded-lg font-medium transition-all ${
-                  isStepValid()
+                className={`flex items-center gap-2 px-6 py-2 rounded-lg font-medium transition-all ${isStepValid()
                     ? "bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:shadow-lg hover:scale-105"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                }`}
+                  }`}
               >
                 Continue
                 <ChevronRight className="w-5 h-5" />
@@ -444,11 +458,10 @@ export default function ProductInquiryModal({ isOpen, onClose, productName }: Pr
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className={`px-6 py-2 rounded-lg font-medium transition-all ${
-                  !isSubmitting
+                className={`px-6 py-2 rounded-lg font-medium transition-all ${!isSubmitting
                     ? "bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:shadow-lg hover:scale-105"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                }`}
+                  }`}
               >
                 {isSubmitting ? "Sending..." : "Send Request"}
               </button>
