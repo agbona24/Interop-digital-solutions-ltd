@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   Mail,
   Phone,
@@ -13,9 +14,11 @@ import {
   Sparkles,
 } from "lucide-react";
 import Image from "next/image";
+import CareersModal from "./CareersModal";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [isCareersModalOpen, setIsCareersModalOpen] = useState(false);
 
   const footerLinks = {
     services: [
@@ -43,10 +46,10 @@ export default function Footer() {
       { name: "Fortinet Next-Generation Firewall", href: "#products" },
     ],
     company: [
-      { name: "About Us", href: "#about" },
-      { name: "Careers", href: "#" },
-      { name: "Blog", href: "#" },
-      { name: "Contact", href: "#contact" },
+      { name: "About Us", href: "/about" },
+      { name: "Careers", href: "/careers" },
+      { name: "Blog", href: "/blog" },
+      { name: "Contact", href: "/contact" },
     ],
   };
 
@@ -155,7 +158,13 @@ export default function Footer() {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-primary-100 hover:text-white transition-colors text-sm hover:translate-x-1 inline-block"
+                    onClick={(e) => {
+                      if (link.name === "Careers") {
+                        e.preventDefault();
+                        setIsCareersModalOpen(true);
+                      }
+                    }}
+                    className="text-primary-100 hover:text-white transition-colors text-sm hover:translate-x-1 inline-block cursor-pointer"
                   >
                     {link.name}
                   </a>
@@ -320,78 +329,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Floating Sparkles Animation */}
-        <style jsx>{`
-          @keyframes shine {
-            0% {
-              transform: translateX(-100%);
-            }
-            100% {
-              transform: translateX(100%);
-            }
-          }
-
-          .animate-shine {
-            animation: shine 3s infinite;
-          }
-
-          @keyframes bounce-slow {
-            0%, 100% {
-              transform: translateY(0);
-            }
-            50% {
-              transform: translateY(-10px);
-            }
-          }
-
-          .animate-bounce-slow {
-            animation: bounce-slow 2s ease-in-out infinite;
-          }
-
-          @keyframes spin-slow {
-            from {
-              transform: rotate(0deg);
-            }
-            to {
-              transform: rotate(360deg);
-            }
-          }
-
-          .animate-spin-slow {
-            animation: spin-slow 4s linear infinite;
-          }
-
-          @keyframes pulse-slow {
-            0%, 100% {
-              opacity: 1;
-            }
-            50% {
-              opacity: 0.8;
-            }
-          }
-
-          .animate-pulse-slow {
-            animation: pulse-slow 3s ease-in-out infinite;
-          }
-
-          .delay-100 {
-            animation-delay: 0.1s;
-          }
-
-          .delay-200 {
-            animation-delay: 0.2s;
-          }
-
-          @media (prefers-reduced-motion: reduce) {
-            .animate-shine,
-            .animate-bounce-slow,
-            .animate-spin-slow,
-            .animate-pulse-slow {
-              animation: none;
-            }
-          }
-        `}</style>
       </div>
+
+      {/* Careers Modal */}
+      <CareersModal
+        isOpen={isCareersModalOpen}
+        onClose={() => setIsCareersModalOpen(false)}
+      />
     </footer>
   );
 }
