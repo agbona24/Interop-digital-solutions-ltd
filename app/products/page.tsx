@@ -171,78 +171,6 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* Integration Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Seamless{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600">
-                  Integration
-                </span>
-              </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                Our products integrate effortlessly with your existing tech stack through robust APIs and webhooks.
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-2 text-gray-700">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                  RESTful API with comprehensive documentation
-                </li>
-                <li className="flex items-center gap-2 text-gray-700">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                  Webhook support for real-time events
-                </li>
-                <li className="flex items-center gap-2 text-gray-700">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                  SDKs for popular programming languages
-                </li>
-                <li className="flex items-center gap-2 text-gray-700">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                  Pre-built integrations with major platforms
-                </li>
-              </ul>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:gap-3 transition-all"
-              >
-                View API Documentation
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
-
-            <div className="bg-gradient-to-br from-secondary-700 to-secondary-600 rounded-3xl p-12 text-white">
-              <h3 className="text-3xl font-bold mb-6">Start Your Free Trial</h3>
-              <p className="text-lg mb-8 text-gray-100">
-                Experience the power of our products with a 30-day free trial. No credit card required.
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-2">
-                  <ArrowRight className="w-5 h-5 text-primary-400" />
-                  Full access to all features
-                </li>
-                <li className="flex items-center gap-2">
-                  <ArrowRight className="w-5 h-5 text-primary-400" />
-                  Dedicated onboarding support
-                </li>
-                <li className="flex items-center gap-2">
-                  <ArrowRight className="w-5 h-5 text-primary-400" />
-                  Cancel anytime, no commitments
-                </li>
-              </ul>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-secondary-700 rounded-full font-semibold hover:shadow-lg transition-all hover:scale-105"
-              >
-                Get Started Free
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Use Cases */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -324,35 +252,6 @@ export default function ProductsPage() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      
-
-      {/* Final CTA */}
-      <section className="py-24 bg-gradient-to-r from-primary-500 to-primary-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Transform Your Operations?
-          </h2>
-          <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-            Start your 30-day free trial today. No credit card required. Full access to all features.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-105 btn-ripple"
-            >
-              Start Free Trial
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/20 hover:scale-105"
-            >
-              Schedule a Demo
-            </Link>
           </div>
         </div>
       </section>
