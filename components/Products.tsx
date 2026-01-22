@@ -254,15 +254,7 @@ export default function Products() {
                   ))}
                 </div>
 
-                {/* CTA */}
-                <button
-                  onClick={() => setProductInquiryModal({ isOpen: true, productName: product.title })}
-                  className={`group/btn flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${product.color} text-white px-6 py-3 rounded-full hover:shadow-lg transition-all hover:scale-105 relative overflow-hidden`}
-                >
-                  <span className={`absolute inset-0 bg-gradient-to-r ${product.color.split(' ').reverse().join(' ')} opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300`}></span>
-                  <span className="relative">Learn More</span>
-                  <ArrowRight className="relative w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                </button>
+                {/* Removed Learn More CTA button */}
               </div>
             </div>
           ))}

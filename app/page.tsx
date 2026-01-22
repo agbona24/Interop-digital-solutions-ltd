@@ -110,9 +110,7 @@ export default function Home() {
                   {link.title}
                 </h3>
                 <p className="text-gray-600 text-sm">{link.description}</p>
-                <div className="mt-4 text-primary-600 font-semibold group-hover:translate-x-2 transition-transform inline-flex items-center gap-2">
-                  Learn more <ArrowRight className="w-4 h-4" />
-                </div>
+                {/* Removed Learn More CTA */}
               </Link>
             ))}
           </div>
@@ -167,12 +165,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <button
-                onClick={() => setProductInquiryModal({ isOpen: true, productName: "Process Automation Platform" })}
-                className="inline-flex items-center text-primary-600 font-semibold group-hover:translate-x-2 transition-transform"
-              >
-                Learn More <ArrowRight className="ml-2 w-4 h-4" />
-              </button>
+              {/* Removed Learn More CTA */}
             </div>
 
             {/* Payment Gateway Solution */}
@@ -192,12 +185,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <button
-                onClick={() => setProductInquiryModal({ isOpen: true, productName: "Payment Gateway Solution" })}
-                className="inline-flex items-center text-primary-600 font-semibold group-hover:translate-x-2 transition-transform"
-              >
-                Learn More <ArrowRight className="ml-2 w-4 h-4" />
-              </button>
+              {/* Removed Learn More CTA */}
             </div>
 
             {/* Commerce Platform */}
@@ -217,12 +205,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <button
-                onClick={() => setProductInquiryModal({ isOpen: true, productName: "Commerce Platform" })}
-                className="inline-flex items-center text-primary-600 font-semibold group-hover:translate-x-2 transition-transform"
-              >
-                Learn More <ArrowRight className="ml-2 w-4 h-4" />
-              </button>
+              {/* Removed Learn More CTA */}
             </div>
 
             {/* Geo Services Platform */}
@@ -242,12 +225,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <button
-                onClick={() => setProductInquiryModal({ isOpen: true, productName: "Geo Services Platform" })}
-                className="inline-flex items-center text-primary-600 font-semibold group-hover:translate-x-2 transition-transform"
-              >
-                Learn More <ArrowRight className="ml-2 w-4 h-4" />
-              </button>
+              {/* Removed Learn More CTA */}
             </div>
           </div>
         </div>

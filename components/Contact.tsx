@@ -8,8 +8,7 @@ import {
   Send,
   CheckCircle2,
   Linkedin,
-  Twitter,
-  Github,
+  Instagram,
 } from "lucide-react";
 
 export default function Contact() {
@@ -99,8 +98,7 @@ export default function Contact() {
 
   const socialLinks = [
     { icon: Linkedin, link: "#", name: "LinkedIn" },
-    { icon: Twitter, link: "#", name: "Twitter" },
-    { icon: Github, link: "#", name: "GitHub" },
+    { icon: Instagram, link: "#", name: "Instagram" },
   ];
 
   return (
