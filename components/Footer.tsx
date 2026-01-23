@@ -53,8 +53,8 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { icon: Linkedin, href: "#", name: "LinkedIn" },
-    { icon: Instagram, href: "#", name: "Instagram" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/interop-digital-solutions-ltd/", name: "LinkedIn" },
+    { icon: Instagram, href: "https://www.instagram.com/interopdigitalsolutions?igsh=MXRtcWdoaWFmMmQyag%3D%3D&utm_source=qr", name: "Instagram" },
   ];
 
   return (

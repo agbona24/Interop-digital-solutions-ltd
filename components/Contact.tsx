@@ -97,8 +97,8 @@ export default function Contact() {
   ];
 
   const socialLinks = [
-    { icon: Linkedin, link: "#", name: "LinkedIn" },
-    { icon: Instagram, link: "#", name: "Instagram" },
+    { icon: Linkedin, link: "https://www.linkedin.com/company/interop-digital-solutions-ltd/", name: "LinkedIn" },
+    { icon: Instagram, link: "https://www.instagram.com/interopdigitalsolutions?igsh=MXRtcWdoaWFmMmQyag%3D%3D&utm_source=qr", name: "Instagram" },
   ];
 
   return (
