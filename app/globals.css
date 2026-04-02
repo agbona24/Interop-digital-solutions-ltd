@@ -21,6 +21,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -645,6 +649,30 @@
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Mobile-first UX and performance tuning */
+  @media (max-width: 767px) {
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    .animate-float,
+    .animate-float-delayed,
+    .animate-spin-slow,
+    .animate-ping-slow,
+    .animate-morph,
+    .animate-bounce-slow,
+    .animate-particle {
+      animation: none !important;
+    }
+
+    .hover-lift:hover,
+    .hover-scale:hover {
+      transform: none;
+      box-shadow: inherit;
     }
   }
 }

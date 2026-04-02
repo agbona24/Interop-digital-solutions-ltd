@@ -7,16 +7,27 @@ export default function FloatingContact() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const updateViewport = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    updateViewport();
+    window.addEventListener("resize", updateViewport);
+    return () => window.removeEventListener("resize", updateViewport);
+  }, []);
 
   useEffect(() => {
     // Show the widget after a short delay
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 1500);
+    }, isMobile ? 800 : 1500);
 
     // Auto-open hint after 5 seconds if user hasn't interacted
     const hintTimer = setTimeout(() => {
-      if (!hasInteracted) {
+      if (!hasInteracted && !isMobile) {
         setIsOpen(true);
         setTimeout(() => {
           if (!hasInteracted) {
@@ -30,7 +41,7 @@ export default function FloatingContact() {
       clearTimeout(timer);
       clearTimeout(hintTimer);
     };
-  }, [hasInteracted]);
+  }, [hasInteracted, isMobile]);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -58,7 +69,7 @@ export default function FloatingContact() {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-50 transition-all duration-500 ${
+      className={`fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 transition-all duration-500 ${
         isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
       }`}
     >
@@ -70,7 +81,7 @@ export default function FloatingContact() {
             : "opacity-0 translate-y-4 pointer-events-none"
         }`}
       >
-        <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden w-80">
+        <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden w-[calc(100vw-2rem)] max-w-80">
           {/* Header */}
           <div className="bg-gradient-to-r from-primary-500 to-primary-600 px-5 py-4">
             <div className="flex items-center gap-3">
@@ -140,7 +151,7 @@ export default function FloatingContact() {
       {/* Main Toggle Button */}
       <button
         onClick={handleToggle}
-        className={`relative w-16 h-16 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-primary-500/30 ${
+        className={`relative w-14 h-14 md:w-16 md:h-16 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-primary-500/30 ${
           isOpen
             ? "bg-gray-800 rotate-0"
             : "bg-gradient-to-r from-primary-500 to-primary-600"
@@ -158,9 +169,9 @@ export default function FloatingContact() {
         {/* Icon */}
         <span className="relative z-10 flex items-center justify-center">
           {isOpen ? (
-            <X className="w-7 h-7 text-white transition-transform duration-300" />
+            <X className="w-6 h-6 md:w-7 md:h-7 text-white transition-transform duration-300" />
           ) : (
-            <MessageCircle className="w-7 h-7 text-white transition-transform duration-300" />
+            <MessageCircle className="w-6 h-6 md:w-7 md:h-7 text-white transition-transform duration-300" />
           )}
         </span>
 
@@ -173,7 +184,7 @@ export default function FloatingContact() {
       </button>
 
       {/* Tooltip */}
-      {!isOpen && !hasInteracted && (
+      {!isOpen && !hasInteracted && !isMobile && (
         <div className="absolute bottom-20 right-0 bg-gray-900 text-white text-sm px-4 py-2 rounded-lg shadow-lg whitespace-nowrap animate-fade-in">
           Need help? Chat with us!
           <div className="absolute -bottom-1 right-6 w-2 h-2 bg-gray-900 transform rotate-45"></div>

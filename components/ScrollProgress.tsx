@@ -46,7 +46,7 @@ export default function ScrollProgress() {
       {/* Back to Top Button with Circular Progress */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-white shadow-2xl border border-gray-200 flex items-center justify-center transition-all duration-500 hover:scale-110 hover:shadow-primary-500/20 hover:border-primary-300 focus:outline-none focus:ring-4 focus:ring-primary-500/20 group ${
+        className={`fixed bottom-4 left-4 md:bottom-6 md:left-6 z-50 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white shadow-2xl border border-gray-200 flex items-center justify-center transition-all duration-500 hover:scale-110 hover:shadow-primary-500/20 hover:border-primary-300 focus:outline-none focus:ring-4 focus:ring-primary-500/20 group ${
           isVisible
             ? "translate-y-0 opacity-100"
             : "translate-y-20 opacity-0 pointer-events-none"
@@ -93,7 +93,7 @@ export default function ScrollProgress() {
         </svg>
 
         {/* Arrow Icon */}
-        <ArrowUp className="w-5 h-5 text-gray-600 group-hover:text-primary-600 transition-colors relative z-10 group-hover:-translate-y-0.5 transition-transform" />
+        <ArrowUp className="w-4 h-4 md:w-5 md:h-5 text-gray-600 group-hover:text-primary-600 transition-colors relative z-10 group-hover:-translate-y-0.5 transition-transform" />
       </button>
     </>
   );

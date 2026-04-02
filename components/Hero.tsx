@@ -152,7 +152,7 @@ export default function Hero() {
               </div>
 
               {/* Floating Mini Feature Cards - Top Right */}
-              <div className="absolute -top-16 -right-8 grid grid-cols-2 gap-4">
+              <div className="hidden md:grid absolute -top-16 -right-8 grid-cols-2 gap-4">
                 {features.map((feature, index) => (
                   <div
                     key={index}
@@ -173,7 +173,7 @@ export default function Hero() {
               </div>
 
               {/* Client Satisfaction Card - Bottom Left */}
-              <div className="absolute -bottom-20 -left-12 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100 hover:scale-105 transition-transform duration-300">
+              <div className="hidden md:block absolute -bottom-20 -left-12 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100 hover:scale-105 transition-transform duration-300">
                 <div className="flex items-center gap-4">
                   <div className="w-14 h-14 bg-gradient-to-br from-[#FF6600] to-[#FF8533] rounded-xl flex items-center justify-center shadow-lg">
                     <TrendingUp className="w-7 h-7 text-white" />

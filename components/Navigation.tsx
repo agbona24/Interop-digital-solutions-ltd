@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import QuizModal from "./QuizModal";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isQuizModalOpen, setIsQuizModalOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +20,18 @@ export default function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    // Prevent background scrolling while the mobile menu is open.
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -36,11 +50,11 @@ export default function Navigation() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <div className="relative w-32 h-16">
+              <div className="relative w-28 h-12 md:w-32 md:h-16">
                 <Image
                   src="/images/logo.png"
                   alt="Interop Digital Solutions Ltd Logo"
@@ -75,8 +89,11 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden min-h-[44px] min-w-[44px] p-2 rounded-lg hover:bg-gray-100 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMobileMenuOpen ? (
               <X className="text-gray-900" />
@@ -87,15 +104,23 @@ export default function Navigation() {
         </div>
       </div>
 
+      {isMobileMenuOpen && (
+        <div
+          className="md:hidden fixed inset-0 top-16 bg-black/20 backdrop-blur-[1px]"
+          onClick={() => setIsMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200 shadow-xl animate-slide-down">
-          <div className="px-4 py-6 space-y-4">
+        <div id="mobile-menu" className="md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200 shadow-xl animate-slide-down relative z-10">
+          <div className="px-4 py-5 space-y-3 max-h-[calc(100vh-4rem)] overflow-y-auto">
             {navLinks.map((link, index) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="block text-gray-700 hover:text-primary-600 font-medium transition-all hover:translate-x-2 py-2 px-3 rounded-lg hover:bg-primary-50"
+                className="block text-gray-700 hover:text-primary-600 font-medium transition-all hover:translate-x-1 py-3 px-3 rounded-lg hover:bg-primary-50"
                 onClick={() => setIsMobileMenuOpen(false)}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
